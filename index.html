@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CYPRON은 이상 전조 감지부터 진단, 예측, 보정, 검증까지 연결하는 Equipment Intelligence Platform입니다."
+    />
+    <title>CYPRON | Equipment Intelligence Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink:#17352f; --navy:#243d36; --blue:#76263b; --sky:#adc9b6; --mint:#dcebdc; --paper:#f5f5ef; --line:#d5ded5; --muted:#60716a; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; color:var(--ink); background:var(--paper); font-family:"Noto Sans KR",Manrope,sans-serif; word-break:keep-all; }
+      a { color:inherit; text-decoration:none; }
+      .wrap { width:min(1160px, calc(100% - 48px)); margin:0 auto; }
+      .eyebrow { display:block; margin-bottom:18px; color:var(--blue); font:500 14px/1.2 "DM Mono",monospace; letter-spacing:.11em; text-transform:uppercase; }
+      .button { display:inline-flex; align-items:center; justify-content:center; gap:10px; border:1px solid transparent; border-radius:4px; padding:15px 20px; font-size:15px; font-weight:700; transition:.2s ease; cursor:pointer; }
+      .button.primary { background:var(--blue); color:#fff; box-shadow:0 12px 24px rgba(118,38,59,.22); }
+      .button.primary:hover { background:#5d1b2e; transform:translateY(-1px); }
+      .button.secondary { border-color:rgba(255,255,255,.35); color:#fff; }
+      .button.secondary:hover { border-color:#fff; background:rgba(255,255,255,.1); }
+      .arrow { font-size:18px; line-height:0; }
+      header { position:fixed; z-index:20; top:0; left:0; width:100%; color:#fff; transition:background .25s ease, box-shadow .25s ease; }
+      header.scrolled { background:rgba(22,43,38,.93); box-shadow:0 6px 24px rgba(0,0,0,.18); backdrop-filter:blur(10px); }
+      header.scrolled .nav { border-bottom-color:transparent; }
+      section[id], main[id], footer[id] { scroll-margin-top:88px; }
+      .nav { height:78px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.15); }
+      .brand { font:700 25px/1 Manrope,sans-serif; letter-spacing:-.05em; }
+      .brand small { margin-left:8px; color:#d0e1d5; font:500 10px/1 "DM Mono",monospace; letter-spacing:.07em; vertical-align:middle; }
+      .navlinks { display:flex; align-items:center; gap:28px; font-size:13px; font-weight:600; }
+      .navlinks .nav-demo { padding:9px 13px; border:1px solid rgba(255,255,255,.4); border-radius:3px; }
+      .hero { position:relative; min-height:780px; overflow:hidden; color:#fff; background:radial-gradient(circle at 75% 35%, #718f7b 0, #466657 27%, #243d36 58%, #162b26 100%); }
+      .hero:after { content:""; position:absolute; inset:0; opacity:.18; background-image:linear-gradient(rgba(255,255,255,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.35) 1px,transparent 1px); background-size:64px 64px; mask-image:linear-gradient(90deg,transparent,black 35%,black 90%,transparent); }
+      .hero-inner { position:relative; z-index:1; padding:182px 0 80px; }
+      .hero-copy { width:min(680px,100%); }
+      .hero .eyebrow { color:var(--sky); }
+      h1,h2,h3,p { margin-top:0; }
+      h1 { margin-bottom:24px; font-size:clamp(42px,6vw,76px); line-height:1.13; letter-spacing:-.065em; font-weight:800; }
+      .hero h1 { font-size:clamp(28px,4vw,51px); }
+      .lead { max-width:590px; margin-bottom:34px; color:#d7e8fb; font-size:18px; line-height:1.75; }
+      .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+      .signal-card { position:absolute; right:max(24px, calc((100vw - 1160px)/2)); bottom:75px; z-index:1; width:360px; padding:24px; background:rgba(21,48,40,.76); border:1px solid rgba(220,235,220,.43); border-radius:8px; box-shadow:0 25px 70px rgba(0,0,0,.24); backdrop-filter:blur(12px); }
+      .signal-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; color:#d6e2d7; font:500 11px/1 "DM Mono",monospace; letter-spacing:.08em; }
+      .live { color:var(--mint); } .live:before { content:""; display:inline-block; width:7px; height:7px; margin-right:7px; border-radius:50%; background:var(--mint); box-shadow:0 0 12px var(--mint); }
+      .chart { height:100px; display:flex; align-items:flex-end; gap:5px; border-bottom:1px solid rgba(255,255,255,.25); }
+      .chart i { display:block; flex:1; background:linear-gradient(180deg,#c9dacb,#6a9477); opacity:.8; border-radius:1px 1px 0 0; }
+      .chart i.alert { background:linear-gradient(180deg,#c77883,var(--blue)); box-shadow:0 0 17px rgba(118,38,59,.55); }
+      .signal-note { margin:14px 0 0; color:#fff; font-size:13px; line-height:1.5; } .signal-note strong { color:var(--mint); }
+      section { padding:112px 0; }
+      h2 { margin-bottom:20px; font-size:clamp(32px,4.2vw,52px); line-height:1.22; letter-spacing:-.055em; }
+      .section-intro { max-width:560px; color:var(--muted); font-size:17px; line-height:1.75; }
+      .proof { background:#fff; }
+      .proof-grid { display:grid; grid-template-columns:1.35fr .65fr; gap:50px; align-items:end; }
+      .proof-text { max-width:680px; font-size:clamp(24px,3.15vw,40px); line-height:1.42; letter-spacing:-.05em; font-weight:700; }
+      .proof-text em { color:var(--blue); font-style:normal; }
+      .proof-facts { display:grid; gap:16px; }
+      .fact { padding:18px 0; border-top:1px solid var(--line); } .fact b { display:block; margin-bottom:6px; font:500 13px/1.2 "DM Mono",monospace; color:var(--blue); letter-spacing:.08em; } .fact span { font-size:14px; line-height:1.6; color:var(--muted); }
+      .philosophy { background:#e8efe7; }
+      .philosophy-grid { display:grid; grid-template-columns:.42fr 1fr; gap:72px; align-items:start; }
+      .philosophy-mark { padding-top:8px; color:var(--blue); font:500 15px/1.5 "DM Mono",monospace; letter-spacing:.08em; }
+      .philosophy-quote { max-width:760px; margin-bottom:20px; font-size:clamp(27px,3.5vw,44px); line-height:1.35; letter-spacing:-.055em; font-weight:700; }
+      .philosophy-copy { max-width:650px; margin:0; color:var(--muted); font-size:16px; line-height:1.8; }
+      .process { color:#fff; background:var(--navy); }
+      .process .eyebrow { color:var(--sky); }
+      .process-head { display:flex; justify-content:space-between; gap:30px; align-items:end; margin-bottom:55px; }
+      .process .section-intro { color:#c9d6cd; }
+      .steps { display:grid; grid-template-columns:repeat(5,1fr); }
+      .step { position:relative; min-height:230px; padding:25px 22px 20px; border-top:1px solid rgba(255,255,255,.35); border-left:1px solid rgba(255,255,255,.17); }
+      .step:first-child { border-left:0; }
+      .step:before { content:""; position:absolute; top:-4px; left:0; width:7px; height:7px; border-radius:50%; background:var(--sky); }
+      .step:nth-child(4):before,.step:nth-child(5):before { background:var(--mint); }
+      .step-no { color:#afc5b5; font:500 13px/1 "DM Mono",monospace; } .step h3 { margin:52px 0 12px; font-size:23px; letter-spacing:-.04em; } .step p { margin:0; color:#c9d6cd; font-size:14px; line-height:1.65; }
+      .difference { background:#e5ece4; }
+      .comparison { margin-top:52px; display:grid; grid-template-columns:1fr 1.15fr; border-top:1px solid #b8c9ba; }
+      .compare-box { padding:35px 38px 42px; border-bottom:1px solid #b8c9ba; }
+      .compare-box.old { border-right:1px solid #b8c9ba; }
+      .compare-box.current { background:#fff; box-shadow:0 20px 45px rgba(36,61,54,.1); }
+      .compare-label { display:block; margin-bottom:26px; font:500 13px/1 "DM Mono",monospace; letter-spacing:.08em; color:var(--muted); }
+      .compare-box strong { display:block; margin-bottom:15px; font-size:28px; letter-spacing:-.045em; } .compare-box p { margin:0; color:var(--muted); line-height:1.7; }
+      .compare-box.current strong { color:var(--blue); } .flow { margin-top:18px; color:var(--ink); font:500 14px/1.5 "DM Mono",monospace; word-spacing:-2px; }
+      .why { background:#fff; } .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+      .why-item { padding-top:22px; border-top:2px solid var(--ink); } .why-item b { display:block; margin-bottom:12px; font-size:20px; letter-spacing:-.035em; } .why-item p { margin:0; color:var(--muted); font-size:15px; line-height:1.7; }
+      .insight { padding:0; background:#fff; }
+      .insight-in { display:grid; grid-template-columns:1fr auto; gap:36px; align-items:center; padding:38px 0 92px; border-top:1px solid var(--line); }
+      .insight .eyebrow { margin-bottom:12px; }
+      .insight h3 { margin:0 0 10px; font-size:clamp(21px,2.5vw,29px); line-height:1.35; letter-spacing:-.045em; }
+      .insight p { margin:0; max-width:620px; color:var(--muted); font-size:15px; line-height:1.7; }
+      .insight .go { display:inline-flex; align-items:center; gap:9px; padding:13px 19px; border:1px solid var(--ink); border-radius:4px; font-size:14px; font-weight:700; white-space:nowrap; transition:.2s ease; }
+      .insight .go:hover { color:#fff; background:var(--ink); }
+      .insight h3 a:hover { color:var(--blue); }
+      .insight .more { display:inline-block; margin-left:4px; color:var(--blue); font-weight:700; white-space:nowrap; }
+      .insight .more:hover { text-decoration:underline; }
+      .contact { color:#fff; background:linear-gradient(135deg,#243d36,#426152); }
+      .contact-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:80px; align-items:start; }
+      .contact .eyebrow { color:var(--mint); } .contact .section-intro { color:#d1ddd3; }
+      .contact h2 { font-size:clamp(22px, 2.8vw, 35px); }
+      form { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+      .field.full { grid-column:1/-1; } label { display:block; margin-bottom:8px; color:#d5e1d7; font-size:14px; font-weight:500; } input,select,textarea { width:100%; padding:13px; color:#fff; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.24); border-radius:3px; outline:0; font:14px "Noto Sans KR",sans-serif; } select option { color:var(--ink); } textarea { min-height:100px; resize:vertical; } input:focus,select:focus,textarea:focus { border-color:var(--mint); box-shadow:0 0 0 3px rgba(220,235,220,.12); } .consent { grid-column:1/-1; display:flex; align-items:flex-start; gap:8px; color:#d1ddd3; font-size:13px; line-height:1.55; } .consent input { width:15px; margin:2px 0 0; accent-color:var(--blue); } .form-note { grid-column:1/-1; margin:0; color:#d1ddd3; font-size:13px; line-height:1.5; } .form-status { grid-column:1/-1; min-height:20px; margin:0; color:var(--mint); font-size:13px; }
+      footer { padding:25px 0; color:#aabaae; background:#162b26; font:13px/1.5 "DM Mono",monospace; } .footer-row { display:flex; justify-content:space-between; gap:20px; } footer b { color:#deebdf; }
+      @media (max-width:850px) { .navlinks a:not(.nav-demo) { display:none; } .hero { min-height:760px; } .signal-card { right:24px; bottom:32px; width:min(360px,calc(100% - 48px)); } .proof-grid,.philosophy-grid,.contact-grid,.insight-in { grid-template-columns:1fr; gap:35px; } .steps { grid-template-columns:repeat(2,1fr); } .step:nth-child(3) { border-left:0; } .comparison { grid-template-columns:1fr; } .compare-box.old { border-right:0; } }
+      @media (max-width:560px) { section[id], main[id], footer[id] { scroll-margin-top:74px; } .wrap { width:min(100% - 32px,1160px); } .nav { height:66px; } .brand small { display:none; } .hero-inner { padding-top:135px; } .hero { min-height:810px; } h1 { font-size:43px; } .lead { font-size:16px; } section { padding:76px 0; } .process-head { display:block; } .steps,.why-grid,form { grid-template-columns:1fr; } .step,.step:nth-child(3) { border-left:0; } .step { min-height:0; padding:20px 0 28px; } .step h3 { margin-top:28px; } .compare-box { padding:28px 20px; } .signal-card { padding:19px; } .contact-grid { gap:38px; } .footer-row { display:block; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav wrap" aria-label="주 메뉴">
+        <a class="brand" href="#top">CYPRON</a>
+        <div class="navlinks"><a href="#product">제품 소개</a><a href="#company">회사 소개</a><a href="insights/index.html">인사이트</a><a class="nav-demo" href="#demo">무료 데모 신청</a><a class="lang-toggle" href="?lang=en" aria-label="Switch to English">EN</a></div>
+      </nav>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">Equipment Intelligence Platform</span>
+            <h1 id="hero-title">알람이 울릴 때는<br />이미 라인이 멈춘 뒤입니다.</h1>
+            <p class="lead">CYPRON은 정상 운전 로그만으로 이상 전조를 먼저 찾아내고, 진단·예측·보정·검증까지 연결합니다.</p>
+            <div class="hero-actions"><a class="button primary" href="#demo">무료 데모 신청 <span class="arrow">→</span></a><a class="button secondary" href="#product">CYPRON 알아보기</a></div>
+          </div>
+        </div>
+        <aside class="signal-card" aria-label="CYPRON 전조 감지 예시">
+          <div class="signal-top"><span>LIVE SIGNAL ANALYSIS</span><span class="live">PRECURSOR FOUND</span></div>
+          <div class="chart" aria-hidden="true"><i style="height:23%"></i><i style="height:35%"></i><i style="height:28%"></i><i style="height:46%"></i><i style="height:38%"></i><i style="height:50%"></i><i style="height:43%"></i><i style="height:61%"></i><i style="height:54%"></i><i class="alert" style="height:86%"></i><i class="alert" style="height:72%"></i></div>
+          <p class="signal-note"><strong>Threshold 이전의 변화</strong>를 감지했습니다.<br />원인 후보를 분석하고 조치로 연결합니다.</p>
+        </aside>
+      </section>
+
+      <section class="proof" id="company">
+        <div class="wrap proof-grid">
+          <div><span class="eyebrow">Why CYPRON</span><p class="proof-text">고장 예측에서 끝나는 분석을 넘어, <em>설비 상태의 안정화</em>까지 책임지는 Intelligence Platform.</p></div>
+          <div class="proof-facts"><div class="fact"><b>NO TRAINING PERIOD</b><span>학습 기간 없이 정상 운전 로그로 즉시 시작</span></div><div class="fact"><b>LEGACY READY</b><span>기존 레거시 장비에도 적용 가능</span></div><div class="fact"><b>FULLY ON-PREMISE</b><span>고객사 내부망에서 동작, 데이터 외부 유출 없음</span></div></div>
+        </div>
+      </section>
+
+      <section class="philosophy" aria-labelledby="philosophy-title">
+        <div class="wrap philosophy-grid">
+          <div class="philosophy-mark">SEERJAE [實在]<br />BEYOND DATA</div>
+          <div><span class="eyebrow">The Seerjae Philosophy</span><h2 class="philosophy-quote" id="philosophy-title">데이터 너머의 본질을 봅니다.</h2><p class="philosophy-copy">Seerjae는 흩어진 운전 데이터를 독자적인 알고리즘으로 정제해, 현장 의사결정에 필요한 의미와 통찰로 바꿉니다. 데이터 너머의 본질, 실재를 보는 것. 그것이 Seerjae가 추구하는 가치입니다.</p></div>
+        </div>
+      </section>
+
+      <section class="process" id="product">
+        <div class="wrap"><div class="process-head"><div><span class="eyebrow">Closed-loop intelligence</span><h2>감지에서 상태 회복까지,<br />하나의 흐름으로.</h2></div><p class="section-intro">도입은 Detect·Diagnose·Predict부터 시작하고, 고객 준비도에 맞춰 Correct·Verify까지 단계적으로 확장할 수 있습니다.</p></div>
+          <div class="steps"><article class="step"><span class="step-no">01</span><h3>Detect</h3><p>임계값 이전의 변화와 반복 패턴을 포착합니다.</p></article><article class="step"><span class="step-no">02</span><h3>Diagnose</h3><p>압력·온도·전류·로그를 하나의 맥락에서 분석합니다.</p></article><article class="step"><span class="step-no">03</span><h3>Predict</h3><p>부품·센서 관계를 바탕으로 원인 위치를 예측합니다.</p></article><article class="step"><span class="step-no">04</span><h3>Correct</h3><p>승인된 범위 안에서 운전 파라미터를 보정합니다.</p></article><article class="step"><span class="step-no">05</span><h3>Verify</h3><p>보정 후 정상 상태 복귀 여부를 다시 확인합니다.</p></article></div>
+        </div>
+      </section>
+
+      <section class="difference" id="difference"><div class="wrap"><span class="eyebrow">Beyond PHM / PdM</span><h2>Prediction에서 멈추지 않습니다.</h2><p class="section-intro">CYPRON은 판단을 돕는 데서 끝나지 않고, 허용된 운전 범위 안에서 정상 상태 복귀까지 이어지는 closed loop를 지향합니다.</p><div class="comparison"><article class="compare-box old"><span class="compare-label">PHM / PdM</span><strong>예측과 의사결정</strong><p>고장 예측과 유지보수 의사결정을 지원합니다.</p><p class="flow">Detect → Diagnose → Prognose → Decide</p></article><article class="compare-box current"><span class="compare-label">CYPRON</span><strong>상태 회복형 Equipment Intelligence</strong><p>전조 감지부터 보정 후 정상 복귀 확인까지 연결합니다.</p><p class="flow">Detect → Diagnose → Predict → Correct → Verify</p></article></div></div></section>
+
+      <section class="why"><div class="wrap"><span class="eyebrow">Start simply</span><h2>연동은 가볍게,<br />확장은 필요한 만큼.</h2><div class="why-grid"><article class="why-item"><b>로그 포맷이 달라도</b><p>템플릿 1건과 샘플 로그로 연동을 시작할 수 있습니다.</p></article><article class="why-item"><b>별도 개발 기간 없이</b><p>현장 데이터를 기반으로 빠르게 적용 가능성을 검토합니다.</p></article><article class="why-item"><b>준비도에 맞춰 확장</b><p>초기 분석부터 보정·검증까지 도입 단계를 함께 설계합니다.</p></article></div></div></section>
+
+      <section class="insight" id="insights"><div class="wrap insight-in">
+        <div><span class="eyebrow">Founder's note &nbsp;·&nbsp; 최신 글</span><h3><a href="insights/2026_ai_summit.html">2026년 8월 AI Summit 후기</a></h3><p>사흘간 코엑스에서 IR 피칭 5개사와 기술 세션 10개, 슬라이드 137장. 설비 소프트웨어를 만드는 창업자의 시선으로 정리한 현장 노트입니다. <a class="more" href="insights/index.html">인사이트 전체 보기 &#8594;</a></p></div>
+        <a class="go" href="insights/2026_ai_summit.html">읽기 <span class="arrow">&#8594;</span></a>
+      </div></section>
+
+      <section class="contact" id="demo"><div class="wrap contact-grid"><div><span class="eyebrow">Request a free demo</span><h2>설비 데이터에서<br />답을 찾아 드립니다.</h2><p class="section-intro">데모와 PoC 가능성을 함께 검토합니다. 현재 설비 환경과 해결하려는 과제를 남겨 주시면 담당자가 연락드립니다.</p></div>
+        <form id="demo-form" novalidate>
+          <div class="field"><label for="company">회사명 *</label><input id="company" name="company" required autocomplete="organization" /></div>
+          <div class="field"><label for="name">담당자명 *</label><input id="name" name="name" required autocomplete="name" /></div>
+          <div class="field"><label for="email">업무 이메일 *</label><input id="email" name="email" type="email" required autocomplete="email" /></div>
+          <div class="field"><label for="phone">연락처</label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>
+          <div class="field full"><label for="interest">문의 유형 *</label><select id="interest" name="interest" required><option value="">선택해 주세요</option><option>무료 데모 신청</option><option>PoC·도입 컨설팅</option><option>기술 문의</option><option>기타</option></select></div>
+          <div class="field full"><label for="message">현재 과제 또는 문의 내용</label><textarea id="message" name="message" placeholder="적용 대상 설비, 데이터 환경, 해결하려는 문제 등을 적어 주세요."></textarea></div>
+          <label class="consent"><input type="checkbox" id="privacy" required /><span>문의 응대를 위한 개인정보 수집·이용에 동의합니다. <a href="#privacy-policy"><u>개인정보처리방침</u></a></span></label>
+          <button class="button primary" type="submit">데모 신청 보내기 <span class="arrow">→</span></button><p class="form-note">* 표시는 필수 입력 항목입니다.<br>실제 공개 전에는 개인정보처리방침, 수신 이메일 또는 폼 서비스 연결이 필요합니다.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div></section>
+    </main>
+    <footer id="privacy-policy"><div class="wrap footer-row"><span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae</span><span><a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span></div></footer>
+    <script>
+      const english = new URLSearchParams(window.location.search).get('lang') === 'en';
+      const setText = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element) element.textContent = value;
+      };
+      const setHtml = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element) element.innerHTML = value;
+      };
+      if (english) {
+        document.documentElement.lang = 'en';
+        document.title = 'CYPRON | Equipment Intelligence Platform';
+        setText('.brand small', 'BY SEERJAE');
+        setText('.navlinks a[href="#product"]', 'PRODUCT'); setText('.navlinks a[href="#company"]', 'ABOUT'); setText('.navlinks a[href="insights/index.html"]', 'INSIGHTS'); setText('.nav-demo', 'REQUEST A DEMO');
+        document.querySelector('.navlinks a[href="insights/index.html"]').href = 'insights/index.html?lang=en';
+        document.querySelector('.lang-toggle').textContent = 'KO'; document.querySelector('.lang-toggle').href = 'index.html'; document.querySelector('.lang-toggle').ariaLabel = '한국어로 전환';
+        setText('.hero .eyebrow', 'Equipment Intelligence Platform'); setHtml('#hero-title', 'By the time the alarm rings,<br />the line has already stopped.');
+        setText('.hero .lead', 'CYPRON finds early precursors from normal operating logs—and connects detection, diagnosis, prediction, correction, and verification.');
+        setHtml('.hero-actions .primary', 'Request a Free Demo <span class="arrow">→</span>'); setText('.hero-actions .secondary', 'Explore CYPRON');
+        setText('.signal-top span:first-child', 'LIVE SIGNAL ANALYSIS'); setText('.signal-top span:last-child', 'PRECURSOR FOUND'); setHtml('.signal-note', '<strong>Change before the threshold</strong> has been detected.<br />CYPRON identifies likely causes and connects them to action.');
+        setText('.proof .eyebrow', 'Why CYPRON'); setHtml('.proof-text', 'Beyond analysis that ends at failure prediction—an Intelligence Platform built to <em>stabilize equipment state.</em>');
+        [['NO TRAINING PERIOD','Start immediately with normal operating logs.'],['LEGACY READY','Works with your existing legacy equipment.'],['FULLY ON-PREMISE','Runs inside your network. Data never leaves the site.']].forEach((item, index) => { const fact = document.querySelectorAll('.fact')[index]; fact.querySelector('b').textContent = item[0]; fact.querySelector('span').textContent = item[1]; });
+        setText('.philosophy .eyebrow', 'The Seerjae Philosophy'); setText('#philosophy-title', 'Seeing reality beyond data.'); setText('.philosophy-copy', 'Seerjae refines scattered operational data through proprietary algorithms, turning it into meaningful insight for decisions in the field. Seeing the reality beyond data—that is what Seerjae stands for.');
+        setText('.process .eyebrow', 'Closed-loop intelligence'); setHtml('.process h2', 'From detection to state recovery,<br />in one continuous loop.'); setText('.process .section-intro', 'Start with Detect, Diagnose, and Predict. Extend to Correct and Verify when your organization is ready.');
+        [['Detect','Captures drift and recurring patterns before thresholds are crossed.'],['Diagnose','Analyzes pressure, temperature, current, and logs in one context.'],['Predict','Predicts likely root-cause locations through component and sensor relationships.'],['Correct','Adjusts operating parameters within approved limits.'],['Verify','Re-checks whether equipment has returned to normal.']].forEach((item, index) => { const step = document.querySelectorAll('.step')[index]; step.querySelector('h3').textContent = item[0]; step.querySelector('p').textContent = item[1]; });
+        setText('.difference .eyebrow', 'Beyond PHM / PdM'); setText('.difference h2', 'Prediction is not the endpoint.'); setText('.difference .section-intro', 'CYPRON goes beyond decision support, pursuing a closed loop that returns equipment to normal operation within approved limits.');
+        const compare = document.querySelectorAll('.compare-box'); setText('.compare-box.old .compare-label', 'PHM / PdM'); setText('.compare-box.old strong', 'Prediction and decisions'); setText('.compare-box.old p:not(.flow)', 'Supports failure prediction and maintenance decisions.'); setText('.compare-box.current .compare-label', 'CYPRON'); setText('.compare-box.current strong', 'State-restoring Equipment Intelligence'); setText('.compare-box.current p:not(.flow)', 'Connects early detection through confirmation of recovery to normal state.');
+        setText('.why .eyebrow', 'Start simply'); setHtml('.why h2', 'Lightweight connection,<br />scalable when you are ready.');
+        [['Even with different log formats','Start integration with one template and a sample log.'],['Without a custom development cycle','Quickly assess applicability using on-site data.'],['Expand for your readiness','Design a path from initial analysis through correction and verification.']].forEach((item, index) => { const why = document.querySelectorAll('.why-item')[index]; why.querySelector('b').textContent = item[0]; why.querySelector('p').textContent = item[1]; });
+        setHtml('.insight .eyebrow', "Founder's note &nbsp;·&nbsp; Latest"); setHtml('.insight h3', '<a href="insights/2026_ai_summit.html?lang=en">Field notes: AI Summit Seoul, August 2026</a>'); setHtml('.insight p', 'Three days at COEX: five IR pitches, ten technical sessions, 137 slides. Notes from a founder building equipment software. <a class="more" href="insights/index.html?lang=en">All insights &#8594;</a>'); setHtml('.insight .go', 'Read <span class="arrow">&#8594;</span>'); document.querySelector('.insight .go').href = 'insights/2026_ai_summit.html?lang=en';
+        setText('.contact .eyebrow', 'Request a free demo'); setHtml('.contact h2', 'We find answers in your<br />equipment data.'); setText('.contact .section-intro', 'We will review the demo and PoC opportunity with you. Tell us about your equipment environment and the challenge you want to solve.');
+        [['company','Company *'],['name','Name *'],['email','Work email *'],['phone','Phone']].forEach(([id, text]) => setText(`label[for="${id}"]`, text)); setText('label[for="interest"]', 'Inquiry type *'); setText('label[for="message"]', 'Current challenge or inquiry');
+        const options = document.querySelectorAll('#interest option'); ['Please select','Request a free demo','PoC / implementation consulting','Technical inquiry','Other'].forEach((text, index) => options[index].textContent = text); document.querySelector('#message').placeholder = 'Tell us about the equipment, data environment, or issue you want to address.';
+        setHtml('.consent span', 'I agree to the collection and use of personal information for inquiry response. <a href="#privacy-policy"><u>Privacy policy</u></a>'); setHtml('#demo-form button', 'Send demo request <span class="arrow">→</span>'); setText('.form-note', '* Required fields. Before launch, connect a privacy policy and a receiving email address or form service.'); setHtml('footer .footer-row span:first-child', '<b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae'); setHtml('footer .footer-row span:last-child', '<a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.');
+      }
+      const siteHeader = document.querySelector('header');
+      const syncHeader = () => siteHeader.classList.toggle('scrolled', window.scrollY > 40);
+      syncHeader();
+      window.addEventListener('scroll', syncHeader, { passive: true });
+
+      const form = document.getElementById('demo-form');
+      const status = document.getElementById('form-status');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.checkValidity()) { status.textContent = english ? 'Please check the required fields.' : '필수 정보를 확인해 주세요.'; form.reportValidity(); return; }
+        status.textContent = english ? 'This is a prototype. Connect a receiving email address or form service before launch.' : '현재는 시안입니다. 공개 전 제출 내용을 받을 이메일 또는 폼 서비스를 연결해 주세요.';
+      });
+    </script>
+  </body>
+</html>
