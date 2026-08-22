@@ -17,10 +17,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
-      :root { --ink:#17352f; --navy:#243d36; --blue:#76263b; --sky:#adc9b6; --mint:#dcebdc; --paper:#f5f5ef; --line:#d5ded5; --muted:#60716a; }
+      @font-face { font-family:"CYPRON Korean"; src:local("Malgun Gothic"),local("맑은 고딕"),local("Apple SD Gothic Neo"),local("Noto Sans CJK KR"),local("Noto Sans KR"); font-style:normal; font-weight:100 900; unicode-range:U+1100-11FF,U+3130-318F,U+AC00-D7AF,U+A960-A97F,U+D7B0-D7FF; }
+      @font-face { font-family:"CYPRON Latin"; src:local("Calibri"),local("Aptos"),local("Arial"); font-style:normal; font-weight:100 900; unicode-range:U+0000-024F,U+1E00-1EFF,U+2000-206F,U+20A0-20CF; }
+      :root { --ink:#17352f; --navy:#243d36; --blue:#e5a17e; --sky:#adc9b6; --mint:#dcebdc; --paper:#f5f5ef; --line:#d5ded5; --muted:#60716a; }
       * { box-sizing:border-box; }
+      body *,body *::before,body *::after { font-family:"CYPRON Korean","CYPRON Latin",sans-serif !important; }
       html { scroll-behavior:smooth; }
-      body { margin:0; color:var(--ink); background:var(--paper); font-family:"Noto Sans KR",Manrope,sans-serif; word-break:keep-all; }
+      body { margin:0; color:var(--ink); background:var(--paper); font-family:"CYPRON Korean",Manrope,sans-serif; word-break:keep-all; }
       a { color:inherit; text-decoration:none; }
       .wrap { width:min(1160px, calc(100% - 48px)); margin:0 auto; }
       .eyebrow { display:block; margin-bottom:18px; color:var(--blue); font:500 14px/1.2 "DM Mono",monospace; letter-spacing:.11em; text-transform:uppercase; }
@@ -31,42 +34,41 @@
       header.scrolled .nav { border-bottom-color:transparent; }
       section[id] { scroll-margin-top:88px; }
       .nav { height:78px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.15); }
-      .brand { font:700 25px/1 Manrope,sans-serif; letter-spacing:-.05em; }
+      .brand { font:500 25px/1 Manrope,sans-serif; letter-spacing:-.05em; }
       .brand small { margin-left:8px; color:#d0e1d5; font:500 10px/1 "DM Mono",monospace; letter-spacing:.07em; vertical-align:middle; }
-      .navlinks { display:flex; align-items:center; gap:28px; font-size:13px; font-weight:600; }
+      .navlinks { display:flex; align-items:center; gap:28px; font-family:"CYPRON Korean",Manrope,sans-serif; font-size:15px; font-weight:500; }
       .navlinks .nav-demo { padding:9px 13px; border:1px solid rgba(255,255,255,.4); border-radius:3px; }
-      .navlinks .on { color:var(--mint); }
+      .navlinks .nav-demo.on { color:#e5a17e; border-color:#e5a17e; }
+      .navlinks .on { color:#e5a17e; }
 
       .page-head { padding:160px 0 74px; color:#fff; background:var(--navy); }
       .page-head .eyebrow { color:var(--sky); }
-      .page-head h1 { margin:0 0 18px; font-size:clamp(38px,5vw,62px); line-height:1.14; letter-spacing:-.065em; font-weight:800; }
+      .page-head h1 { margin:0 0 18px; font-size:clamp(38px,5vw,62px); line-height:1.14; letter-spacing:-.065em; font-weight:500; }
       .page-head p { max-width:590px; margin:0; color:#c9d6cd; font-size:17px; line-height:1.75; }
 
       .cat { padding:74px 0 0; }
       .cat:last-of-type { padding-bottom:96px; }
       .cat-head { padding-bottom:26px; border-bottom:2px solid var(--ink); }
-      .cat-head h2 { margin:0; font-size:clamp(22px,3vw,34px); letter-spacing:-.05em; }
+      .cat-head h2 { margin:0; font-size:clamp(22px,3vw,34px); letter-spacing:-.05em;font-weight:500; }
       .cat-count { float:right; margin-left:20px; color:var(--muted); font:500 13px/1.2 "DM Mono",monospace; letter-spacing:.08em; }
 
       .posts { display:grid; }
-      .post { display:grid; grid-template-columns:190px 1fr auto; gap:30px; align-items:baseline; padding:26px 0; border-bottom:1px solid var(--line); transition:.2s ease; }
+      .post { display:grid; grid-template-columns:190px 1fr; gap:30px; align-items:baseline; padding:10px 0; border-bottom:1px solid var(--line); transition:.2s ease; }
       .post:hover { background:#fff; box-shadow:0 14px 34px rgba(36,61,54,.07); }
       .post-meta { color:var(--muted); font:500 13px/1.6 "DM Mono",monospace; letter-spacing:.05em; }
-      .post-meta b { color:var(--blue); font-weight:500; }
-      .post h3 { margin:0; font-size:clamp(17px,2.3vw,20px); line-height:1.35; letter-spacing:-.04em; }
-      .post .go { align-self:center; color:var(--blue); font-size:14px; font-weight:700; white-space:nowrap; }
-      .post:hover .go { text-decoration:underline; }
+      .post-meta b { color:#be7152; font-weight:500; }
+      .post h3 { margin:0; font-size:clamp(13px,2.3vw,15px); line-height:1.35; letter-spacing:-.04em; }
 
       .empty { padding:34px 0; border-bottom:1px solid var(--line); color:var(--muted); font-size:15px; }
 
-      footer { padding:25px 0; color:#aabaae; background:#162b26; font:13px/1.5 "DM Mono",monospace; }
+      footer { padding:25px 0; color:#aabaae; background:#162b26; font:14px/1.5 "DM Mono",monospace; }
+      .eyebrow,.brand small,.cat-count,.post-meta,footer { font-family:"CYPRON Korean","DM Mono",monospace; }
       .footer-row { display:flex; justify-content:space-between; gap:20px; }
-      footer b { color:#deebdf; }
+      footer b { color:#deebdf; font-size:15px;font-weight:500;}
 
       @media (max-width:850px) {
-        .navlinks a:not(.nav-demo) { display:none; }
+        .navlinks { display:none; }
         .post { grid-template-columns:1fr; gap:12px; }
-        .post .go { justify-self:start; }
       }
       @media (max-width:560px) {
         .wrap { width:min(100% - 32px,1160px); }
@@ -82,8 +84,8 @@
       <nav class="nav wrap" aria-label="주 메뉴">
         <a class="brand" href="../index.html">CYPRON</a>
         <div class="navlinks">
-          <a href="../index.html#product">제품 소개</a>
           <a href="../index.html#company">회사 소개</a>
+          <a href="../index.html#product">제품 소개</a>
           <a class="on" href="index.html" aria-current="page">인사이트</a>
           <a class="nav-demo" href="../index.html#demo">무료 데모 신청</a>
           <a class="lang-toggle" href="?lang=en" aria-label="Switch to English">EN</a>
@@ -95,8 +97,7 @@
       <section class="page-head">
         <div class="wrap">
           <span class="eyebrow">Insights</span>
-          <h1>인사이트</h1>
-          <p>CYPRON을 만드는 과정에서 남긴 기록입니다. 설비 데이터와 현장, 그리고 그 사이에서 배운 것들.</p>
+          <h1>인사이트</h1>          
         </div>
       </section>
 
@@ -104,10 +105,24 @@
       <section class="cat" aria-labelledby="cat-founder">
         <div class="wrap">
           <div class="cat-head">
-            <span class="cat-count">01 POSTS</span>
+            <span class="cat-count">03 POSTS</span>
             <h2 id="cat-founder">Founder&#39;s note</h2>
           </div>
           <div class="posts">
+
+            <a class="post" href="test_2.html">
+              <span class="post-meta"><b>2026.08.22</b> &middot; 약 1분</span>
+              <span>
+                <h3>Test 2</h3>
+              </span>
+            </a>
+
+            <a class="post" href="test.html">
+              <span class="post-meta"><b>2026.08.22</b> &middot; 약 1분</span>
+              <span>
+                <h3>Test</h3>
+              </span>
+            </a>
 
             <!-- ▼ 글 1건. 새 글은 이 <a class="post"> 블록을 통째로 복사해 맨 위에 붙여넣으면 됩니다. -->
             <a class="post" href="2026_ai_summit.html">
@@ -115,7 +130,6 @@
               <span>
                 <h3>2026년 8월 AI Summit 후기</h3>
               </span>
-              <span class="go">읽기 <span class="arrow">&#8594;</span></span>
             </a>
 
           </div>
@@ -145,10 +159,17 @@
         setText('.page-head h1', 'Insights');
         setText('.page-head p', 'Notes from building CYPRON — equipment data, the field, and what we learned in between.');
         setText('.cat-head h2', "Founder's note");
-        setHtml('.post-meta', '<b>2026.08.21</b> &middot; ~13 min');
-        setText('.post h3', 'Field notes: AI Summit Seoul, August 2026');
-        document.querySelector('.post').setAttribute('href', '2026_ai_summit.html?lang=en');
-        setHtml('.post .go', 'Read <span class="arrow">&#8594;</span>');
+        setText('.cat-count', '03 POSTS');
+        document.querySelectorAll('.post').forEach((post) => {
+          const href = post.getAttribute('href');
+          post.setAttribute('href', `${href}?lang=en`);
+        });
+        const summitPost = document.querySelector('.post[href^="2026_ai_summit.html"]');
+        summitPost.querySelector('.post-meta').innerHTML = '<b>2026.08.21</b> &middot; ~13 min';
+        summitPost.querySelector('h3').textContent = 'Field notes: AI Summit Seoul, August 2026';
+        document.querySelectorAll('.post[href^="test"] .post-meta').forEach((meta) => {
+          meta.innerHTML = '<b>2026.08.22</b> &middot; ~1 min';
+        });
       }
       const siteHeader = document.querySelector('header');
       const syncHeader = () => siteHeader.classList.toggle('scrolled', window.scrollY > 40);

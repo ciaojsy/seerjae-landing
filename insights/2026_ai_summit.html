@@ -27,12 +27,15 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap">
 
 <style>
+@font-face{font-family:"CYPRON Korean";src:local("Malgun Gothic"),local("맑은 고딕"),local("Apple SD Gothic Neo"),local("Noto Sans CJK KR"),local("Noto Sans KR");font-style:normal;font-weight:100 900;unicode-range:U+1100-11FF,U+3130-318F,U+AC00-D7AF,U+A960-A97F,U+D7B0-D7FF}
+@font-face{font-family:"CYPRON Latin";src:local("Calibri"),local("Aptos"),local("Arial");font-style:normal;font-weight:100 900;unicode-range:U+0000-024F,U+1E00-1EFF,U+2000-206F,U+20A0-20CF}
 :root{
   --paper:#eceff3;
   --card:#ffffff;
   --raise:#f6f8fa;
   --ink:#14171d;
   --muted:#59616f;
+  --deeppink-accent:#be7152;
   --faint:#828b99;
   --rule:#d4d9e1;
   --rule-soft:#e4e8ed;
@@ -43,15 +46,15 @@
   --slide-bg:#1b2028;
   --slide-fg:#eef1f6;
   --slide-dim:#a3adbd;
-  --slide-accent:#e5a17e;
+  --slide-accent:#e6a46b;
   --shadow:0 14px 34px rgba(20,23,29,.08);
   --hl-yellow:#f2c94c;
   --hl-yellow-b:#ffe08a;
   --hl-neon:#b3f53a;
-  --kr:"맑은 고딕","Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;
+  --kr:"CYPRON Korean",system-ui,sans-serif;
   --serif:var(--kr);
   --sans:var(--kr);
-  --mono:"IBM Plex Mono","맑은 고딕","Malgun Gothic",ui-monospace,monospace;
+  --mono:"CYPRON Korean","IBM Plex Mono",ui-monospace,monospace;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -70,7 +73,7 @@
     --slide-bg:#1b202a;
     --slide-fg:#e7eaf1;
     --slide-dim:#98a1b1;
-    --slide-accent:#e5a17e;
+    --slide-accent:#db9f6b;
     --shadow:0 14px 34px rgba(0,0,0,.34);
     --hl-yellow:#f2c94c;
     --hl-yellow-b:#ffe08a;
@@ -101,6 +104,7 @@
 }
 
 *{box-sizing:border-box}
+body *,body *::before,body *::after{font-family:"CYPRON Korean","CYPRON Latin",sans-serif!important}
 body{
   margin:0;background:var(--paper);color:var(--ink);
   font-family:var(--sans);font-size:16.5px;line-height:1.82;
@@ -117,10 +121,23 @@ a{color:var(--brick)}
 
 /* ---- opening ---- */
 .hero{border-bottom:1px solid var(--rule);background:var(--card)}
-.hero-in{padding:148px 0 46px}
 .hero h1{font-size:clamp(34px,5.6vw,60px);line-height:1.18;margin:20px 0 0}
-.hero h1 span{color:var(--brick)}
-.dek{margin-top:26px;max-width:62ch;font-size:18px;line-height:1.85;color:var(--muted)}
+.hero h1 span{color:var(--slide-accent)}
+.hero-in {
+  width:min(900px, calc(100% - max(0px, (100% - 720px)/2)));
+  margin-left:max(0px, calc((100% - 720px)/2));
+  margin-right:0;
+  padding:148px 0 46px;
+}
+
+.dek {
+  margin-top:26px;
+  max-width:100ch;
+  font-size:18px;
+  line-height:1.85;
+  color:var(--muted);
+}
+
 .dek b{color:var(--ink);font-weight:700}
 .byline{margin-top:32px;padding-top:20px;border-top:1px solid var(--rule-soft);display:flex;flex-wrap:wrap;gap:8px 26px;font:400 13px/1.6 var(--mono);color:var(--faint)}
 .byline b{color:var(--ink);font-weight:500}
@@ -139,7 +156,7 @@ a{color:var(--brick)}
 .part:last-of-type{border-bottom:0}
 .part-no{font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--brick)}
 .part h2{font-size:clamp(24px,3.4vw,34px);margin:14px 0 0}
-.part .stand{margin-top:16px;font-size:16.5px;color:var(--muted);max-width:62ch}
+.part .stand{margin-top:16px;font-size:16.5px;color:var(--muted);max-width:85ch}
 .part .col>*:first-child{margin-top:0}
 
 h3{font-family:var(--kr);font-weight:700;font-size:18.5px;letter-spacing:-.025em;margin:40px 0 12px}
@@ -220,9 +237,10 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   .site-head.scrolled .nav { border-bottom-color:transparent; }
   .nav a { color:inherit; text-decoration:none; }
   .brand { font:700 25px/1 Manrope,sans-serif; letter-spacing:-.05em; }
-  .navlinks { display:flex; align-items:center; gap:28px; font-family:"Noto Sans KR",Manrope,sans-serif; font-size:13px; font-weight:600; }
+  .navlinks { display:flex; align-items:center; gap:28px; font-family:"CYPRON Korean",Manrope,sans-serif; font-size:15px; font-weight:500; }
   .navlinks .nav-demo { padding:9px 13px; border:1px solid rgba(255,255,255,.4); border-radius:3px; }
-  .navlinks .on { color:#dcebdc; }
+  .navlinks .nav-demo.on { color:#e5a17e; border-color:#e5a17e; }
+  .navlinks .on { color:#e5a17e; }
   .part[id] { scroll-margin-top:88px; }
   /* 좌측 노트 목록. 본문(720px) 바깥 여백에 고정하고, 자리가 없으면 숨깁니다. */
   .note-nav { position:fixed; z-index:10; top:118px; left:max(24px, calc((100vw - 720px)/2 - 244px)); width:204px; }
@@ -232,16 +250,16 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   .note-nav a { display:block; color:var(--muted); font-size:13.5px; line-height:1.5; text-decoration:none; transition:color .15s ease; }
   .note-nav a b { display:block; margin-bottom:4px; color:var(--faint); font:500 10.5px/1 var(--mono); letter-spacing:.05em; }
   .note-nav a:hover { color:var(--ink); }
-  .note-nav a.cur { color:var(--brick); font-weight:700; }
-  .note-nav a.cur b { color:var(--brick); }
+  .note-nav a.cur { color:var(--deeppink-accent); font-weight:700; }
+  .note-nav a.cur b { color:var(--deeppink-accent); }
   .note-nav .nn-all { display:block; margin-top:4px; padding-top:13px; border-top:1px solid var(--rule-soft); color:var(--faint); font:500 11px/1 var(--mono); letter-spacing:.06em; text-decoration:none; }
   .note-nav .nn-all:hover { color:var(--ink); }
   @media (max-width:1239px) { .note-nav { display:none; } }
-  .site-foot { padding:25px 0; color:#aabaae; background:#162b26; font:13px/1.5 "DM Mono",monospace; }
+  .site-foot { padding:25px 0; color:#aabaae; background:#162b26; font:13px/1.5 "CYPRON Korean","DM Mono",monospace; }
   .site-foot-in { width:min(1160px, calc(100% - 48px)); margin:0 auto; display:flex; justify-content:space-between; gap:20px; }
   .site-foot b { color:#deebdf; }
   .site-foot a { color:inherit; text-decoration:none; }
-  @media (max-width:850px) { .navlinks a:not(.nav-demo) { display:none; } }
+  @media (max-width:850px) { .navlinks { display:none; } }
   @media (max-width:560px) { .nav { height:66px; width:min(100% - 32px,1160px); } .hero-in { padding-top:136px; } .part[id] { scroll-margin-top:74px; } .site-foot-in { display:block; width:min(100% - 32px,1160px); } }
 </style>
 </head>
@@ -251,8 +269,8 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   <nav class="nav" aria-label="주 메뉴">
     <a class="brand" href="../index.html">CYPRON</a>
     <div class="navlinks">
-      <a href="../index.html#product">제품 소개</a>
       <a href="../index.html#company">회사 소개</a>
+      <a href="../index.html#product">제품 소개</a>
       <a class="on" href="index.html" aria-current="page">인사이트</a>
       <a class="nav-demo" href="../index.html#demo">무료 데모 신청</a>
       <a class="lang-toggle" href="?lang=en" aria-label="Switch to English">EN</a>
@@ -267,6 +285,8 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   <span class="nn-lab">노트 목록</span>
   <!-- ▼ 새 글은 <li> 를 복사해 맨 위에 붙이고, 이전 글의 class="cur" 와 aria-current 를 지우세요. -->
   <ol>
+    <li><a href="test_2.html"><b>2026.08.22</b>Test 2</a></li>
+    <li><a href="test.html"><b>2026.08.22</b>Test</a></li>
     <li><a class="cur" href="2026_ai_summit.html" aria-current="page"><b>2026.08.21</b>2026년 8월 AI Summit 후기</a></li>
   </ol>
   <a class="nn-all" href="index.html">전체 보기 &#8594;</a>
@@ -277,8 +297,8 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 <header class="hero">
   <div class="wrap col hero-in">
     <span class="lab">AI Summit Seoul &amp; Expo 2026 · 현장 노트</span>
-    <h1>기술보다<br><span>증거</span></h1>
-    <p class="dek">사흘간 코엑스에 있었습니다. IR 피칭 5개사, 기술 세션 10개, 찍은 슬라이드 <b>137장</b>. 반도체 설비 지능화 플랫폼을 만들고 있는 사람으로서 3일간 여정의 기록에는 기술 이야기보다 <b>"어떻게 팔아야 하는가"</b>에 관한 것들이 훨씬 많이 남아 있었습니다. 창업자에게 실제로 쓸모 있던 여덟 가지를 정리했습니다.</p>
+    <h1>기술보다 <span>증거</span></h1>
+    <p class="dek">2026년 AI Summit 코엑스 전시장에서 찍은 사진 137장, IR 피칭 5개사, 기술 세션 10개 관람. 반도체 설비 지능화 플랫폼을 만들고 있는 사람으로서 3일간의 기록에는 기술 이야기보다 <b>"어떻게 팔아야 하는가"</b>에 관한 것들이 훨씬 많이 남아 있었습니다. 창업자에게 실제로 쓸모 있을 것 같은 여덟 가지를 정리했습니다.</p>
     <div class="byline">
       <span>2026·08·21 <b>코엑스</b></span>
       <span>슬라이드 <b>137장 전수 정리</b></span>
@@ -292,11 +312,11 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
     <span class="lab">목차</span>
     <ol>
       <li><a href="#p1">다섯 개의 IR 자료에서 뽑아낸 공통 규칙</a></li>
-      <li><a href="#p2">가격표 — 실제로 얼마를 받고 있나</a></li>
+      <li><a href="#p2">가격표 — 실제로 얼마를 받고 있는가</a></li>
       <li><a href="#p3">고객은 새로 찾는 게 아니다</a></li>
       <li><a href="#p4">15영업일 PoV, 그리고 GO / 보완 / STOP</a></li>
       <li><a href="#p5">두 번째 고객에서 제품인지 용역인지 갈린다</a></li>
-      <li><a href="#p6">좁고 깊게 — 문제정의의 사다리</a></li>
+      <li><a href="#p6">좁고 깊게 — 문제 정의의 사다리</a></li>
       <li><a href="#p7">AI기본법은 이미 시행 중이다</a></li>
       <li><a href="#p8">돈은 넘치는데 기준은 그대로다</a></li>
     </ol>
@@ -309,12 +329,11 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   <div class="wrap col">
     <span class="part-no">01</span>
     <h2>다섯 개의 IR 자료에서 뽑아낸 공통 규칙</h2>
-    <p class="stand">무대에 오른 다섯 곳은 업종이 전부 달랐습니다. 하드웨어 설계 AI, 제조 운영 레이어, 기기 내장형 보안, 심전도 AI, 바이오. 그런데 설득의 구조는 하나도 다르지 않았습니다.</p>
+    <p class="stand">무대에 오른 다섯 곳의 도메인은 겹치는 곳이 하나도 없었습니다. 하드웨어 설계 AI, 제조 운영 레이어, 기기 내장형 보안, 심전도 AI, 바이오. 그런데 설득의 구조는 모두 같은 곳을 향하고 있었습니다.</p>
 
     <div class="slide">
-      <q>제품 도입 전과 후를 <em>같은 시간 단위</em>로 비교하고, 줄어든 시간을 고객사의 <em>비용으로 환산해</em> 보여준다.</q>
-      <p class="src">다섯 개 자료 전부에서 예외 없이 반복된 3단 구조</p>
-      <p class="after">말장난 같지만 <b>두 번째가 어렵습니다.</b> 대부분 "지금은 6시간 걸립니다"로 시작했다가 "저희 AI가 자동으로 처리합니다"로 끝냅니다. 그러면 듣는 사람 머릿속에서 뺄셈이 되지 않습니다. <b>6시간 → 24분</b>이라고 해야 5시간 36분이 남습니다.</p>
+      <q>제품 도입 전과 후를 <em>같은 시간 단위</em>로 비교하고, 줄어든 시간을 고객사의 <em>비용으로 환산해</em> 보여준다.</q>      
+      <p class="after">다섯 개 자료 전부에서 예외 없이 반복된 3단 구조입니다. <b>6시간 소요되던 작업 시간이 제품 도입으로 24분으로 소요되어 생산성 증가</b>라는 결론에 이릅니다.</p>
     </div>
 
     <div class="tw">
@@ -343,7 +362,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
     <div class="slide">
       <q>selected ≠ contracted ≠ paid ≠ revenue.<br><em>ArbaLabs is pre-revenue.</em></q>
       <p class="src">ArbaLabs IR 자료, 트랙션(고객이 실제로 쓰고 돈을 낸다는 증거) 페이지 하단</p>
-      <p class="after">pre-revenue는 아직 매출이 발생하지 않은 상태를 말합니다. 선정됐다는 것과 계약했다는 것, 돈을 받았다는 것과 매출이 났다는 것을 <b>스스로 구분해서 못박았습니다.</b> 감추려 했다면 심사역이 먼저 물었을 질문입니다.</p>
+      <p class="after">pre-revenue는 아직 매출이 발생하지 않은 상태를 말합니다. 선정됐다는 것과 계약했다는 것, 돈을 받았다는 것과 매출이 났다는 것을 <b>스스로 분명하게 구분했습니다.</b> 감추려 했다면 심사역이 먼저 물었을 질문입니다.</p>
     </div>
 
     <div class="take">
@@ -358,7 +377,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   <div class="wrap col">
     <span class="part-no">02</span>
     <h2>가격표 — 실제로 얼마를 받고 있나</h2>
-    <p class="stand">B2B 창업자에게 가장 구하기 어려운 정보가 남의 가격표입니다. 이번 IR에서는 세 곳이 실제 단가를 공개했습니다. 세 곳의 구조가 서로 달랐고, 그 차이가 더 유익했습니다.</p>
+    <p class="stand">B2B 창업자에게 가장 구하기 어려운 정보가 타사의 가격표입니다. 이번 IR에서는 세 곳이 실제 단가를 공개했습니다. 세 곳의 구조가 서로 달랐지만 그 차이에서 배울 점이 있었습니다.</p>
 
     <div class="tw">
       <table>
@@ -385,14 +404,14 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 
     <h3>세 곳의 공통점</h3>
     <ul class="tight">
-      <li><b>사다리가 존재합니다.</b> 단일 가격이 아니라 단계가 있고, 고객이 그 사다리를 눈으로 볼 수 있습니다. "작게 시작할 수 있다"는 사실 자체가 영업 도구입니다.</li>
+      <li><b>티어드 패키징과 가격 체계가 명확합니다.</b> 고객은 Lite·Standard·Enterprise 처럼 현재 요구 수준에 맞는 에디션으로 시작하고, 사용 범위와 성과에 따라 상위 티어로 확장할 수 있습니다. 낮은 초기 진입 장벽과 명확한 업그레이드 경로가 영업 경쟁력이 됩니다.</li>
       <li><b>진짜 사업은 3단계입니다.</b> 구축비는 현금흐름이고 반복 라이선스가 회사의 가치입니다. SECA는 누적매출 7억 중 <b>반복 라이선스 2.2억</b>을 따로 떼어 말했습니다. 심사역이 보는 숫자는 그쪽입니다.</li>
       <li><b>구축 대행(SI)은 명시적으로 배제합니다.</b> 매출은 나지만 기업가치에 배수가 붙지 않는 매출이기 때문입니다.</li>
     </ul>
 
     <div class="take">
       <span class="lab">가져갈 것</span>
-      <p>가격표가 없으면 <b>"얼마예요?"에서 대화가 끊깁니다.</b> 금액이 맞는지는 나중 문제고, 미팅 자리에서 즉답할 수 있는 세 개의 숫자를 먼저 종이에 적어 두십시오. 그리고 3단계 중 <b>어디가 반복매출인지</b>를 스스로 명확히 해두십시오.</p>
+      <p>가격표가 없으면 <b>"얼마예요?"에서 대화가 끊깁니다.</b> 금액이 맞는지는 나중 문제고, 미팅 자리에서 즉답할 수 있는 세 개의 숫자를 먼저 종이에 적어 두십시오. 그리고 3단계 중 <span><b>어디가 반복매출인지</b>를 스스로 명확히 해두십시오.</span></p>
     </div>
   </div>
 </section>
@@ -402,7 +421,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   <div class="wrap col">
     <span class="part-no">03</span>
     <h2>고객은 새로 찾는 게 아니다</h2>
-    <p class="stand">실리콘밸리에서 두 번 창업한 분의 세션이 이번 서밋에서 제일 실용적이었습니다. 시작이 이랬습니다.</p>
+    <p class="stand">실리콘밸리에서 두 번 창업한 분의 세션이 이번 서밋에서 가장 실용적이었습니다.</p>
 
     <div class="slide">
       <q>아이디어는 그렇게 중요하지 않고, <em>무엇을 먼저 하느냐도 중요하지 않다.</em> 중요한 건 자기 강점에 붙어 있는 것, 그리고 나아갈 모멘텀을 찾는 것이다. 여기엔 때때로 자신에 대한 <em>매우 정직한 시선</em>이 필요하다.</q>
@@ -701,10 +720,12 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
     setHtml('.note-nav a.cur', '<b>2026.08.21</b>AI Summit Seoul 2026 — Founder’s Notes');
     setHtml('.nn-all', 'All notes &#8594;');
     document.querySelector('.nn-all').setAttribute('href', 'index.html?lang=en');
-    document.querySelector('.note-nav a.cur').setAttribute('href', location.pathname + '?lang=en');
+    document.querySelectorAll('.note-nav ol a').forEach((link) => {
+      link.setAttribute('href', `${link.getAttribute('href')}?lang=en`);
+    });
 
     setHtml('.hero .lab', 'AI Summit Seoul &amp; Expo 2026 · Field Notes');
-    setHtml('.hero h1', '<span>Evidence</span> over<br>technology');
+    setHtml('.hero h1', '<span>Evidence</span> over technology');
     setHtml('.hero .dek', 'I spent three days at COEX: five startup pitches, ten technical sessions, and <b>137 photographed slides</b>. When I reread my notes as someone building a semiconductor equipment intelligence platform, far more of them were about <b>“how to sell it”</b> than about the technology. Here are the eight lessons that proved genuinely useful to a founder.');
     setAll('.hero .byline span', [
       '2026·08·21 <b>COEX</b>',

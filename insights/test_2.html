@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="CYPRON Founder’s note 테스트 글" />
+		<title>Test 2 | CYPRON</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+		<style>
+			@font-face { font-family:"CYPRON Korean"; src:local("Malgun Gothic"),local("맑은 고딕"),local("Apple SD Gothic Neo"),local("Noto Sans CJK KR"),local("Noto Sans KR"); font-style:normal; font-weight:100 900; unicode-range:U+1100-11FF,U+3130-318F,U+AC00-D7AF,U+A960-A97F,U+D7B0-D7FF; }
+			@font-face { font-family:"CYPRON Latin"; src:local("Calibri"),local("Aptos"),local("Arial"); font-style:normal; font-weight:100 900; unicode-range:U+0000-024F,U+1E00-1EFF,U+2000-206F,U+20A0-20CF; }
+			:root { --ink:#2c3d3a; --paper:#f5f5ef; --header:#162b26; --muted:#64746f; --faint:#87938f; --rule:#c7d0c9; --rule-soft:#dce2dc; --deeppink-accent:#be7152; }
+			* { box-sizing:border-box; }
+			body *,body *::before,body *::after { font-family:"CYPRON Korean","CYPRON Latin",sans-serif !important; }
+			html,body { margin:0; min-height:100%; }
+			body { display:flex; min-height:100vh; flex-direction:column; color:var(--ink); background:var(--paper); font-family:"CYPRON Korean",Manrope,sans-serif; }
+			a { color:inherit; text-decoration:none; }
+			.wrap { width:min(1160px,calc(100% - 48px)); margin:0 auto; }
+			.site-head { position:fixed; z-index:20; top:0; left:0; width:100%; color:#fff; background:rgba(22,43,38,.93); backdrop-filter:blur(10px); }
+			.nav { height:78px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.15); }
+			.brand { font:500 25px/1 Manrope,sans-serif; letter-spacing:-.05em; }
+			.navlinks { display:flex; align-items:center; gap:28px; font-family:"CYPRON Korean",Manrope,sans-serif; font-size:15px; font-weight:500; }
+			.navlinks .on { color:#e5a17e; }
+			.navlinks .nav-demo { padding:9px 13px; border:1px solid rgba(255,255,255,.4); border-radius:3px; }
+			.note-nav { position:fixed; z-index:10; top:118px; left:max(24px, calc((100vw - 720px)/2 - 244px)); width:204px; }
+			.note-nav .nn-lab { display:block; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--rule); color:var(--faint); font:500 11px/1 "DM Mono",monospace; letter-spacing:.1em; text-transform:uppercase; }
+			.note-nav ol { margin:0; padding:0; list-style:none; }
+			.note-nav li { margin-bottom:15px; }
+			.note-nav a { display:block; color:var(--muted); font-size:13.5px; line-height:1.5; }
+			.note-nav a b { display:block; margin-bottom:4px; color:var(--faint); font:500 10.5px/1 "DM Mono",monospace; letter-spacing:.05em; }
+			.note-nav a:hover { color:var(--ink); }
+			.note-nav a.cur { color:var(--deeppink-accent); font-weight:700; }
+			.note-nav a.cur b { color:var(--deeppink-accent); }
+			.note-nav .nn-all { margin-top:4px; padding-top:13px; border-top:1px solid var(--rule-soft); color:var(--faint); font:500 11px/1 "DM Mono",monospace; letter-spacing:.06em; }
+			main { flex:1; padding:158px 0 80px; }
+			article { min-height:320px; padding:52px; background:#fff; border:1px solid #d5ded5; }
+			article h1 { margin:0; font-size:clamp(32px,5vw,56px); font-weight:500; }
+			.site-foot { padding:25px 0; color:#aabaae; background:var(--header); font:14px/1.5 "DM Mono",monospace; }
+			.note-nav .nn-lab,.note-nav a b,.note-nav .nn-all,.site-foot { font-family:"CYPRON Korean","DM Mono",monospace; }
+			.footer-row { display:flex; justify-content:space-between; gap:20px; }
+			.site-foot b { color:#deebdf; font-size:15px; font-weight:500; }
+			@media (max-width:1239px) { .note-nav { display:none; } }
+			@media (max-width:850px) { .navlinks { display:none; } }
+			@media (max-width:560px) { .wrap { width:min(100% - 32px,1160px); } .nav { height:66px; } main { padding-top:120px; } article { padding:32px 24px; } .footer-row { display:block; } }
+		</style>
+	</head>
+	<body>
+		<header class="site-head">
+			<nav class="nav wrap" aria-label="주 메뉴">
+				<a class="brand" href="../index.html">CYPRON</a>
+				<div class="navlinks">
+					<a href="../index.html#company">회사 소개</a>
+					<a href="../index.html#product">제품 소개</a>
+					<a class="on" href="index.html" aria-current="page">인사이트</a>
+					<a class="nav-demo" href="../index.html#demo">무료 데모 신청</a>
+					<a class="lang-toggle" href="?lang=en" aria-label="Switch to English">EN</a>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<aside class="note-nav" aria-label="노트 목록">
+				<span class="nn-lab">노트 목록</span>
+				<ol>
+					<li><a class="cur" href="test_2.html" aria-current="page"><b>2026.08.22</b>Test 2</a></li>
+					<li><a href="test.html"><b>2026.08.22</b>Test</a></li>
+					<li><a href="2026_ai_summit.html"><b>2026.08.21</b>2026년 8월 AI Summit 후기</a></li>
+				</ol>
+				<a class="nn-all" href="index.html">전체 보기 &#8594;</a>
+			</aside>
+			<article class="wrap">
+				<h1>test</h1>
+			</article>
+		</main>
+
+		<footer class="site-foot">
+			<div class="wrap footer-row">
+				<span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae</span>
+				<span><a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span>
+			</div>
+		</footer>
+
+		<script>
+			const english = new URLSearchParams(window.location.search).get('lang') === 'en';
+			if (english) {
+				document.documentElement.lang = 'en';
+				document.querySelector('.navlinks a[href="../index.html#product"]').textContent = 'PRODUCT';
+				document.querySelector('.navlinks a[href="../index.html#company"]').textContent = 'ABOUT';
+				const insights = document.querySelector('.navlinks .on');
+				insights.textContent = 'INSIGHTS';
+				insights.href = 'index.html?lang=en';
+				document.querySelector('.nav-demo').textContent = 'REQUEST A DEMO';
+				document.querySelector('.note-nav').setAttribute('aria-label', 'Notes list');
+				document.querySelector('.nn-lab').textContent = 'Notes';
+				document.querySelector('.nn-all').innerHTML = 'All notes &#8594;';
+				document.querySelector('.nn-all').href = 'index.html?lang=en';
+				document.querySelector('.note-nav a[href="2026_ai_summit.html"]').innerHTML = '<b>2026.08.21</b>AI Summit Seoul 2026 — Founder’s Notes';
+				document.querySelectorAll('.note-nav ol a').forEach((link) => {
+					link.href = `${link.getAttribute('href')}?lang=en`;
+				});
+				const toggle = document.querySelector('.lang-toggle');
+				toggle.textContent = 'KO';
+				toggle.href = 'test_2.html';
+				toggle.setAttribute('aria-label', '한국어로 전환');
+				document.querySelectorAll('a[href^="../index.html"]').forEach((link) => {
+					link.href = link.getAttribute('href').replace('../index.html', '../index.html?lang=en');
+				});
+			}
+		</script>
+	</body>
+</html>
