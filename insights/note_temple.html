@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CYPRON Founder’s note">
+<meta name="author" content="Seerjae">
+<meta property="article:section" content="Founder's note">
+<meta property="article:published_time" content="YYYY-MM-DD">
+<title>노트 제목 | CYPRON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap">
+
+<style>
+@font-face{font-family:"CYPRON Korean";src:local("Malgun Gothic"),local("맑은 고딕"),local("Apple SD Gothic Neo"),local("Noto Sans CJK KR"),local("Noto Sans KR");font-style:normal;font-weight:100 900;unicode-range:U+1100-11FF,U+3130-318F,U+AC00-D7AF,U+A960-A97F,U+D7B0-D7FF}
+@font-face{font-family:"CYPRON Latin";src:local("Calibri"),local("Aptos"),local("Arial");font-style:normal;font-weight:100 900;unicode-range:U+0000-024F,U+1E00-1EFF,U+2000-206F,U+20A0-20CF}
+:root{
+  --paper:#f8f5f2;
+  --card:#ffffff;
+  --raise:#f8f8f4;
+  --ink:#17181a;
+  --muted:#59616f;
+  --deeppink-accent:#be7152;
+  --faint:#828b99;
+  --rule:#d4d9e1;
+  --rule-soft:#e4e8ed;
+  --brick:#be7152;
+  --brick-wash:#f6e6e2;
+  --slide-bg:#20262e;
+  --slide-fg:#eef1f6;
+  --slide-dim:#ffeadb;
+  --slide-accent:#be7152;
+  --shadow:0 14px 34px rgba(20,23,29,.08);
+  --kr:"CYPRON Korean",system-ui,sans-serif;
+  --sans:var(--kr);
+  --mono:"CYPRON Korean","IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body *,body *::before,body *::after{font-family:"CYPRON Korean","CYPRON Latin",sans-serif!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.82;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:var(--brick)}
+p{margin:0}
+p+p{margin-top:15px}
+h1,h2,h3{margin:0;font-family:var(--kr);font-weight:700;letter-spacing:-.035em;line-height:1.3;text-wrap:balance}
+.wrap{width:min(1080px,calc(100% - 40px));margin:0 auto}
+.col{width:min(720px,100%);margin:0 auto}
+.lab{font:700 16px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--brick);max-width:600px;}
+
+
+/* 상단 메뉴 */
+.site-head{position:fixed;z-index:20;top:0;left:0;width:100%;color:#fff;background:rgba(22,43,38,.93);backdrop-filter:blur(10px);transition:box-shadow .25s ease}
+.site-head.scrolled{box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.nav{width:min(1160px,calc(100% - 48px));height:78px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15)}
+.site-head.scrolled .nav{border-bottom-color:transparent}
+.nav a{color:inherit;text-decoration:none}
+.brand{font:700 25px/1 Manrope,sans-serif;letter-spacing:-.05em}
+.navlinks{display:flex;align-items:center;gap:28px;font-size:15px;font-weight:500}
+.navlinks .nav-demo{padding:9px 13px;border:1px solid rgba(255,255,255,.4);border-radius:3px}
+.navlinks .on{color:#be7152}
+.navlinks .nav-demo.on{color:#be7152;border-color:#be7152}
+
+/* 왼쪽 노트 목록 */
+.note-nav{position:fixed;z-index:10;top:118px;left:max(24px,calc((100vw - 720px)/2 - 244px));width:204px}
+.note-nav .nn-lab{display:block;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--rule);color:var(--faint);font:500 14px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.note-nav ol{margin:0;padding:0;list-style:none}
+.note-nav li{margin-bottom:15px}
+.note-nav a{display:block;color:var(--muted);font-family:Manrope,"Malgun Gothic",sans-serif!important;font-size:14px;font-weight:500;line-height:1.5;text-decoration:none;transition:color .15s ease}
+.note-nav a b{display:block;margin-bottom:4px;color:var(--faint);font:500 14px/1.5 var(--mono);letter-spacing:.05em}
+.note-nav a.cur,.note-nav a.cur b{color:var(--deeppink-accent);font-weight:700}
+.note-nav .nn-all{margin-top:4px;padding-top:13px;border-top:1px solid var(--rule-soft);color:var(--faint);font:500 14px/1.5 var(--mono);letter-spacing:.06em}
+.note-nav .nn-all:hover{color:var(--deeppink-accent)}
+
+/* 노트 히어로 */
+.hero{border-bottom:1px solid var(--rule);background:var(--card)}
+.hero-in{width:min(900px,calc(100% - max(0px,(100% - 720px)/2)));margin-left:max(0px,calc((100% - 720px)/2));padding:148px 0 46px}
+.hero h1{margin-top:20px;font-size:clamp(28px,5.6vw,40px);line-height:1.18}
+.hero h1 span{color:var(--slide-accent)}
+.dek{max-width:100ch;margin-top:26px;color:var(--muted);font-size:18px;line-height:1.85}
+.byline{margin-top:32px;padding-top:20px;border-top:1px solid var(--rule-soft);display:flex;flex-wrap:wrap;gap:8px 26px;color:var(--faint);font:400 13px/1.6 var(--mono)}
+.byline b{color:var(--ink);font-weight:500}
+
+/* 중앙 내용 작성 영역 */
+.note-content{min-height:320px;padding:66px 0}
+.note-content h2{margin-bottom:16px;font-size:clamp(24px,3.4vw,34px)}
+.note-content h3{margin:40px 0 12px;font-size:18.5px}
+.note-content p{color:var(--ink)}
+
+/* 푸터 */
+.site-foot{padding:25px 0;color:#aabaae;background:#162b26;font:13px/1.5 "CYPRON Korean","DM Mono",monospace}
+.site-foot-in{width:min(1160px,calc(100% - 48px));margin:0 auto;display:flex;justify-content:space-between;gap:20px}
+.site-foot b{color:#deebdf}
+.site-foot a{color:inherit;text-decoration:none}
+
+@media(max-width:1239px){.note-nav{display:none}}
+@media(max-width:850px){.navlinks{display:none}}
+@media(max-width:560px){
+  .nav{height:66px;width:min(100% - 32px,1160px)}
+  .hero-in{padding-top:136px}
+  .site-foot-in{display:block;width:min(100% - 32px,1160px)}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <nav class="nav" aria-label="주 메뉴">
+    <a class="brand" href="../index.html">CYPRON</a>
+    <div class="navlinks">
+      <a href="../index.html#company">회사 소개</a>
+      <a href="../index.html#product">제품 소개</a>
+      <a class="on" href="index.html" aria-current="page">인사이트</a>
+      <a class="nav-demo" href="../index.html#demo">무료 데모 신청</a>
+      <a class="lang-toggle" href="?lang=en" aria-label="Switch to English">EN</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <aside class="note-nav" aria-label="노트 목록">
+    <span class="nn-lab">노트 목록</span>
+    <ol>
+      <!-- 새 노트 링크를 이곳에 추가하세요. -->
+      <li><a class="cur" href="note_temple.html" aria-current="page"><b>YYYY.MM.DD</b>새 노트 제목</a></li>
+      <li><a class="term-note" href="ai_summit_terms.html"><b>2026.08.23</b>AI Summit 용어 정리</a></li>
+      <li><a class="summit-note" href="2026_ai_summit.html"><b>2026.08.21</b>2026년 8월 AI Summit 후기</a></li>
+    </ol>
+    <a class="nn-all" href="index.html">전체 보기 &#8594;</a>
+  </aside>
+
+  <article>
+    <header class="hero">
+      <div class="wrap col hero-in">
+        <span class="lab">FOUNDER'S NOTE · CATEGORY</span>
+        <h1>새 노트 <span>제목</span></h1>
+        <p class="dek">노트의 핵심 내용을 소개하는 문장을 입력하세요.</p>
+        <div class="byline">
+          <span>YYYY·MM·DD <b>장소</b></span>
+          <span>작성자 <b>Seerjae</b></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 중앙 내용 시작: 아래 영역에 노트 본문을 작성하세요. -->
+    <div class="note-content">
+      <div class="wrap col">
+        <!--
+        <section>
+          <h2>01. 섹션 제목</h2>
+          <p>본문을 입력하세요.</p>
+        </section>
+        -->
+      </div>
+    </div>
+    <!-- 중앙 내용 끝 -->
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="site-foot-in">
+    <span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae</span>
+    <span><a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+const english = new URLSearchParams(window.location.search).get('lang') === 'en';
+if(english){
+  document.documentElement.lang='en';
+  document.title='Note title | CYPRON';
+  const setText=(selector,value)=>{const el=document.querySelector(selector);if(el)el.textContent=value};
+  const setHtml=(selector,value)=>{const el=document.querySelector(selector);if(el)el.innerHTML=value};
+  setText('.navlinks a[href="../index.html#company"]','ABOUT');
+  setText('.navlinks a[href="../index.html#product"]','PRODUCT');
+  setText('.navlinks .on','INSIGHTS');
+  setText('.nav-demo','REQUEST A DEMO');
+  setText('.note-nav .nn-lab','Notes');
+  setHtml('.note-nav a.cur','<b>YYYY.MM.DD</b>New note title');
+  setHtml('.note-nav .term-note','<b>2026.08.23</b>AI Summit Terminology Guide');
+  setHtml('.note-nav .summit-note','<b>2026.08.21</b>August 2026 AI Summit Review');
+  setHtml('.nn-all','All notes &#8594;');
+  setText('.hero .lab',"FOUNDER'S NOTE · CATEGORY");
+  setHtml('.hero h1','New note <span>title</span>');
+  setText('.hero .dek','Write a short introduction to the note here.');
+  document.querySelector('.nn-all').href='index.html?lang=en';
+  document.querySelectorAll('.note-nav ol a').forEach((link)=>{link.href=`${link.getAttribute('href')}?lang=en`});
+  document.querySelectorAll('a[href^="../index.html"]').forEach((link)=>{link.href=link.getAttribute('href').replace('../index.html','../index.html?lang=en')});
+  const toggle=document.querySelector('.lang-toggle');
+  toggle.textContent='KO';
+  toggle.href=location.pathname;
+  toggle.setAttribute('aria-label','Switch to Korean');
+}
+const siteHeader=document.querySelector('.site-head');
+const syncHeader=()=>siteHeader.classList.toggle('scrolled',window.scrollY>40);
+syncHeader();
+window.addEventListener('scroll',syncHeader,{passive:true});
+</script>
+
+</body>
+</html>

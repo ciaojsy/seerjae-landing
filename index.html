@@ -14,16 +14,16 @@
     <style>
       @font-face { font-family:"CYPRON Korean"; src:local("Malgun Gothic"),local("맑은 고딕"),local("Apple SD Gothic Neo"),local("Noto Sans CJK KR"),local("Noto Sans KR"); font-style:normal; font-weight:100 900; unicode-range:U+1100-11FF,U+3130-318F,U+AC00-D7AF,U+A960-A97F,U+D7B0-D7FF; }
       @font-face { font-family:"CYPRON Latin"; src:local("Calibri"),local("Aptos"),local("Arial"); font-style:normal; font-weight:100 900; unicode-range:U+0000-024F,U+1E00-1EFF,U+2000-206F,U+20A0-20CF; }
-      :root { --ink:#2c3d3a; --navy:#d0d6d4; --deeppink_org_accent:#CE9178; --deeppink_accent:#be7152; --blue:#3b6edb; --sky:#adc9b6; --mint:#dcebdc; --paper:#dfe6da; --line:#d5ded5; --muted:#60716a; }
+      :root { --ink:#2c3d3a; --navy:#d0d6d4; --deeppink_org_accent:#be7152; --deeppink_accent:#be7152; --blue:#be7152; --sky:#be7152; --mint:#be7152; --paper:#dfe6da; --line:#d5ded5; --muted:#60716a; }
       * { box-sizing:border-box; }
       body *,body *::before,body *::after { font-family:"CYPRON Korean","CYPRON Latin",sans-serif !important; }
       html { scroll-behavior:smooth; }
       body { margin:0; color:var(--ink); background:var(--paper); font-family:"CYPRON Korean",Manrope,sans-serif; word-break:keep-all; }
       a { color:inherit; text-decoration:none; }
       .wrap { width:min(1160px, calc(100% - 48px)); margin:0 auto; }
-      .eyebrow { display:block; margin-bottom:18px; color:var(--deeppink_accent); font:500 14px/1.2 "CYPRON Korean","DM Mono",monospace; letter-spacing:.11em; text-transform:uppercase; }
+      .eyebrow { display:block; margin-bottom:18px; color:var(--deeppink_accent); font:700 14px/1.2 Manrope,sans-serif !important; letter-spacing:.11em; text-transform:uppercase; }
       .button { display:inline-flex; align-items:center; justify-content:center; gap:10px; border:1px solid transparent; border-radius:4px; padding:15px 20px; font-size:15px; font-weight:600; transition:.2s ease; cursor:pointer; }
-      .button.primary { background:var(--deeppink_accent); color:#fff; box-shadow:0 12px 24px rgba(229,161,126,.22); }
+      .button.primary { background:var(--deeppink_accent); color:#fff; box-shadow:0 12px 24px rgba(190,113,82,.22); }
       .button.primary:hover { background:rgba(22,43,38,.93); color:#fff; transform:translateY(-1px); }
       .button.secondary { border-color:rgba(255,255,255,.35); color:#fff; }
       .button.secondary:hover { border-color:#fff; background:rgba(255,255,255,.1); }
@@ -37,17 +37,17 @@
       .brand small { margin-left:8px; color:#d0e1d5; font:500 10px/1 "DM Mono",monospace; letter-spacing:.07em; vertical-align:middle; }
       .navlinks { display:flex; align-items:center; gap:28px; font-size:15px; font-weight:500; }
       .navlinks a { transition:color .2s ease; }
-      .navlinks a.on { color:#e5a17e; }
+      .navlinks a.on { color:#be7152; }
       .navlinks .nav-demo { padding:9px 13px; border:1px solid rgba(255,255,255,.4); border-radius:3px; }
-      .navlinks .nav-demo.on { color:#e5a17e; border-color:#e5a17e; }
+      .navlinks .nav-demo.on { color:#be7152; border-color:#be7152; }
       .hero { position:relative; min-height:780px; overflow:hidden; color:#fff; background:radial-gradient(circle at 75% 35%, #718f7b 0, #466657 27%, #243d36 58%, #162b26 100%); }
       .hero:after { content:""; position:absolute; inset:0; opacity:.18; background-image:linear-gradient(rgba(255,255,255,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.35) 1px,transparent 1px); background-size:64px 64px; mask-image:linear-gradient(90deg,transparent,black 35%,black 90%,transparent); }
       .hero-inner { position:relative; z-index:1; padding:182px 0 80px; }
       .hero-copy { width:100%; }
       .hero .eyebrow { color:var(--sky); }
       h1,h2,h3,p { margin-top:0; }
-      h1 { margin-bottom:24px; font-size:clamp(42px,6vw,76px); line-height:1.13; letter-spacing:-.065em; font-weight:500; }
-      .hero h1 { font-size:clamp(26px,4vw,48px); white-space:nowrap; }
+      h1 { margin-bottom:24px; font-size:clamp(38px,6vw,68px); line-height:1.13; letter-spacing:-.065em; font-weight:500; }
+      .hero h1 { font-size:clamp(24px,4vw,44px); white-space:nowrap; }
       .lead { max-width:810px; margin-bottom:34px; color:#d7e8fb; font-size:18px; line-height:1.75; }
       .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
       .signal-card { position:absolute; right:max(24px, calc((100vw - 1160px)/2)); bottom:75px; z-index:1; width:360px; padding:24px; background:rgba(21,48,40,.76); border:1px solid rgba(220,235,220,.43); border-radius:8px; box-shadow:0 25px 70px rgba(0,0,0,.24); backdrop-filter:blur(12px); }
@@ -55,7 +55,7 @@
       .live { color:var(--mint); } .live:before { content:""; display:inline-block; width:7px; height:7px; margin-right:7px; border-radius:50%; background:var(--mint); box-shadow:0 0 12px var(--mint); }
       .chart { height:100px; display:flex; align-items:flex-end; gap:5px; border-bottom:1px solid rgba(255,255,255,.25); }
       .chart i { display:block; flex:1; background:linear-gradient(180deg,#c9dacb,#6a9477); opacity:.8; border-radius:1px 1px 0 0; }
-      .chart i.alert { background:linear-gradient(180deg,#f0bea5,var(--deeppink_accent)); box-shadow:0 0 17px rgba(229,161,126,.55); }
+      .chart i.alert { background:var(--deeppink_accent); box-shadow:0 0 17px rgba(190,113,82,.55); }
       .signal-note { margin:14px 0 0; color:#fff; font-size:13px; line-height:1.5; } .signal-note strong { color:var(--mint); }
       section { padding:70px 0; }
       h2 { margin-bottom:20px; font-size:clamp(22px,4.2vw,38px); line-height:1.22; letter-spacing:-.055em; font-weight:500;}
@@ -69,7 +69,7 @@
       .proof-text em { color:var(--deeppink_accent); font-style:normal; }
       .proof-facts { display:grid; gap:16px; }
       .fact { padding:18px 0; border-top:1px solid var(--line); } .fact b { display:block; margin-bottom:6px; font:500 21px/1.2 "DM Mono",monospace; color:var(--deeppink_accent); letter-spacing:.08em; } .fact span { font-size:16px; line-height:1.6; color:var(--muted); }
-      .philosophy { background:#e8efe7; }
+      .philosophy { background:#edf0ed; }
       .philosophy-grid { display:grid; grid-template-columns:1fr; gap:72px; align-items:start; }
       .philosophy-mark { padding-top:8px; color:var(--deeppink_accent); font:500 15px/1.5 "DM Mono",monospace; letter-spacing:.08em; }
       .philosophy-quote { max-width:760px; margin-bottom:20px; font-size:clamp(22px,3.5vw,38px); line-height:1.35; letter-spacing:-.055em; font-weight:500; }
@@ -78,11 +78,11 @@
       .process .eyebrow { color:var(--deeppink_accent); }
       .process-head { display:block; margin-bottom:55px; }
       .process .section-intro { max-width:1000px; margin:0; color:var(--muted); }
-      .steps { display:grid; grid-template-columns:repeat(5,1fr); }
-      .step { position:relative; min-height:230px; padding:25px 22px 20px; border-left:1px solid var(--line); }
+      .steps { display:grid; grid-template-columns:repeat(5,1fr); align-items:start; }
+      .step { position:relative; padding:25px 22px 20px; border-left:1px solid var(--line); }
       .step:first-child { border-left:0; }
-      .step-no { color:var(--deeppink_accent); font:500 13px/1 "DM Mono",monospace; } .step h3 { margin:15px 0 12px; font-size:21px; letter-spacing:-.04em; } .step p { margin:0; color:var(--muted); font-size:16px; line-height:1.65; }
-      .difference { background:#e5ece4; }
+      .step h3 { margin:0 0 12px; font-size:21px; letter-spacing:-.04em; } .step p { margin:0; color:var(--muted); font-size:16px; line-height:1.65; }
+      .difference { background:#f0f7f0; }
       .comparison { margin-top:52px; display:grid; grid-template-columns:1fr 1.15fr; border-top:1px solid #b8c9ba; }
       .compare-box { padding:35px 38px 42px; border-bottom:1px solid #b8c9ba; }
       .compare-box.old { border-right:1px solid #b8c9ba; }
@@ -90,7 +90,7 @@
       .compare-label { display:block; margin-bottom:26px; font:500 13px/1 "DM Mono",monospace; letter-spacing:.08em; color:var(--muted); }
       .compare-box strong { display:block; margin-bottom:15px; font-size:28px; letter-spacing:-.045em; } .compare-box p { margin:0; color:var(--muted); line-height:1.7; }
       .compare-box.current strong { color:var(--deeppink_accent); } .flow { margin-top:18px; color:var(--ink); font:500 14px/1.5 "DM Mono",monospace; word-spacing:-2px; }
-      .why { background:#d0d6d4; } .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+      .why { background:#f7f7f7; } .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
       .why-item { padding-top:22px; border-top:2px solid var(--ink); } .why-item b { display:block; margin-bottom:12px; font-size:20px; letter-spacing:-.035em; } .why-item p { margin:0; color:var(--muted); font-size:15px; line-height:1.7; }
       .insight { padding:0; background:#fff; }
       .insight-in { display:grid; grid-template-columns:1fr; gap:36px; align-items:center; padding:38px 0 92px; border-top:1px solid var(--line); }
@@ -107,12 +107,12 @@
       form { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
       .field.full { grid-column:1/-1; } label { display:block; margin-bottom:8px; color:#d5e1d7; font-size:14px; font-weight:500; } input,select,textarea { width:100%; padding:13px; color:#fff; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.24); border-radius:3px; outline:0; font:14px "Noto Sans KR",sans-serif; } select option { color:var(--ink); } textarea { min-height:100px; resize:vertical; } input:focus,select:focus,textarea:focus { border-color:var(--mint); box-shadow:0 0 0 3px rgba(220,235,220,.12); } .consent { grid-column:1/-1; display:flex; align-items:flex-start; gap:8px; color:#d1ddd3; font-size:13px; line-height:1.55; } .consent input { width:15px; margin:2px 0 0; accent-color:var(--blue); } .form-note { grid-column:1/-1; margin:0; color:#d1ddd3; font-size:13px; line-height:1.5; } .form-status { grid-column:1/-1; min-height:20px; margin:0; color:var(--mint); font-size:13px; }
       footer { padding:25px 0; color:#aabaae; background:#162b26; font:14px/1.5 "DM Mono",monospace; } 
-      .brand small,.signal-top,.fact b,.philosophy-mark,.step-no,.compare-label,.flow,input,select,textarea,footer { font-family:"CYPRON Korean","DM Mono",monospace; }
+      .brand small,.signal-top,.fact b,.philosophy-mark,.compare-label,.flow,input,select,textarea,footer { font-family:"CYPRON Korean","DM Mono",monospace; }
       .footer-row { display:flex; justify-content:space-between; gap:20px; } 
       footer b { color:#deebdf; font-size:15px;font-weight:500;}      
 
       @media (max-width:850px) { .navlinks { display:none; } .hero { min-height:760px; } .hero h1 { white-space:normal; } .signal-card { right:24px; bottom:32px; width:min(360px,calc(100% - 48px)); } .proof-grid,.philosophy-grid,.contact-grid,.insight-in { grid-template-columns:1fr; gap:35px; } .proof-grid > div:first-child { transform:none; } .steps { grid-template-columns:repeat(2,1fr); } .step:nth-child(3) { border-left:0; } .comparison { grid-template-columns:1fr; } .compare-box.old { border-right:0; } }
-      @media (max-width:560px) { section[id], main[id], footer[id] { scroll-margin-top:74px; } .wrap { width:min(100% - 32px,1160px); } .nav { height:66px; } .brand small { display:none; } .hero-inner { padding-top:135px; } .hero { min-height:810px; } h1 { font-size:43px; } .lead { font-size:16px; } section { padding:76px 0; } .process-head { display:block; } .steps,.why-grid,form { grid-template-columns:1fr; } .step,.step:nth-child(3) { border-left:0; } .step { min-height:0; padding:20px 0 28px; } .step h3 { margin-top:28px; } .compare-box { padding:28px 20px; } .signal-card { padding:19px; } .contact-grid { gap:38px; } .footer-row { display:block; } }
+      @media (max-width:560px) { section[id], main[id], footer[id] { scroll-margin-top:74px; } .wrap { width:min(100% - 32px,1160px); } .nav { height:66px; } .brand small { display:none; } .hero-inner { padding-top:135px; } .hero { min-height:810px; } h1 { font-size:43px; } .lead { font-size:16px; } section { padding:76px 0; } .process-head { display:block; } .steps,.why-grid,form { grid-template-columns:1fr; } .step,.step:nth-child(3) { border-left:0; } .step { min-height:0; padding:20px 0 28px; } .step p,.fact span { font-size:18px; line-height:1.7; } .compare-box { padding:28px 20px; } .signal-card { padding:19px; } .contact-grid { gap:38px; } .footer-row { display:block; } }
     </style>
   </head>
   <body>
@@ -128,7 +128,7 @@
           <div class="hero-copy">
             <span class="eyebrow">CYPRON | Equipment Intelligence Platform</span>
             <h1 id="hero-title">알람이 울릴 때는 이미 라인이 멈춘 뒤입니다.</h1>
-            <p class="lead">로그 데이터에서 이상 현상 분석 후, 진단·예측·보정·검증으로 연결하는 플랫폼</p>
+            <p class="lead">로그 데이터에서 이상 현상 분석 · 진단 · 예측 · 보정 · 검증으로 연결하는 플랫폼</p>
             <div class="hero-actions"><a class="button primary" href="#demo">무료 데모 신청 <span class="arrow">→</span></a><a class="button secondary" href="#product">CYPRON 알아보기</a></div>
           </div>
         </div>
@@ -153,19 +153,19 @@
 
       <section class="process" id="product">
         <div class="wrap"><div class="process-head"><div><span class="eyebrow">Closed-loop intelligence</span><h2>감지에서 상태 회복까지 하나의 흐름으로</h2></div><p class="section-intro">도입은 Detect·Diagnose·Predict부터 시작하고, 고객 준비 상황에 맞춰 Correct·Verify까지 단계적으로 확장할 수 있습니다.</p></div>
-          <div class="steps"><article class="step"><span class="step-no">01</span><h3>Detect</h3><p>임계값 이전의 변화와 반복 패턴 포착</p></article><article class="step"><span class="step-no">02</span><h3>Diagnose</h3><p>압력·온도·전류·로그를 하나의 맥락에서 분석</p></article><article class="step"><span class="step-no">03</span><h3>Predict</h3><p>부품·센서 관계를 바탕으로 원인 위치 예측</p></article><article class="step"><span class="step-no">04</span><h3>Correct</h3><p>승인된 범위 안에서 운전 파라미터 보정</p></article><article class="step"><span class="step-no">05</span><h3>Verify</h3><p>보정 후 정상 상태 복귀 여부 확인</p></article></div>
+          <div class="steps"><article class="step"><h3>Detect</h3><p>임계값 이전의 변화와 반복 패턴 포착</p></article><article class="step"><h3>Diagnose</h3><p>압력·온도·전류·로그를 하나의 맥락에서 분석</p></article><article class="step"><h3>Predict</h3><p>부품·센서 관계를 바탕으로 원인 위치 예측</p></article><article class="step"><h3>Correct</h3><p>승인된 범위 안에서 운전 파라미터 보정</p></article><article class="step"><h3>Verify</h3><p>보정 후 정상 상태 복귀 여부 확인</p></article></div>
         </div>
       </section>
 
-      <section class="difference" id="difference"><div class="wrap"><span class="eyebrow">Beyond PHM / PdM</span><h2>예측을 넘어선 설비 안정화</h2><p class="section-intro">CYPRON은 판단을 돕는 데서 끝나지 않고, 허용된 운전 범위 안에서 정상 상태 복귀까지 이어지는 closed loop를 지향합니다.</p><div class="comparison"><article class="compare-box old"><span class="compare-label">PHM / PdM</span><strong>예측과 의사결정</strong><p>고장 예측과 유지보수 의사결정 지원</p><p class="flow">Detect → Diagnose → Prognose → Decide</p></article><article class="compare-box current"><span class="compare-label">CYPRON</span><strong>상태 회복형 설비 지능화</strong><p>전조 감지부터 보정 후 정상 복귀 확인까지 연결</p><p class="flow">Detect → Diagnose → Predict → Correct → Verify</p></article></div></div></section>
+      <section class="difference" id="difference"><div class="wrap"><span class="eyebrow">Beyond PHM / PdM</span><h2>예측을 넘어선 설비 안정화</h2><p class="section-intro">CYPRON은 판단을 돕는 데서 끝나지 않고, 허용된 운전 범위 안에서 정상 상태 복귀까지 이어지는 closed loop를 지향합니다.</p><div class="comparison"><article class="compare-box old"><span class="compare-label">PHM / PdM</span><strong>예측과 의사결정</strong><p>고장 예측과 유지보수 의사결정 지원</p></article><article class="compare-box current"><span class="compare-label">CYPRON</span><strong>상태 회복형 설비 지능화</strong><p>전조 감지부터 보정 후 정상 복귀 확인까지 연결</p></article></div></div></section>
 
       <section class="why"><div class="wrap"><span class="eyebrow">Start simply</span><h2>연동은 가볍게 확장은 필요한 만큼</h2><div class="why-grid"><article class="why-item"><b>로그 포맷이 달라도</b><p>템플릿 1건과 샘플 로그로 연동을 시작할 수 있습니다.</p></article><article class="why-item"><b>별도 개발 기간 없이</b><p>현장 데이터를 기반으로 빠르게 적용 가능성을 검토합니다.</p></article><article class="why-item"><b>준비 상황에 맞춰</b><p>초기 분석부터 보정·검증까지 도입 단계를 함께 설계합니다.</p></article></div></div></section>
 
       <section class="insight" id="insights"><div class="wrap insight-in">
-        <div><span class="eyebrow">Founder's note &nbsp;·&nbsp; 최신 글</span><h3><a href="insights/2026_ai_summit.html">2026년 8월 AI Summit 후기</a></h3><p>사흘간 코엑스에서 IR 피칭 5개사와 기술 세션 10개, 슬라이드 137장. 설비 소프트웨어를 만드는 창업자의 시선으로 정리한 현장 노트입니다. <a class="more" href="insights/index.html">인사이트 전체 보기 &#8594;</a></p></div>
+        <div><span class="eyebrow">Founder's note &nbsp;·&nbsp; 최신 글</span><h3><a href="insights/ai_summit_terms.html">AI Summit 용어 정리</a></h3><p>AI Summit 현장 노트에 사용한 제품 검증, 계약, 매출, 가격, 투자, 기술 및 데이터 용어를 실무 관점에서 정리했습니다.</p></div>
       </div></section>
 
-      <section class="contact" id="demo"><div class="wrap contact-grid"><div><span class="eyebrow">Request a free demo</span><h2>설비 데이터에서<br>솔루션을 드립니다.</h2><p class="section-intro">현재 설비 환경과 해결 과제를 바탕으로 PoC 가능성을 검토합니다.<br>내용을 남겨 주시면 담당자가 연락드립니다.</p></div>
+      <section class="contact" id="demo"><div class="wrap contact-grid"><div><span class="eyebrow">Request a free demo</span>무료 데모 신청부터 기술 문의까지, <br>궁금한 사항을 남겨주시면 담당자가 연락드립니다.</div>
         <form id="demo-form" novalidate>
           <div class="field"><label for="company">회사명 *</label><input id="company" name="company" required autocomplete="organization" /></div>
           <div class="field"><label for="name">담당자명 *</label><input id="name" name="name" required autocomplete="name" /></div>
@@ -209,8 +209,8 @@
         const compare = document.querySelectorAll('.compare-box'); setText('.compare-box.old .compare-label', 'PHM / PdM'); setText('.compare-box.old strong', 'Prediction and decisions'); setText('.compare-box.old p:not(.flow)', 'Supports failure prediction and maintenance decisions.'); setText('.compare-box.current .compare-label', 'CYPRON'); setText('.compare-box.current strong', 'State-restoring Equipment Intelligence'); setText('.compare-box.current p:not(.flow)', 'Connects early detection through confirmation of recovery to normal state.');
         setText('.why .eyebrow', 'Start simply'); setHtml('.why h2', 'Lightweight connection,<br />scalable when you are ready.');
         [['Even with different log formats','Start integration with one template and a sample log.'],['Without a custom development cycle','Quickly assess applicability using on-site data.'],['Expand for your readiness','Design a path from initial analysis through correction and verification.']].forEach((item, index) => { const why = document.querySelectorAll('.why-item')[index]; why.querySelector('b').textContent = item[0]; why.querySelector('p').textContent = item[1]; });
-        setHtml('.insight .eyebrow', "Founder's note &nbsp;·&nbsp; Latest"); setHtml('.insight h3', '<a href="insights/2026_ai_summit.html?lang=en">Field notes: AI Summit Seoul, August 2026</a>'); setHtml('.insight p', 'Three days at COEX: five IR pitches, ten technical sessions, 137 slides. Notes from a founder building equipment software. <a class="more" href="insights/index.html?lang=en">All insights &#8594;</a>');
-        setText('.contact .eyebrow', 'Request a free demo'); setHtml('.contact h2', 'We find answers in your<br />equipment data.'); setText('.contact .section-intro', 'We will review the demo and PoC opportunity with you. Tell us about your equipment environment and the challenge you want to solve.');
+        setHtml('.insight .eyebrow', "Founder's note &nbsp;·&nbsp; Latest"); setHtml('.insight h3', '<a href="insights/ai_summit_terms.html?lang=en">AI Summit Terminology Guide</a>'); setHtml('.insight p', 'A practical guide to the product validation, contracts, revenue, pricing, investment, technology, and data terms used in our AI Summit field notes.');
+        setText('.contact .eyebrow', 'Request a free demo'); setHtml('.contact h2', 'We provide solutions in your<br />equipment data.'); setText('.contact .section-intro', 'We will review the demo and PoC opportunity with you. Tell us about your equipment environment and the challenge you want to solve.');
         [['company','Company *'],['name','Name *'],['email','Work email *'],['phone','Phone']].forEach(([id, text]) => setText(`label[for="${id}"]`, text)); setText('label[for="interest"]', 'Inquiry type *'); setText('label[for="message"]', 'Current challenge or inquiry');
         const options = document.querySelectorAll('#interest option'); ['Please select','Request a free demo','PoC / implementation consulting','Technical inquiry','Other'].forEach((text, index) => options[index].textContent = text); document.querySelector('#message').placeholder = 'Tell us about the equipment, data environment, or issue you want to address.';
         setHtml('.consent span', 'I agree to the collection and use of personal information for inquiry response. <a href="#privacy-policy"><u>Privacy policy</u></a>'); setHtml('#demo-form button', 'Send demo request <span class="arrow">→</span>'); setText('.form-note', '* Required fields. Before launch, connect a privacy policy and a receiving email address or form service.'); setHtml('footer .footer-row span:first-child', '<b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae'); setHtml('footer .footer-row span:last-child', '<a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.');

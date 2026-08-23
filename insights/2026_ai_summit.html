@@ -39,18 +39,18 @@
   --faint:#828b99;
   --rule:#d4d9e1;
   --rule-soft:#e4e8ed;
-  --blue:#23407a;
+  --blue:#be7152;
   --blue-wash:#e2e8f4;
-  --brick:#a2382a;
+  --brick:#be7152;
   --brick-wash:#f6e6e2;
   --slide-bg:#20262e;
   --slide-fg:#eef1f6;
   --slide-dim:#ffeadb;
-  --slide-accent:#e6a46b;
+  --slide-accent:#be7152;
   --shadow:0 14px 34px rgba(20,23,29,.08);
-  --hl-yellow:#f2c94c;
-  --hl-yellow-b:#ffe08a;
-  --hl-neon:#b3f53a;
+  --hl-yellow:#be7152;
+  --hl-yellow-b:#be7152;
+  --hl-neon:#be7152;
   --kr:"CYPRON Korean",system-ui,sans-serif;
   --serif:var(--kr);
   --sans:var(--kr);
@@ -66,18 +66,18 @@
     --faint:#79828f;
     --rule:#282f3b;
     --rule-soft:#1f2530;
-    --blue:#95aede;
+    --blue:#be7152;
     --blue-wash:#1a2437;
-    --brick:#e08d78;
+    --brick:#be7152;
     --brick-wash:#2c1f1c;
     --slide-bg:#1b202a;
     --slide-fg:#e7eaf1;
     --slide-dim:#98a1b1;
-    --slide-accent:#db9f6b;
+    --slide-accent:#be7152;
     --shadow:0 14px 34px rgba(0,0,0,.34);
-    --hl-yellow:#f2c94c;
-    --hl-yellow-b:#ffe08a;
-    --hl-neon:#b3f53a;
+    --hl-yellow:#be7152;
+    --hl-yellow-b:#be7152;
+    --hl-neon:#be7152;
   }
 }
 :root[data-theme="dark"]{
@@ -89,18 +89,18 @@
   --faint:#79828f;
   --rule:#282f3b;
   --rule-soft:#1f2530;
-  --blue:#95aede;
+  --blue:#be7152;
   --blue-wash:#1a2437;
-  --brick:#e08d78;
+  --brick:#be7152;
   --brick-wash:#2c1f1c;
   --slide-bg:#1b202a;
   --slide-fg:#e7eaf1;
   --slide-dim:#98a1b1;
-  --slide-accent:#e5a17e;
+  --slide-accent:#be7152;
   --shadow:0 14px 34px rgba(0,0,0,.34);
-  --hl-yellow:#f2c94c;
-  --hl-yellow-b:#ffe08a;
-  --hl-neon:#b3f53a;
+  --hl-yellow:#be7152;
+  --hl-yellow-b:#be7152;
+  --hl-neon:#be7152;
 }
 
 *{box-sizing:border-box}
@@ -117,11 +117,11 @@ p{margin:0}
 p+p{margin-top:15px}
 a{color:var(--brick)}
 
-.lab{font:500 14px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--brick);max-width:600px;}
+.lab{font:700 16px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--brick);max-width:600px;}
 
 /* ---- opening ---- */
 .hero{border-bottom:1px solid var(--rule);background:var(--card)}
-.hero h1{font-size:clamp(34px,5.6vw,60px);line-height:1.18;margin:20px 0 0}
+.hero h1{font-size:clamp(28px,5.6vw,40px);line-height:1.18;margin:20px 0 0}
 .hero h1 span{color:var(--slide-accent)}
 .hero-in {
   width:min(900px, calc(100% - max(0px, (100% - 720px)/2)));
@@ -154,8 +154,8 @@ a{color:var(--brick)}
 /* ---- parts ---- */
 .part{padding:66px 0 12px;border-bottom:1px solid var(--rule-soft)}
 .part:last-of-type{border-bottom:0}
-.part-no{font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--brick)}
-.part h2{font-size:clamp(24px,3.4vw,34px);margin:14px 0 0}
+#p4{border-top:1px solid var(--rule)}
+.part h2{font-size:clamp(18px,3.4vw,28px);margin:14px 0 0}
 .part .stand{margin-top:16px;font-size:16.5px;color:var(--muted);max-width:85ch}
 .part .col>*:first-child{margin-top:0}
 
@@ -166,7 +166,7 @@ ul,ol.plain{margin:14px 0 0;padding-left:19px;display:grid;gap:9px}
 li::marker{color:var(--faint)}
 .tight li{line-height:1.72}
 
-.em{background:linear-gradient(transparent 60%,var(--brick-wash) 60%);padding:0 1px;font-weight:700}
+.em{color:var(--deeppink-accent);padding:0 1px;font-weight:700}
 .accent{color:var(--deeppink-accent);font-weight:700}
 
 /* ---- slide quote ---- */
@@ -240,21 +240,21 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   .brand { font:700 25px/1 Manrope,sans-serif; letter-spacing:-.05em; }
   .navlinks { display:flex; align-items:center; gap:28px; font-family:"CYPRON Korean",Manrope,sans-serif; font-size:15px; font-weight:500; }
   .navlinks .nav-demo { padding:9px 13px; border:1px solid rgba(255,255,255,.4); border-radius:3px; }
-  .navlinks .nav-demo.on { color:#e5a17e; border-color:#e5a17e; }
-  .navlinks .on { color:#e5a17e; }
+  .navlinks .nav-demo.on { color:#be7152; border-color:#be7152; }
+  .navlinks .on { color:#be7152; }
   .part[id] { scroll-margin-top:88px; }
   /* 좌측 노트 목록. 본문(720px) 바깥 여백에 고정하고, 자리가 없으면 숨깁니다. */
   .note-nav { position:fixed; z-index:10; top:118px; left:max(24px, calc((100vw - 720px)/2 - 244px)); width:204px; }
-  .note-nav .nn-lab { display:block; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--rule); color:var(--faint); font:500 11px/1 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+  .note-nav .nn-lab { display:block; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--rule); color:var(--faint); font:500 14px/1.5 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
   .note-nav ol { margin:0; padding:0; list-style:none; }
   .note-nav li { margin-bottom:15px; }
-  .note-nav a { display:block; color:var(--muted); font-size:13.5px; line-height:1.5; text-decoration:none; transition:color .15s ease; }
-  .note-nav a b { display:block; margin-bottom:4px; color:var(--faint); font:500 10.5px/1 var(--mono); letter-spacing:.05em; }
+  .note-nav a { display:block; color:var(--muted); font-family:Manrope,"Malgun Gothic",sans-serif !important; font-size:14px; font-weight:500; line-height:1.5; text-decoration:none; transition:color .15s ease; }
+  .note-nav a b { display:block; margin-bottom:4px; color:var(--faint); font:500 14px/1.5 var(--mono); letter-spacing:.05em; }
   .note-nav a:hover { color:var(--ink); }
   .note-nav a.cur { color:var(--deeppink-accent); font-weight:700; }
   .note-nav a.cur b { color:var(--deeppink-accent); }
-  .note-nav .nn-all { display:block; margin-top:4px; padding-top:13px; border-top:1px solid var(--rule-soft); color:var(--faint); font:500 11px/1 var(--mono); letter-spacing:.06em; text-decoration:none; }
-  .note-nav .nn-all:hover { color:var(--ink); }
+  .note-nav .nn-all { display:block; margin-top:4px; padding-top:13px; border-top:1px solid var(--rule-soft); color:var(--faint); font:500 14px/1.5 var(--mono); letter-spacing:.06em; text-decoration:none; }
+  .note-nav .nn-all:hover { color:var(--deeppink-accent); }
   @media (max-width:1239px) { .note-nav { display:none; } }
   .site-foot { padding:25px 0; color:#aabaae; background:#162b26; font:13px/1.5 "CYPRON Korean","DM Mono",monospace; }
   .site-foot-in { width:min(1160px, calc(100% - 48px)); margin:0 auto; display:flex; justify-content:space-between; gap:20px; }
@@ -286,9 +286,8 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   <span class="nn-lab">노트 목록</span>
   <!-- ▼ 새 글은 <li> 를 복사해 맨 위에 붙이고, 이전 글의 class="cur" 와 aria-current 를 지우세요. -->
   <ol>
-    <li><a href="test_2.html"><b>2026.08.22</b>Test 2</a></li>
-    <li><a href="test.html"><b>2026.08.22</b>Test</a></li>
-    <li><a class="cur" href="2026_ai_summit.html" aria-current="page"><b>2026.08.21</b>2026년 8월 AI Summit 후기</a></li>
+    <li><a class="term-note" href="ai_summit_terms.html"><b>2026.08.23</b>AI Summit 용어 정리</a></li>
+    <li><a class="cur summit-note" href="2026_ai_summit.html" aria-current="page"><b>2026.08.21</b>2026년 8월 AI Summit 후기</a></li>
   </ol>
   <a class="nn-all" href="index.html">전체 보기 &#8594;</a>
 </aside>
@@ -328,8 +327,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 <!-- 01 -->
 <section class="part" id="p1">
   <div class="wrap col">
-    <span class="part-no">01</span>
-    <h2>다섯 개의 IR 자료에서 뽑아낸 공통 규칙</h2>
+    <h2>01. 다섯 개의 IR 자료에서 뽑아낸 공통 규칙</h2>
     <p class="stand">AI Innovation IR Pitching Day에서 발표를 진행한 스타트업의 도메인은 겹치는 곳이 하나도 없었습니다. 하드웨어 설계 AI, 제조 운영 레이어, 기기 내장형 보안, 심전도 AI, 바이오. 설득의 구조는 모두 같은 곳을 향하고 있었습니다.</p>
 
     <div class="slide">
@@ -376,8 +374,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 <!-- 02 -->
 <section class="part" id="p2">
   <div class="wrap col">
-    <span class="part-no">02</span>
-    <h2>가격표 — 실제로 얼마를 받고 있나</h2>
+    <h2>02. 가격표 — 실제로 얼마를 받고 있나</h2>
     <p class="stand">B2B 창업자에게 가장 구하기 어려운 정보가 타사의 가격표입니다. 이번 IR에서는 세 곳이 실제 단가를 공개했습니다. 세 곳의 구조가 서로 달랐지만 그 차이에서 배울 점이 있었습니다.</p>
 
     <div class="tw">
@@ -420,8 +417,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 <!-- 03 -->
 <section class="part" id="p3">
   <div class="wrap col">
-    <span class="part-no">03</span>
-    <h2>고객은 가까이에 있다</h2>
+    <h2>03. 고객은 가까이에 있다</h2>
     <p class="stand">실리콘밸리에서 두 번 창업한 분의 세션이 이번 서밋에서 가장 실용적이었습니다.</p>
 
     <div class="slide">
@@ -475,8 +471,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 <!-- 04 -->
 <section class="part" id="p4">
   <div class="wrap col">
-    <span class="part-no">04</span>
-    <h2>15영업일 PoV, 그리고 GO / 보완 / STOP</h2>
+    <h2>04. 15영업일 가치 검증과 도입 판단</h2>
     <p class="stand"><b>PoV는 Proof of Value, 가치 증명입니다.</b> 기술적으로 되는지를 보는 PoC(Proof of Concept, 개념 증명)와 달리, "우리 돈 주고 살 가치가 있나"를 고객사의 숫자로 판정합니다.</p>
 
     <div class="slide">
@@ -518,8 +513,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 <!-- 05 -->
 <section class="part" id="p5">
   <div class="wrap col">
-    <span class="part-no">05</span>
-    <h2>두 번째 고객에서 제품인지 용역인지 갈린다</h2>
+    <h2>05. 두 번째 고객에서 제품인지 용역인지 갈린다</h2>
     <p class="stand">B2B 딥테크에서 가장 자주 나오는 심사역 질문이 "그거 결국 SI 아닌가요?"입니다. 이번에 그 질문에 답하는 방식을 두 곳이 각각 보여줬습니다.</p>
 
     <h3>퓨처워크랩: 지식을 3층으로 쪼갠다</h3>
@@ -557,8 +551,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 <!-- 06 -->
 <section class="part" id="p6">
   <div class="wrap col">
-    <span class="part-no">06</span>
-    <h2>좁고 깊게 — 문제 정의의 단계</h2>
+    <h2>06. 좁고 깊게 — 문제 정의의 단계</h2>
     <p class="stand">기조 세션에서 나온 예시인데, 반도체를 몰라도 단계 자체가 그대로 쓰입니다.</p>
 
     <div class="tw">
@@ -591,8 +584,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 <!-- 07 -->
 <section class="part" id="p7">
   <div class="wrap col">
-    <span class="part-no">07</span>
-    <h2>AI기본법은 이미 시행 중이다</h2>
+    <h2>07. AI기본법은 이미 시행 중이다</h2>
     <p class="stand">기술 세션에서 가장 반복적으로 언급된 날짜가 <b>2026년 1월 22일</b>이었습니다. AI기본법 시행일입니다. 여러 발표자가 같은 표현을 썼습니다. "근거의 문서화가 법적 요건이 됐다."</p>
 
     <h3>위험 등급에 따라 자율성을 설계한다</h3>
@@ -621,8 +613,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 <!-- 08 -->
 <section class="part" id="p8">
   <div class="wrap col">
-    <span class="part-no">08</span>
-    <h2>투자는 AI에 몰려도, 평가는 사업의 숫자로 한다</h2>
+    <h2>08. 투자는 AI에 몰려도, 평가는 사업의 숫자로 한다</h2>
     <p class="stand">투자 동향 세션의 숫자를 보면 놀랍습니다. 2026년 상반기 글로벌 벤처투자 <b>$510B(약 709조 원)</b>, 2025년 연간 전체($440B, 약 612조 원)를 여섯 달 만에 넘겼습니다. 1분기 기준 <b>AI가 글로벌 벤처펀딩의 81%</b>, 2년 전에는 30%대였습니다.</p>
     <p>같은 세션의 마지막 장은 또 다른 흐름을 보여주었습니다.</p>
     <div class="slide">
@@ -715,7 +706,8 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
     document.querySelector('.site-head nav').setAttribute('aria-label', 'Main navigation');
     document.querySelector('.note-nav').setAttribute('aria-label', 'Notes list');
     setHtml('.note-nav .nn-lab', 'Notes');
-    setHtml('.note-nav a.cur', '<b>2026.08.21</b>August 2026 AI Summit Review');
+    setHtml('.note-nav .term-note', '<b>2026.08.23</b>AI Summit Terminology Guide');
+    setHtml('.note-nav .summit-note', '<b>2026.08.21</b>August 2026 AI Summit Review');
     setHtml('.nn-all', 'All notes &#8594;');
     document.querySelector('.nn-all').setAttribute('href', 'index.html?lang=en');
     document.querySelectorAll('.note-nav ol a').forEach((link) => {
@@ -742,7 +734,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
       'Investment may be pouring into AI, but businesses are still judged by the numbers'
     ]);
 
-    setHtml('#p1 h2', 'What five pitch decks had in common');
+    setHtml('#p1 h2', '01. What five pitch decks had in common');
     setHtml('#p1 .stand', 'The five companies on stage came from entirely different industries: hardware-design AI, a manufacturing operations layer, embedded device security, ECG AI, and biotech. Yet they all followed the same structure for making their case.');
     setAll('#p1 .slide q', [
       'Compare before and after in <em>the same unit of time</em>, then convert the time saved into <em>the customer’s cost</em>.',
@@ -774,7 +766,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
     ]);
     setHtml('#p1 .take p', 'Not a product description, but one number measured in a customer environment. Without it, the rest of the deck is meaningless. If you do not yet have revenue, <b>state with equal clarity what you have in its place.</b>');
 
-    setHtml('#p2 h2', 'The price list — what companies are actually charging');
+    setHtml('#p2 h2', '02. The price list — what companies are actually charging');
     setHtml('#p2 .stand', 'Competitors’ pricing is among the hardest information for a B2B founder to obtain. Three companies disclosed actual prices in their pitches. Their structures differed, and those differences were especially instructive.');
     setAll('#p2 thead th', ['Company', 'Pricing structure', 'Design intent']);
     setAll('#p2 tbody tr', [
@@ -790,7 +782,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
     ]);
     setHtml('#p2 .take p', 'You do not need to wait until the pricing is perfect. Define three pricing stages so that you can answer immediately when a customer asks, <b>“How much is it?”</b> Clearly distinguish which stage produces one-time revenue and where recurring revenue begins.');
 
-    setHtml('#p3 h2', 'Your first customer is already within reach');
+    setHtml('#p3 h2', '03. Your first customer is already within reach');
     setHtml('#p3 .stand', 'The most practical session at the summit came from a two-time Silicon Valley founder.');
     setAll('#p3 .slide q', [
       'The idea is not that important, and <em>what you do first is not that important either.</em> What matters is staying close to your strengths and finding forward momentum. Sometimes that requires <em>a very honest view of yourself.</em>',
@@ -829,7 +821,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
       '<b>Change the customer scope.</b> If long enterprise purchasing procedures are blocking you, first target smaller companies where the CEO can decide directly. You can begin contracting and deployment more quickly.'
     ]);
 
-    setHtml('#p4 h2', 'A 15-business-day PoV, then GO / ITERATE / STOP');
+    setHtml('#p4 h2', '04. A 15-business-day value validation and adoption decision');
     setHtml('#p4 .stand', '<b>PoV means Proof of Value.</b> Unlike a PoC (Proof of Concept), which asks whether the technology works, a PoV uses the customer’s own numbers to determine whether the solution is worth buying.');
     setHtml('#p4 .slide q', 'The deliverable of a PoV is <em>not a demo</em>, but <em>evidence</em> for deciding the next investment.');
     setHtml('#p4 .slide .src', 'Enterprise AI OS session');
@@ -852,7 +844,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
     ]);
     setHtml('#p4 .take p', '<b class="em">The key to shortening the timeline is not skipping steps, but focusing on one workflow.</b>');
 
-    setHtml('#p5 h2', 'The second customer reveals whether you have a product or a custom project');
+    setHtml('#p5 h2', '05. The second customer reveals whether you have a product or a custom project');
     setHtml('#p5 .stand', 'The most frequent investor question in B2B deep tech is, “Isn’t this ultimately just custom SI work?” Two companies demonstrated different ways to answer it.');
     setAll('#p5 h3', ['Future Work Lab: split knowledge into three layers', 'SECA: 70/30', 'Biobytes: one asset, three businesses']);
     setAll('#p5 thead th', ['Layer', 'What it contains', 'Reusable']);
@@ -871,7 +863,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
     setHtml('#p5 .slide .after', 'A flywheel is a system that accelerates itself once it begins turning. A robotics company drew this version, but the principle holds in any industry. <b>Can you prove in one diagram that the asset improves as the customer base grows?</b> That is what determines the multiple.');
     setHtml('#p5 .take p', 'If your deck can state <b>“X% reuse and Y-day deployment for the second customer in the same industry,”</b> the question <b>“Don’t you rebuild it for every customer?”</b> ends immediately. <b>The second customer reuses what is already built.</b> Less new work means fewer people, so doubling revenue does not require doubling headcount. Future Work Lab made this the <b>first proof point</b> in its 18-month milestones. If you do not yet have a second customer, that is the next goal.');
 
-    setHtml('#p6 h2', 'Narrow and deep — the stages of problem definition');
+    setHtml('#p6 h2', '06. Narrow and deep — the stages of problem definition');
     setHtml('#p6 .stand', 'This example came from a keynote session, but the stages themselves apply even if you know nothing about semiconductors.');
     setAll('#p6 thead th', ['Level', 'Question', 'State']);
     setAll('#p6 tbody tr', [
@@ -886,7 +878,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
     setHtml('#p6 .slide + p', 'Only at level five can you <b>focus on the required data, measure success, and clearly identify who will pay.</b> To a founder, level one sounds ambitious, but customers tend to tune it out.');
     setHtml('#p6 .take p', 'Check where the first sentence of your company introduction sits among these stages. <b>If it is still at level one or two, it is no surprise that customers are not buying yet.</b> Keep generality inside as an architectural principle, but communicate only the level-five problem externally.');
 
-    setHtml('#p7 h2', 'Korea’s AI Basic Act is already in force');
+    setHtml('#p7 h2', '07. Korea’s AI Basic Act is already in force');
     setHtml('#p7 .stand', 'The date repeated most often in the technical sessions was <b>January 22, 2026</b>, when Korea’s AI Basic Act took effect. Several speakers used the same phrase: “Documenting the rationale for a decision is now a legal requirement.”');
     setHtml('#p7 h3', 'Design autonomy according to risk level');
     setAll('#p7 thead th', ['Risk', 'Workflow type', 'Role of AI', 'Role of people']);
@@ -901,7 +893,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
     setHtml('#p7 .slide .src', 'AI paradigm session — Internet training data may be exhausted around 2028, while performance gains per unit of compute are falling sharply');
     setHtml('#p7 .slide .after', 'Regulation is moving toward explainable static models while technical discourse moves toward “train less, use better.” <b>If your product does not require customer training data, that is no longer a compromise; it is a market position.</b>');
 
-    setHtml('#p8 h2', 'Investment may be pouring into AI, but businesses are still judged by the numbers');
+    setHtml('#p8 h2', '08. Investment may be pouring into AI, but businesses are still judged by the numbers');
     setHtml('#p8 .stand', 'The figures from the investment-trends session were striking: <b>$510B (about KRW 709 trillion)</b> in global venture investment in the first half of 2026—more in six months than the full-year 2025 total of $440B (about KRW 612 trillion). In Q1, <b>AI captured 81% of global venture funding</b>, up from the 30% range two years earlier.');
     setHtml('#p8 .stand + p', 'The final slide from the same session showed another trend.');
     setHtml('#p8 .slide q', 'Gross margin, LTV/CAC, and CAC payback period. Burn efficiency determines valuation.<br><em>Being an AI company does not change the criteria by which it is evaluated.</em>');

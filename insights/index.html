@@ -19,7 +19,7 @@
     <style>
       @font-face { font-family:"CYPRON Korean"; src:local("Malgun Gothic"),local("맑은 고딕"),local("Apple SD Gothic Neo"),local("Noto Sans CJK KR"),local("Noto Sans KR"); font-style:normal; font-weight:100 900; unicode-range:U+1100-11FF,U+3130-318F,U+AC00-D7AF,U+A960-A97F,U+D7B0-D7FF; }
       @font-face { font-family:"CYPRON Latin"; src:local("Calibri"),local("Aptos"),local("Arial"); font-style:normal; font-weight:100 900; unicode-range:U+0000-024F,U+1E00-1EFF,U+2000-206F,U+20A0-20CF; }
-      :root { --ink:#17352f; --navy:#243d36; --blue:#e5a17e; --sky:#adc9b6; --mint:#dcebdc; --paper:#f5f5ef; --line:#d5ded5; --muted:#60716a; }
+      :root { --ink:#17352f; --navy:#2c3d3a; --header2-bg:#243d36; --blue:#be7152; --sky:#be7152; --mint:#be7152; --paper:#f5f5ef; --line:#d5ded5; --muted:#60716a; }
       * { box-sizing:border-box; }
       body *,body *::before,body *::after { font-family:"CYPRON Korean","CYPRON Latin",sans-serif !important; }
       html { scroll-behavior:smooth; }
@@ -29,22 +29,24 @@
       .eyebrow { display:block; margin-bottom:18px; color:var(--blue); font:500 14px/1.2 "DM Mono",monospace; letter-spacing:.11em; text-transform:uppercase; }
       .arrow { font-size:18px; line-height:0; }
 
-      header { position:fixed; z-index:20; top:0; left:0; width:100%; color:#fff; transition:background .25s ease, box-shadow .25s ease; }
-      header.scrolled { background:rgba(22,43,38,.93); box-shadow:0 6px 24px rgba(0,0,0,.18); backdrop-filter:blur(10px); }
-      header.scrolled .nav { border-bottom-color:transparent; }
+      .site-header { position:fixed; z-index:20; top:0; left:0; width:100%; color:#fff; background:#162B26; backdrop-filter:blur(10px); transition:box-shadow .25s ease; }
+      .site-header.scrolled { box-shadow:0 6px 24px rgba(0,0,0,.18); }
+      .site-header.scrolled .nav { border-bottom-color:transparent; }
       section[id] { scroll-margin-top:88px; }
       .nav { height:78px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.15); }
       .brand { font:500 25px/1 Manrope,sans-serif; letter-spacing:-.05em; }
       .brand small { margin-left:8px; color:#d0e1d5; font:500 10px/1 "DM Mono",monospace; letter-spacing:.07em; vertical-align:middle; }
-      .navlinks { display:flex; align-items:center; gap:28px; font-family:"CYPRON Korean",Manrope,sans-serif; font-size:15px; font-weight:500; }
+      .navlinks { display:flex; align-items:center; gap:28px; font-size:15px; font-weight:500; }
+      .navlinks a { transition:color .2s ease; }
       .navlinks .nav-demo { padding:9px 13px; border:1px solid rgba(255,255,255,.4); border-radius:3px; }
-      .navlinks .nav-demo.on { color:#e5a17e; border-color:#e5a17e; }
-      .navlinks .on { color:#e5a17e; }
+      .navlinks .nav-demo.on { color:#be7152; border-color:#be7152; }
+      .navlinks .on { color:#be7152; }
 
-      .page-head { padding:160px 0 74px; color:#fff; background:var(--navy); }
-      .page-head .eyebrow { color:var(--sky); }
-      .page-head h1 { margin:0 0 18px; font-size:clamp(38px,5vw,62px); line-height:1.14; letter-spacing:-.065em; font-weight:500; }
-      .page-head p { max-width:590px; margin:0; color:#c9d6cd; font-size:17px; line-height:1.75; }
+      main { padding-top:78px; }
+      .header2 { padding:55px 0 49px; color:#fff; background:var(--header2-bg); }
+      .header2 .eyebrow { color:var(--sky); }
+      .header2 h1 { margin:0 0 18px; font-size:clamp(22px,5vw,38px); line-height:1.14; letter-spacing:-.065em; font-weight:600; }
+      .header2 p { max-width:600px; margin:0; color:#c9d6cd; font-size:17px; line-height:1.75; }
 
       .cat { padding:74px 0 0; }
       .cat:last-of-type { padding-bottom:96px; }
@@ -73,14 +75,15 @@
       @media (max-width:560px) {
         .wrap { width:min(100% - 32px,1160px); }
         .nav { height:66px; } .brand small { display:none; }
-        .page-head { padding:122px 0 52px; } .cat { padding-top:52px; } .cat:last-of-type { padding-bottom:64px; }
+        main { padding-top:66px; }
+        .header2 { padding:37px 0 35px; } .cat { padding-top:52px; } .cat:last-of-type { padding-bottom:64px; }
         .cat-count { float:none; display:block; margin:0 0 10px; }
         .footer-row { display:block; }
       }
     </style>
   </head>
   <body>
-    <header>
+    <header class="site-header">
       <nav class="nav wrap" aria-label="주 메뉴">
         <a class="brand" href="../index.html">CYPRON</a>
         <div class="navlinks">
@@ -94,7 +97,7 @@
     </header>
 
     <main>
-      <section class="page-head">
+      <section class="header2">
         <div class="wrap">
           <span class="eyebrow">Insights</span>
           <h1>인사이트</h1>          
@@ -105,27 +108,20 @@
       <section class="cat" aria-labelledby="cat-founder">
         <div class="wrap">
           <div class="cat-head">
-            <span class="cat-count">03 POSTS</span>
+            <span class="cat-count">02 POSTS</span>
             <h2 id="cat-founder">Founder&#39;s note</h2>
           </div>
           <div class="posts">
 
-            <a class="post" href="test_2.html">
-              <span class="post-meta"><b>2026.08.22</b> &middot; 약 1분</span>
+            <a class="post term-post" href="ai_summit_terms.html">
+              <span class="post-meta"><b>2026.08.23</b> &middot; 약 8분</span>
               <span>
-                <h3>Test 2</h3>
-              </span>
-            </a>
-
-            <a class="post" href="test.html">
-              <span class="post-meta"><b>2026.08.22</b> &middot; 약 1분</span>
-              <span>
-                <h3>Test</h3>
+                <h3>AI Summit 용어 정리</h3>
               </span>
             </a>
 
             <!-- ▼ 글 1건. 새 글은 이 <a class="post"> 블록을 통째로 복사해 맨 위에 붙여넣으면 됩니다. -->
-            <a class="post" href="2026_ai_summit.html">
+            <a class="post summit-post" href="2026_ai_summit.html">
               <span class="post-meta"><b>2026.08.21</b> &middot; 약 13분</span>
               <span>
                 <h3>2026년 8월 AI Summit 후기</h3>
@@ -155,23 +151,23 @@
         document.querySelectorAll('a[href^="../index.html"]').forEach((a) => {
           a.setAttribute('href', a.getAttribute('href').replace('../index.html', '../index.html?lang=en'));
         });
-        setText('.page-head .eyebrow', 'Insights');
-        setText('.page-head h1', 'Insights');
-        setText('.page-head p', 'Notes from building CYPRON — equipment data, the field, and what we learned in between.');
+        setText('.header2 .eyebrow', 'Insights');
+        setText('.header2 h1', 'Insights');
+        setText('.header2 p', 'Notes from building CYPRON — equipment data, the field, and what we learned in between.');
         setText('.cat-head h2', "Founder's note");
-        setText('.cat-count', '03 POSTS');
+        setText('.cat-count', '02 POSTS');
         document.querySelectorAll('.post').forEach((post) => {
           const href = post.getAttribute('href');
           post.setAttribute('href', `${href}?lang=en`);
         });
-        const summitPost = document.querySelector('.post[href^="2026_ai_summit.html"]');
+        const termPost = document.querySelector('.term-post');
+        termPost.querySelector('.post-meta').innerHTML = '<b>2026.08.23</b> &middot; ~8 min';
+        termPost.querySelector('h3').textContent = 'AI Summit Terminology Guide';
+        const summitPost = document.querySelector('.summit-post');
         summitPost.querySelector('.post-meta').innerHTML = '<b>2026.08.21</b> &middot; ~13 min';
         summitPost.querySelector('h3').textContent = 'Field notes: AI Summit Seoul, August 2026';
-        document.querySelectorAll('.post[href^="test"] .post-meta').forEach((meta) => {
-          meta.innerHTML = '<b>2026.08.22</b> &middot; ~1 min';
-        });
       }
-      const siteHeader = document.querySelector('header');
+      const siteHeader = document.querySelector('.site-header');
       const syncHeader = () => siteHeader.classList.toggle('scrolled', window.scrollY > 40);
       syncHeader();
       window.addEventListener('scroll', syncHeader, { passive: true });
