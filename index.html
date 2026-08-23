@@ -48,7 +48,6 @@
       h1,h2,h3,p { margin-top:0; }
       h1 { margin-bottom:24px; font-size:clamp(38px,6vw,68px); line-height:1.13; letter-spacing:-.03em; font-weight:500; }
       .hero h1 { font-size:clamp(24px,4vw,44px); white-space:nowrap; }
-      .lead { max-width:810px; margin-bottom:34px; color:#d7e8fb; font-size:18px; line-height:1.75; }
       .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
       .signal-card { position:absolute; right:max(24px, calc((100vw - 1160px)/2)); bottom:50px; z-index:1; width:360px; padding:24px; background:rgba(21,48,40,.76); border:1px solid rgba(220,235,220,.43); border-radius:8px; box-shadow:0 25px 70px rgba(0,0,0,.24); backdrop-filter:blur(12px); }
       .signal-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; color:#d6e2d7; font:500 11px/1 "DM Mono",monospace; letter-spacing:.08em; }
@@ -117,7 +116,15 @@
       footer b { color:#deebdf; font-size:15px;font-weight:500;}      
 
       @media (max-width:850px) { .navlinks { display:none; } .hero { min-height:760px; } .hero h1 { white-space:normal; } .signal-card { right:32px; bottom:80px; width:min(360px,calc(100% - 48px)); } .proof-grid,.philosophy-grid,.contact-grid { grid-template-columns:1fr; gap:35px; } .proof-grid > div:first-child { transform:none; } .steps { grid-template-columns:repeat(2,1fr); } .step:nth-child(3) { border-left:0; } .comparison { grid-template-columns:1fr; } .compare-box.old { border-right:0; } }
-      @media (max-width:560px) { section[id], main[id], footer[id] { scroll-margin-top:74px; } .wrap { width:min(100% - 32px,1160px); } .nav { height:66px; } .hero-inner { padding-top:70px; } .hero { min-height:700px; } h1 { font-size:43px; } .lead { font-size:16px; } section { padding:76px 0; } .process-head { display:block; } .steps,.why-grid,form { grid-template-columns:1fr; } .step,.step:nth-child(3) { border-left:0; } .step { min-height:0; padding:20px 0 28px; } .step p,.fact span { font-size:18px; line-height:1.7; } .compare-box { padding:28px 20px; } .signal-card { padding:19px; } .contact-grid { gap:38px; } .insight-head { align-items:flex-end; } .insight-list a { grid-template-columns:1fr auto; gap:6px 16px; } .insight-date { grid-column:1/-1; } .insight-title { font-size:16px; } .insight-arrow { grid-column:2; grid-row:2; } .footer-row { display:block; } }
+      @media (max-width:560px) { section[id], main[id], footer[id] { scroll-margin-top:74px; } .wrap { width:min(100% - 32px,1160px); } .nav { height:66px; } .hero-inner { padding-top:70px; } .hero { min-height:700px; } h1 { font-size:43px; } section { padding:76px 0; } .process-head { display:block; } .steps,.why-grid,form { grid-template-columns:1fr; } .step,.step:nth-child(3) { border-left:0; } .step { min-height:0; padding:20px 0 28px; } .step p,.fact span { font-size:18px; line-height:1.7; } .compare-box { padding:28px 20px; } .signal-card { padding:19px; } .contact-grid { gap:38px; } .insight-head { align-items:flex-end; } .insight-list a { grid-template-columns:1fr auto; gap:6px 16px; } .insight-date { grid-column:1/-1; } .insight-title { font-size:16px; } .insight-arrow { grid-column:2; grid-row:2; } .footer-row { display:block; } }
+      @media (max-width:560px) {
+        .hero h1 { font-size:30px; line-height:1.22; }
+        h2,.philosophy-quote { font-size:26px; line-height:1.3; }
+        .proof-text { font-size:21px; line-height:1.5; }
+        .compare-box strong { font-size:21px; }
+        .step h3,.why-item b { font-size:19px; }
+        .section-intro,.philosophy-copy,.step p,.fact span,.compare-box p,.contact-copy { font-size:16px; }
+      }
     </style>
   </head>
   <body>
@@ -132,8 +139,7 @@
         <div class="wrap hero-inner">
           <div class="hero-copy">
             <span class="eyebrow">Equipment Intelligence Platform</span>
-            <h1 id="hero-title">알람이 울릴 때는 이미 라인이 멈춘 뒤입니다.</h1>
-            <p class="lead">로그 데이터에서 이상 현상 분석 · 진단 · 예측 · 보정 · 검증으로 연결하는 플랫폼</p>
+            <h1 id="hero-title">장비가 멈추기 전에<br>이상 징후부터 원인까지 찾아냅니다.</h1>
             <div class="hero-actions"><a class="button primary" href="#demo">무료 데모 신청 <span class="arrow">→</span></a><a class="button secondary" href="#product">CYPRON 알아보기</a></div>
           </div>
         </div>
@@ -145,14 +151,14 @@
 
       <section class="proof" id="company">
         <div class="wrap proof-grid">
-          <div><span class="eyebrow">Why CYPRON</span><p class="proof-text">고장 예측에서 끝나는 분석을 넘어, <em>설비 상태의 안정화</em>까지 책임지는 지능형 플랫폼</p></div>
+          <div><span class="eyebrow">Why CYPRON</span><p class="proof-text">고장 예측에서 끝나는 분석과 <em>설비 상태의 안정화</em>까지 수행하는 지능형 플랫폼</p></div>
           <div class="proof-facts"><div class="fact"><b>No Training Period</b><span>학습 기간 없이 정상 운전 로그로 즉시 시작</span></div><div class="fact"><b>Legacy Ready</b><span>기존 레거시 장비에도 적용 가능</span></div><div class="fact"><b>Fully On-Premise</b><span>고객사 내부망에서 동작, 데이터 외부 유출 없음</span></div></div>
         </div>
       </section>
 
       <section class="philosophy" aria-labelledby="philosophy-title">
         <div class="wrap philosophy-grid">
-          <div><span class="eyebrow">The Seerjae Philosophy</span><h2 class="philosophy-quote" id="philosophy-title">데이터 너머의 본질을 보는 Seerjae</h2><p class="philosophy-copy">Seerjae는 디스크에 쌓이는 로그 데이터를 독자적인 알고리즘으로 정제해, 현장 의사결정에 필요한 의미와 통찰로 바꿉니다. 데이터 너머의 본질, 실재[實在]를 보는 것. 그것이 Seerjae가 추구하는 가치입니다.</p></div>
+          <div><span class="eyebrow">The Seerjae Philosophy</span><h2 class="philosophy-quote" id="philosophy-title">데이터 너머의 실재를 본다</h2><p class="philosophy-copy">Seerjae는 현상의 본질을 뜻하는 ‘실재(實在)’​와 보이는 것 너머의 진실을 바라보는 ‘Seer’​의 의미를 담고 있습니다. 우리는 데이터 자체가 아니라 그 안에 존재하는 변화와 원인을 발견하고, 그 발견을 현실의 더 나은 변화로 연결합니다. <br>Beyond data, we see reality.</p></div>
         </div>
       </section>
 
@@ -174,7 +180,7 @@
         </ul>
       </div></section>
 
-      <section class="contact" id="demo"><div class="wrap contact-grid"><div><span class="eyebrow">Request a free demo</span><p class="contact-copy">CYPRON 도입을 검토하고 싶으시다면 문의를 남겨주세요.<br>무료 데모 신청부터 기술 및 도입 상담까지 문의를 남겨주시면 담당자가 상세히 안내해 드립니다.</p></div>
+      <section class="contact" id="demo"><div class="wrap contact-grid"><div><span class="eyebrow">Request a free demo</span><p class="contact-copy">CYPRON 도입을 검토하고 싶다면 문의를 남겨주세요.<br>무료 데모 신청부터 기술 및 도입 상담까지 내용을 보내주시면 담당자가 상세히 안내해 드립니다.</p></div>
         <form id="demo-form" novalidate>
           <div class="field"><label for="company">회사명 *</label><input id="company" name="company" required autocomplete="organization" /></div>
           <div class="field"><label for="name">담당자명 *</label><input id="name" name="name" required autocomplete="name" /></div>
@@ -207,24 +213,23 @@
         setText('.navlinks a[href="#product"]', 'PRODUCT'); setText('.navlinks a[href="#company"]', 'ABOUT'); setText('.navlinks a[href="insights/index.html"]', 'INSIGHTS'); setText('.nav-demo', 'REQUEST A DEMO');
         document.querySelector('.navlinks a[href="insights/index.html"]').href = 'insights/index.html?lang=en';
         document.querySelector('.lang-toggle').textContent = 'KO'; document.querySelector('.lang-toggle').href = 'index.html'; document.querySelector('.lang-toggle').setAttribute('aria-label', 'Switch to Korean');
-        setText('.hero .eyebrow', 'Equipment Intelligence Platform'); setHtml('#hero-title', 'By the time the alarm rings,<br />the line has already stopped.');
-        setText('.hero .lead', 'CYPRON finds early precursors from normal operating logs—and connects detection, diagnosis, prediction, correction, and verification.');
+        setText('.hero .eyebrow', 'Equipment Intelligence Platform'); setHtml('#hero-title', 'Before equipment stops,<br />we identify early warning signs and trace them to their root causes.');
         setHtml('.hero-actions .primary', 'Request a Free Demo <span class="arrow">→</span>'); setText('.hero-actions .secondary', 'Explore CYPRON');
         setText('.signal-top span:first-child', 'LIVE SIGNAL ANALYSIS'); setText('.signal-top span:last-child', 'PRECURSOR FOUND');
-        setText('.proof .eyebrow', 'Why CYPRON'); setHtml('.proof-text', 'Beyond analysis that ends at failure prediction—an Intelligence Platform built to <em>stabilize equipment state.</em>');
+        setText('.proof .eyebrow', 'Why CYPRON'); setHtml('.proof-text', 'An intelligent platform that goes beyond failure prediction to <em>stabilize equipment conditions.</em>');
         [['NO TRAINING PERIOD','Start immediately with normal operating logs.'],['LEGACY READY','Works with your existing legacy equipment.'],['FULLY ON-PREMISE','Runs inside your network. Data never leaves the site.']].forEach((item, index) => { const fact = document.querySelectorAll('.fact')[index]; fact.querySelector('b').textContent = item[0]; fact.querySelector('span').textContent = item[1]; });
-        setText('.philosophy .eyebrow', 'The Seerjae Philosophy'); setText('#philosophy-title', 'Seeing reality beyond data.'); setText('.philosophy-copy', 'Seerjae refines scattered operational data through proprietary algorithms, turning it into meaningful insight for decisions in the field. Seeing the reality beyond data—that is what Seerjae stands for.');
+        setText('.philosophy .eyebrow', 'The Seerjae Philosophy'); setText('#philosophy-title', 'Beyond data, we see reality.'); setHtml('.philosophy-copy', 'Seerjae brings together “siljae (實在),” the reality underlying phenomena, and “Seer,” one who looks beyond what is visible to uncover the truth. We discover the changes and causes within data—not merely the data itself—and turn those discoveries into meaningful real-world improvement.<br>Beyond data, we see reality.');
         setText('.process .eyebrow', 'Closed-loop intelligence'); setHtml('.process h2', 'From detection to state recovery,<br />in one continuous loop.'); setText('.process .section-intro', 'Start with Detect, Diagnose, and Predict. Extend to Correct and Verify when your organization is ready.');
-        [['Detect','Captures drift and recurring patterns before thresholds are crossed.'],['Diagnose','Analyzes pressure, temperature, current, and logs in one context.'],['Predict','Predicts likely root-cause locations through component and sensor relationships.'],['Correct','Adjusts operating parameters within approved limits.'],['Verify','Re-checks whether equipment has returned to normal.']].forEach((item, index) => { const step = document.querySelectorAll('.step')[index]; step.querySelector('h3').textContent = item[0]; step.querySelector('p').textContent = item[1]; });
-        setText('.difference .eyebrow', 'Beyond PHM / PdM'); setText('.difference h2', 'Prediction is not the endpoint.'); setText('.difference .section-intro', 'CYPRON goes beyond decision support, pursuing a closed loop that returns equipment to normal operation within approved limits.');
-        const compare = document.querySelectorAll('.compare-box'); setText('.compare-box.old .compare-label', 'PHM / PdM'); setText('.compare-box.old strong', 'Prediction and decisions'); setText('.compare-box.old p:not(.flow)', 'Supports failure prediction and maintenance decisions.'); setText('.compare-box.current .compare-label', 'CYPRON'); setText('.compare-box.current strong', 'State-restoring Equipment Intelligence'); setText('.compare-box.current p:not(.flow)', 'Connects early detection through confirmation of recovery to normal state.');
+        [['Detect','Captures drift and recurring patterns before thresholds are crossed.'],['Diagnose','Analyzes pressure, temperature, current, and logs in one context.'],['Predict','Predicts likely root-cause locations through component and sensor relationships.'],['Correct','Adjusts operating parameters within approved limits.'],['Verify','After correction, confirms whether the equipment has returned to normal.']].forEach((item, index) => { const step = document.querySelectorAll('.step')[index]; step.querySelector('h3').textContent = item[0]; step.querySelector('p').textContent = item[1]; });
+        setText('.difference .eyebrow', 'Beyond PHM / PdM'); setText('.difference h2', 'Equipment stabilization beyond prediction.'); setText('.difference .section-intro', 'CYPRON goes beyond decision support, pursuing a closed loop that returns equipment to normal operation within approved limits.');
+        setText('.compare-box.old .compare-label', 'PHM / PdM'); setText('.compare-box.old strong', 'Prediction and decisions'); setText('.compare-box.old p', 'Supports failure prediction and maintenance decisions.'); setText('.compare-box.current .compare-label', 'CYPRON'); setText('.compare-box.current strong', 'State-restoring Equipment Intelligence'); setText('.compare-box.current p', 'Connects early detection through confirmation of recovery to normal state.');
         setText('.why .eyebrow', 'Start simply'); setHtml('.why h2', 'Lightweight connection,<br />scalable when you are ready.');
-        [['Even with different log formats','Start integration with one template and a sample log.'],['Without a custom development cycle','Quickly assess applicability using on-site data.'],['Expand for your readiness','Design a path from initial analysis through correction and verification.']].forEach((item, index) => { const why = document.querySelectorAll('.why-item')[index]; why.querySelector('b').textContent = item[0]; why.querySelector('p').textContent = item[1]; });
+        [['Even with different log formats','Start integration with one template and a sample log.'],['Without a custom development cycle','Quickly assess applicability using on-site data.'],['Aligned with your readiness','Design a path from initial analysis through correction and verification.']].forEach((item, index) => { const why = document.querySelectorAll('.why-item')[index]; why.querySelector('b').textContent = item[0]; why.querySelector('p').textContent = item[1]; });
         setText('.insight .eyebrow', "Founder's note"); setText('.insight-all', 'All notes →'); document.querySelector('.insight-all').href = 'insights/index.html?lang=en'; setText('.term-insight .insight-title', 'AI Summit Terminology Guide'); document.querySelector('.term-insight').href = 'insights/ai_summit_terms.html?lang=en'; setText('.summit-insight .insight-title', 'August 2026 AI Summit Review'); document.querySelector('.summit-insight').href = 'insights/2026_ai_summit.html?lang=en';
-        setText('.contact .eyebrow', 'Request a free demo'); setHtml('.contact-copy', 'If you are considering CYPRON, leave us an inquiry.<br>From free demo requests to technical and implementation consultations, our team will provide detailed guidance.');
+        setText('.contact .eyebrow', 'Request a free demo'); setHtml('.contact-copy', 'If you are considering adopting CYPRON, send us an inquiry.<br>Share the details of your free demo request or technical and implementation consultation, and our team will guide you through the next steps.');
         [['company','Company *'],['name','Name *'],['email','Work email *'],['phone','Phone']].forEach(([id, text]) => setText(`label[for="${id}"]`, text)); setText('label[for="interest"]', 'Inquiry type *'); setText('label[for="message"]', 'Current challenge or inquiry');
         const options = document.querySelectorAll('#interest option'); ['Please select','Request a free demo','PoC / implementation consulting','Technical inquiry','Other'].forEach((text, index) => options[index].textContent = text); document.querySelector('#message').placeholder = 'Tell us about the equipment, data environment, or issue you want to address.';
-        setHtml('.consent span', 'I agree to the collection and use of personal information for inquiry response. <a href="#privacy-policy"><u>Privacy policy</u></a>'); setHtml('#demo-form button', 'Send demo request <span class="arrow">→</span>'); setText('.form-note', '* Required fields. Before launch, connect a privacy policy and a receiving email address or form service.'); setHtml('footer .footer-row span:first-child', '<b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae'); setHtml('footer .footer-row span:last-child', '<a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.');
+        setHtml('.consent span', 'I agree to the collection and use of personal information for inquiry response. <a href="#privacy-policy"><u>Privacy policy</u></a>'); setHtml('#demo-form button', 'Send demo request <span class="arrow">→</span>'); setHtml('.form-note', '* Required fields.<br>Before launch, connect a privacy policy and a receiving email address or form service.'); setHtml('footer .footer-row span:first-child', '<b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae'); setHtml('footer .footer-row span:last-child', '<a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.');
       }
       const siteHeader = document.querySelector('header');
       const syncHeader = () => siteHeader.classList.toggle('scrolled', window.scrollY > 40);
