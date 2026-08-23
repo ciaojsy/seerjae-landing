@@ -54,10 +54,12 @@ h1,h2,h3{margin:0;font-family:var(--kr);font-weight:700;letter-spacing:-.035em;l
 .nav{width:min(1160px,calc(100% - 48px));height:78px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15)}
 .site-head.scrolled .nav{border-bottom-color:transparent}
 .nav a{color:inherit;text-decoration:none}
-.brand{font:700 25px/1 Manrope,sans-serif;letter-spacing:-.05em}
+.brand{font:700 25px/1 Manrope,sans-serif;letter-spacing:.08em}
 .navlinks{display:flex;align-items:center;gap:28px;font-size:15px;font-weight:500}
+.navlinks a{font-family:"Malgun Gothic","맑은 고딕",sans-serif!important}
+html[lang="en"] .navlinks a{font-family:Manrope,sans-serif!important}
 .navlinks .nav-demo{padding:9px 13px;border:1px solid rgba(255,255,255,.4);border-radius:3px}
-.navlinks .on{color:#be7152}
+.navlinks .on{color:#be7152;font-weight:700}
 .navlinks .nav-demo.on{color:#be7152;border-color:#be7152}
 
 /* 왼쪽 노트 목록 */
@@ -158,7 +160,7 @@ h1,h2,h3{margin:0;font-family:var(--kr);font-weight:700;letter-spacing:-.035em;l
 
 <footer class="site-foot">
   <div class="site-foot-in">
-    <span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae</span>
+    <span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae &nbsp;|&nbsp;</span>
     <span><a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span>
   </div>
 </footer>
