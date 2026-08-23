@@ -205,7 +205,20 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   .site-foot b { color:#deebdf; }
   .site-foot a { color:inherit; text-decoration:none; }
   @media (max-width:850px) { .navlinks { display:none; } }
-  @media (max-width:560px) { .nav { height:66px; width:min(100% - 32px,1160px); } .hero-in { padding-top:136px; } .part[id] { scroll-margin-top:74px; } .site-foot-in { display:block; width:min(100% - 32px,1160px); } }
+  @media (max-width:560px) { 
+    .nav { height:66px; width:min(100% - 32px,1160px); } 
+    .hero-in {
+      width:calc(100% - 32px);
+      margin-right:16px;
+      margin-left:16px;
+      padding-top:100px;
+    }
+    .wrap {
+      width:min(720px,calc(100% - 32px));
+    }
+    .part[id] { scroll-margin-top:74px; } 
+    .site-foot-in { display:block; width:min(100% - 32px,1160px); } 
+  }
 </style>
 </head>
 <body>

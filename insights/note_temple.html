@@ -98,7 +98,15 @@ html[lang="en"] .navlinks a{font-family:Manrope,sans-serif!important}
 @media(max-width:850px){.navlinks{display:none}}
 @media(max-width:560px){
   .nav{height:66px;width:min(100% - 32px,1160px)}
-  .hero-in{padding-top:136px}
+  .hero-in {
+    width:calc(100% - 32px);
+    margin-right:16px;
+    margin-left:16px;
+    padding-top:100px;
+    }
+  .wrap {
+    width:min(720px,calc(100% - 32px));
+    }
   .site-foot-in{display:block;width:min(100% - 32px,1160px)}
 }
 </style>
