@@ -70,7 +70,9 @@
       footer b { color:#deebdf; font-size:15px;font-weight:500;}
 
       @media (max-width:850px) {
-        .navlinks { display:none; }
+        .navlinks { display:flex; }
+        .navlinks a:not(.lang-toggle) { display:none; }
+        .lang-toggle { padding:8px 10px; border:1px solid rgba(255,255,255,.4); border-radius:3px; }
         .post { grid-template-columns:1fr; gap:12px; }
       }
       @media (max-width:560px) {
