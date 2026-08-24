@@ -303,20 +303,11 @@
           : '신청 내용을 전송하고 있습니다.';
 
         try {
-          const response = await fetch(APPS_SCRIPT_URL, {
+          await fetch(APPS_SCRIPT_URL, {
             method: 'POST',
+            mode: 'no-cors',
             body: new FormData(form)
           });
-
-          if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-          }
-
-          const result = await response.json();
-
-          if (!result.ok) {
-            throw new Error(result.message || 'Request failed');
-          }
 
           status.textContent = english
             ? 'Your demo request has been submitted successfully.'
