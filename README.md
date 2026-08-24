@@ -1,6 +1,30 @@
 ## 2026.08.24 작업
 
+### 수신 서비스 또는 서버 API에 연결 방법
 
+#### 구성
+- GitHub Pages + Google Apps Script + Google Workspace 조합
+```
+GitHub Pages의 신청 폼
+        ↓ HTTPS POST
+Google Apps Script 웹 앱
+        ├─ Google Sheets에 신청 내용 저장
+        ├─ Workspace 이메일로 관리자 알림
+        └─ 신청자에게 접수 확인 메일 발송
+```
+#### 방법
+- Google Sheet 생성
+- Google Apps Script 에서 코드 추가
+- 배포 정보
+1) Id: AKfycbz5oLw8kohz3vqImBgs7szFfigUlPsZ5xLfXnO3QZrPWFbr_mj3ukebWQwkB1Etnoee
+2) 웹앱 URL: https://script.google.com/a/macros/seerjae.com/s/AKfycbz5oLw8kohz3vqImBgs7szFfigUlPsZ5xLfXnO3QZrPWFbr_mj3ukebWQwkB1Etnoee/exec
+3) 브라이저에서 URL입력시 아래 메시지로 테스트 완료
+```
+{
+  "ok": true,
+  "message": "CYPRON demo request endpoint is running."
+}
+```
 
 ## 2026.08.23 작업
 

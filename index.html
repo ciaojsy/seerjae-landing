@@ -109,7 +109,16 @@
       .contact .eyebrow { color:var(--mint); }
       .contact-copy { margin:0; color:#fff; line-height:1.75; }
       form { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-      .field.full { grid-column:1/-1; } label { display:block; margin-bottom:8px; color:#d5e1d7; font-size:14px; font-weight:500; } input,select,textarea { width:100%; padding:13px; color:#fff; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.24); border-radius:3px; outline:0; font:14px "Noto Sans KR",sans-serif; } select option { color:var(--ink); } textarea { min-height:100px; resize:vertical; } input:focus,select:focus,textarea:focus { border-color:var(--mint); box-shadow:0 0 0 3px rgba(220,235,220,.12); } .consent { grid-column:1/-1; display:flex; align-items:flex-start; gap:8px; color:#d1ddd3; font-size:13px; line-height:1.55; } .consent input { width:15px; margin:2px 0 0; accent-color:var(--blue); } .form-note { grid-column:1/-1; margin:0; color:#d1ddd3; font-size:13px; line-height:1.5; } .form-status { grid-column:1/-1; min-height:20px; margin:0; color:var(--mint); font-size:13px; }
+      .field.full { grid-column:1/-1; } label { display:block; margin-bottom:8px; color:#d5e1d7; font-size:14px; font-weight:500; } input,select,textarea { width:100%; padding:13px; color:#fff; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.24); border-radius:3px; outline:0; font:14px "Noto Sans KR",sans-serif; } select option { color:var(--ink); } textarea { min-height:100px; resize:vertical; } input:focus,select:focus,textarea:focus { border-color:var(--mint); box-shadow:0 0 0 3px rgba(220,235,220,.12); } .consent { grid-column:1/-1; display:flex; align-items:flex-start; gap:8px; color:#d1ddd3; font-size:13px; line-height:1.55; } .consent input { width:15px; margin:2px 0 0; accent-color:var(--blue); } 
+      .form-note { grid-column:1/-1; margin:0; color:#d1ddd3; font-size:13px; line-height:1.5; }            
+      .form-status { grid-column:1/-1; min-height:20px; margin:0; color:var(--mint); font-size:13px; }
+      .website-field {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      } 
       footer { padding:25px 0; color:#aabaae; background:#162b26; font:14px/1.5 "DM Mono",monospace; } 
       .signal-top,.fact b,.philosophy-mark,.compare-label,.flow,input,select,textarea,footer { font-family:"CYPRON Korean","DM Mono",monospace; }
       .footer-row { display:flex; justify-content:space-between; gap:20px; } 
@@ -188,8 +197,29 @@
           <div class="field"><label for="phone">연락처</label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>
           <div class="field full"><label for="interest">문의 유형 *</label><select id="interest" name="interest" required><option value="">선택해 주세요</option><option>무료 데모 신청</option><option>PoC·도입 컨설팅</option><option>기술 문의</option><option>기타</option></select></div>
           <div class="field full"><label for="message">현재 과제 또는 문의 내용</label><textarea id="message" name="message" placeholder="적용 대상 설비, 데이터 환경, 해결하려는 문제 등을 적어 주세요."></textarea></div>
-          <label class="consent"><input type="checkbox" id="privacy" required /><span>문의 응대를 위한 개인정보 수집·이용에 동의합니다. <a href="#privacy-policy"><u>개인정보처리방침</u></a></span></label>
-          <button class="button primary" type="submit">데모 신청 보내기 <span class="arrow">→</span></button><p class="form-note">* 표시는 필수 입력 항목입니다.<br>실제 공개 전에는 개인정보처리방침, 수신 이메일 또는 폼 서비스 연결이 필요합니다.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <div class="website-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input
+              id="website"
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>         
+          
+          <label class="consent">
+            <input 
+              type="checkbox" 
+              id="privacy" 
+              name="privacy"
+              value="true"
+              required 
+            />
+            <span>문의 응대를 위한 개인정보 수집·이용에 동의합니다. <a href="#privacy-policy"><u>개인정보처리방침</u></a>
+            </span>
+          </label>
+          <button class="button primary" type="submit">데모 신청 보내기 <span class="arrow">→</span></button><p class="form-note">* 표시는 필수 입력 항목입니다.<br>제출된 정보는 문의 확인 및 답변을 위해서만 사용됩니다.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div></section>
     </main>
@@ -229,7 +259,7 @@
         setText('.contact .eyebrow', 'Request a free demo'); setHtml('.contact-copy', 'If you are considering adopting CYPRON, send us an inquiry.<br>Share the details of your free demo request or technical and implementation consultation, and our team will guide you through the next steps.');
         [['company','Company *'],['name','Name *'],['email','Work email *'],['phone','Phone']].forEach(([id, text]) => setText(`label[for="${id}"]`, text)); setText('label[for="interest"]', 'Inquiry type *'); setText('label[for="message"]', 'Current challenge or inquiry');
         const options = document.querySelectorAll('#interest option'); ['Please select','Request a free demo','PoC / implementation consulting','Technical inquiry','Other'].forEach((text, index) => options[index].textContent = text); document.querySelector('#message').placeholder = 'Tell us about the equipment, data environment, or issue you want to address.';
-        setHtml('.consent span', 'I agree to the collection and use of personal information for inquiry response. <a href="#privacy-policy"><u>Privacy policy</u></a>'); setHtml('#demo-form button', 'Send demo request <span class="arrow">→</span>'); setHtml('.form-note', '* Required fields.<br>Before launch, connect a privacy policy and a receiving email address or form service.'); setHtml('footer .footer-row span:first-child', '<b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae'); setHtml('footer .footer-row span:last-child', '&nbsp;|&nbsp; <a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.');
+        setHtml('.consent span', 'I agree to the collection and use of personal information for inquiry response. <a href="#privacy-policy"><u>Privacy policy</u></a>'); setHtml('#demo-form button', 'Send demo request <span class="arrow">→</span>'); setHtml('.form-note', '* Required fields.<br>Your information will only be used to review and respond to your inquiry.'); setHtml('footer .footer-row span:first-child', '<b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae'); setHtml('footer .footer-row span:last-child', '&nbsp;|&nbsp; <a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.');
       }
       const siteHeader = document.querySelector('header');
       const syncHeader = () => siteHeader.classList.toggle('scrolled', window.scrollY > 40);
@@ -243,13 +273,69 @@
       headerMenuLinks.forEach((link) => link.addEventListener('click', () => selectHeaderMenu(link)));
       selectHeaderMenu(headerMenuLinks.find((link) => link.hash === window.location.hash));
 
+      const APPS_SCRIPT_URL =
+        'https://script.google.com/a/macros/seerjae.com/s/AKfycbz5oLw8kohz3vqImBgs7szFfigUlPsZ5xLfXnO3QZrPWFbr_mj3ukebWQwkB1Etnoee/exec';
+
       const form = document.getElementById('demo-form');
       const status = document.getElementById('form-status');
-      form.addEventListener('submit', (event) => {
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        if (!form.checkValidity()) { status.textContent = english ? 'Please check the required fields.' : '필수 정보를 확인해 주세요.'; form.reportValidity(); return; }
-        status.textContent = english ? 'This is a prototype. Connect a receiving email address or form service before launch.' : '현재는 시안입니다. 공개 전 제출 내용을 받을 이메일 또는 폼 서비스를 연결해 주세요.';
+
+        if (!form.checkValidity()) {
+          status.textContent = english
+            ? 'Please check the required fields.'
+            : '필수 정보를 확인해 주세요.';
+          form.reportValidity();
+          return;
+        }
+
+        const originalButtonContent = submitButton.innerHTML;
+
+        submitButton.disabled = true;
+        submitButton.innerHTML = english
+          ? 'Sending...'
+          : '전송 중...';
+
+        status.textContent = english
+          ? 'Submitting your request...'
+          : '신청 내용을 전송하고 있습니다.';
+
+        try {
+          const response = await fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            body: new FormData(form)
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+
+          const result = await response.json();
+
+          if (!result.ok) {
+            throw new Error(result.message || 'Request failed');
+          }
+
+          status.textContent = english
+            ? 'Your demo request has been submitted successfully.'
+            : '데모 신청이 정상적으로 접수되었습니다.';
+
+          form.reset();
+        } catch (error) {
+          console.error('Demo request failed:', error);
+
+          status.textContent = english
+            ? 'The request could not be submitted. Please try again or contact admin@seerjae.com.'
+            : '신청을 접수하지 못했습니다. 다시 시도하거나 admin@seerjae.com으로 문의해 주세요.';
+        } finally {
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalButtonContent;
+        }
       });
+
+
     </script>
   </body>
 </html>
