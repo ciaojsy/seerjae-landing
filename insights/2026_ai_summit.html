@@ -187,7 +187,7 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   .navlinks .nav-demo.on { color:#be7152; border-color:#be7152; }
   .navlinks .on { color:#be7152; font-weight:700; }
   .part[id] { scroll-margin-top:88px; }
-  /* 좌측 노트 목록. 본문(720px) 바깥 여백에 고정하고, 자리가 없으면 숨깁니다. */
+  /* 넓은 화면에서는 좌측에 고정하고, 좁은 화면에서는 본문 상단에 배치합니다. */
   .note-nav { position:fixed; z-index:10; top:118px; left:max(24px, calc((100vw - 720px)/2 - 244px)); width:204px; }
   .note-nav .nn-lab { display:block; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--rule); color:var(--faint); font:500 14px/1.5 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
   .note-nav ol { margin:0; padding:0; list-style:none; }
@@ -199,7 +199,12 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   .note-nav a.cur b { color:var(--deeppink-accent); }
   .note-nav .nn-all { display:block; margin-top:4px; padding-top:13px; border-top:1px solid var(--rule-soft); color:var(--faint); font:500 14px/1.5 var(--mono); letter-spacing:.06em; text-decoration:none; }
   .note-nav .nn-all:hover { color:var(--deeppink-accent); }
-  @media (max-width:1239px) { .note-nav { display:none; } }
+  @media (max-width:1239px) {
+    .note-nav { position:static; width:min(720px,calc(100% - 40px)); margin:78px auto 0; padding:28px 0; border-bottom:1px solid var(--rule); }
+    .note-nav ol { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 30px; }
+    .note-nav li { margin:0; }
+    .hero-in { padding-top:46px; }
+  }
   .site-foot { padding:25px 0; color:#aabaae; background:#162b26; font:13px/1.5 "CYPRON Korean","DM Mono",monospace; }
   .site-foot-in { width:min(1160px, calc(100% - 48px)); margin:0 auto; display:flex; justify-content:space-between; gap:20px; }
   .site-foot b { color:#deebdf; }
@@ -207,11 +212,13 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
   @media (max-width:850px) { .navlinks { display:none; } }
   @media (max-width:560px) { 
     .nav { height:66px; width:min(100% - 32px,1160px); } 
+    .note-nav { width:calc(100% - 32px); margin-top:66px; padding:22px 0; }
+    .note-nav ol { grid-template-columns:1fr; gap:14px; }
     .hero-in {
       width:calc(100% - 32px);
       margin-right:16px;
       margin-left:16px;
-      padding-top:100px;
+      padding-top:46px;
     }
     .wrap {
       width:min(720px,calc(100% - 32px));
@@ -614,8 +621,8 @@ caption{caption-side:bottom;padding:14px 16px 15px;text-align:left;font:400 14px
 
 <footer class="site-foot">
   <div class="site-foot-in">
-    <span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae &nbsp;|&nbsp; </span>
-    <span><a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span>
+    <span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae</span>
+    <span>&nbsp;|&nbsp; <a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span>
   </div>
 </footer>
 

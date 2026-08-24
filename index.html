@@ -193,7 +193,7 @@
         </form>
       </div></section>
     </main>
-    <footer id="privacy-policy"><div class="wrap footer-row"><span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae</span><span><a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span></div></footer>
+    <footer id="privacy-policy"><div class="wrap footer-row"><span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae</span><span>&nbsp;|&nbsp; <a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span></div></footer>
     <script>
       const english = new URLSearchParams(window.location.search).get('lang') === 'en';
       const setText = (selector, value) => {
@@ -229,7 +229,7 @@
         setText('.contact .eyebrow', 'Request a free demo'); setHtml('.contact-copy', 'If you are considering adopting CYPRON, send us an inquiry.<br>Share the details of your free demo request or technical and implementation consultation, and our team will guide you through the next steps.');
         [['company','Company *'],['name','Name *'],['email','Work email *'],['phone','Phone']].forEach(([id, text]) => setText(`label[for="${id}"]`, text)); setText('label[for="interest"]', 'Inquiry type *'); setText('label[for="message"]', 'Current challenge or inquiry');
         const options = document.querySelectorAll('#interest option'); ['Please select','Request a free demo','PoC / implementation consulting','Technical inquiry','Other'].forEach((text, index) => options[index].textContent = text); document.querySelector('#message').placeholder = 'Tell us about the equipment, data environment, or issue you want to address.';
-        setHtml('.consent span', 'I agree to the collection and use of personal information for inquiry response. <a href="#privacy-policy"><u>Privacy policy</u></a>'); setHtml('#demo-form button', 'Send demo request <span class="arrow">→</span>'); setHtml('.form-note', '* Required fields.<br>Before launch, connect a privacy policy and a receiving email address or form service.'); setHtml('footer .footer-row span:first-child', '<b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae'); setHtml('footer .footer-row span:last-child', '<a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.');
+        setHtml('.consent span', 'I agree to the collection and use of personal information for inquiry response. <a href="#privacy-policy"><u>Privacy policy</u></a>'); setHtml('#demo-form button', 'Send demo request <span class="arrow">→</span>'); setHtml('.form-note', '* Required fields.<br>Before launch, connect a privacy policy and a receiving email address or form service.'); setHtml('footer .footer-row span:first-child', '<b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae'); setHtml('footer .footer-row span:last-child', '&nbsp;|&nbsp; <a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.');
       }
       const siteHeader = document.querySelector('header');
       const syncHeader = () => siteHeader.classList.toggle('scrolled', window.scrollY > 40);

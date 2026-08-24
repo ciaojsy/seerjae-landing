@@ -62,7 +62,7 @@ html[lang="en"] .navlinks a{font-family:Manrope,sans-serif!important}
 .navlinks .on{color:#be7152;font-weight:700}
 .navlinks .nav-demo.on{color:#be7152;border-color:#be7152}
 
-/* 왼쪽 노트 목록 */
+/* 넓은 화면에서는 왼쪽에 고정하고, 좁은 화면에서는 본문 상단에 배치 */
 .note-nav{position:fixed;z-index:10;top:118px;left:max(24px,calc((100vw - 720px)/2 - 244px));width:204px}
 .note-nav .nn-lab{display:block;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--rule);color:var(--faint);font:500 14px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase}
 .note-nav ol{margin:0;padding:0;list-style:none}
@@ -94,15 +94,22 @@ html[lang="en"] .navlinks a{font-family:Manrope,sans-serif!important}
 .site-foot b{color:#deebdf}
 .site-foot a{color:inherit;text-decoration:none}
 
-@media(max-width:1239px){.note-nav{display:none}}
+@media(max-width:1239px){
+  .note-nav{position:static;width:min(720px,calc(100% - 40px));margin:78px auto 0;padding:28px 0;border-bottom:1px solid var(--rule)}
+  .note-nav ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 30px}
+  .note-nav li{margin:0}
+  .hero-in{padding-top:46px}
+}
 @media(max-width:850px){.navlinks{display:none}}
 @media(max-width:560px){
   .nav{height:66px;width:min(100% - 32px,1160px)}
+  .note-nav{width:calc(100% - 32px);margin-top:66px;padding:22px 0}
+  .note-nav ol{grid-template-columns:1fr;gap:14px}
   .hero-in {
     width:calc(100% - 32px);
     margin-right:16px;
     margin-left:16px;
-    padding-top:100px;
+    padding-top:46px;
     }
   .wrap {
     width:min(720px,calc(100% - 32px));
@@ -168,8 +175,8 @@ html[lang="en"] .navlinks a{font-family:Manrope,sans-serif!important}
 
 <footer class="site-foot">
   <div class="site-foot-in">
-    <span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae &nbsp;|&nbsp;</span>
-    <span><a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span>
+    <span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae</span>
+    <span>&nbsp;|&nbsp; <a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span>
   </div>
 </footer>
 
