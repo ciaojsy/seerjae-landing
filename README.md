@@ -25,6 +25,8 @@ Google Apps Script 웹 앱
   "message": "CYPRON demo request endpoint is running."
 }
 ```
+4) Apps script를 수정하면 새배포를 할 것.
+5) 구글 시트에 누적되고, soyoung.jun@seerjae.com으로 메일이 오고, 보낸 사람에게 자동 메일을 보내면 완료.
 
 ## 2026.08.23 작업
 
