@@ -19,6 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/marked@16.2.1/lib/marked.umd.min.js"></script>
 <style>
 @font-face{font-family:"CYPRON Korean";src:local("Malgun Gothic"),local("맑은 고딕"),local("Apple SD Gothic Neo"),local("Noto Sans CJK KR"),local("Noto Sans KR");font-style:normal;font-weight:100 900;unicode-range:U+1100-11FF,U+3130-318F,U+AC00-D7AF,U+A960-A97F,U+D7B0-D7FF}
 @font-face{font-family:"CYPRON Latin";src:local("Calibri"),local("Aptos"),local("Arial");font-style:normal;font-weight:100 900;unicode-range:U+0000-024F,U+1E00-1EFF,U+2000-206F,U+20A0-20CF}
@@ -31,6 +32,7 @@
 .part{padding:66px 0 54px;border-bottom:1px solid var(--rule-soft);scroll-margin-top:88px}.part h2{font-size:clamp(23px,3.4vw,32px)}.part h3{margin:36px 0 12px;font-size:19px}.part h3::before{content:"";display:inline-block;width:20px;height:2px;margin-right:11px;background:var(--accent);vertical-align:middle;transform:translateY(-3px)}.stand{margin-top:16px;color:var(--muted)}ul,ol.plain{margin:16px 0 0;padding-left:22px;display:grid;gap:10px}li::marker{color:var(--faint)}
 .flow{display:grid;grid-template-columns:repeat(3,1fr);margin:28px 0 8px;border:1px solid var(--rule);background:var(--card);box-shadow:var(--shadow)}.flow-step{position:relative;padding:24px}.flow-step+.flow-step{border-left:1px solid var(--rule-soft)}.flow-step+.flow-step::before{content:"→";position:absolute;top:24px;left:-9px;padding:0 2px;color:var(--accent);background:var(--card);font-weight:700}.flow-step b{display:block;margin-bottom:8px;color:var(--accent);font-size:17px}.flow-step p{color:var(--muted);font-size:14.5px;line-height:1.7}
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}.card{padding:21px 22px;border:1px solid var(--rule);background:var(--card)}.card b{display:block;margin-bottom:7px;color:var(--accent)}.card p{color:var(--muted);font-size:14.8px;line-height:1.72}.take{margin:28px 0 0;padding:20px 24px;border-left:3px solid var(--accent);border-radius:0 2px 2px 0;background:var(--wash)}.take .lab{display:block;margin-bottom:10px}.quote{margin:28px 0 0;padding:28px 30px;color:#eef1f6;background:#20262e;box-shadow:var(--shadow)}.quote p{font-size:clamp(18px,2.3vw,22px);font-weight:700;line-height:1.58}.quote em{color:var(--accent);font-style:normal}.paths{display:grid;grid-template-columns:repeat(4,1fr);margin-top:24px;border:1px solid var(--rule);background:var(--card)}.path{padding:21px 16px;text-align:center}.path+.path{border-left:1px solid var(--rule-soft)}.path b{display:block;color:var(--accent)}.source{padding:34px 0 56px;color:var(--faint);font:400 12.5px/1.75 var(--mono)}.source b{color:var(--muted);font-weight:500}.site-foot{padding:25px 0;color:#aabaae;background:var(--header);font:13px/1.5 var(--mono)}.site-foot-in{width:min(1160px,calc(100% - 48px));margin:0 auto;display:flex;justify-content:space-between;gap:20px}.site-foot b{color:#deebdf}.site-foot a{color:inherit}
+.markdown-status{min-height:55vh;padding:170px 20px 80px;color:var(--muted);text-align:center}.markdown-status.error{color:#9d3e33}.markdown-body strong{font-weight:700}.markdown-body .source p{margin:0}
 @media(max-width:1239px){.note-nav{position:static;width:min(720px,calc(100% - 40px));margin:78px auto 0;padding:28px 0;border-bottom:1px solid var(--rule)}.note-nav ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 30px}.note-nav li{margin:0}.hero-in{padding-top:46px}}
 @media(max-width:760px){.index ol,.cards{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow-step+.flow-step{border-top:1px solid var(--rule-soft);border-left:0}.flow-step+.flow-step::before{content:"↓";top:-14px;left:24px}.paths{grid-template-columns:repeat(2,1fr)}.path:nth-child(3){border-top:1px solid var(--rule-soft);border-left:0}.path:nth-child(4){border-top:1px solid var(--rule-soft)}}
 @media(max-width:850px){.navlinks{display:flex}.navlinks a:not(.lang-toggle){display:none}.lang-toggle{padding:8px 10px;border:1px solid rgba(255,255,255,.4);border-radius:3px}}
@@ -41,85 +43,78 @@
 <header class="site-head"><nav class="nav" aria-label="주 메뉴"><a class="brand" href="../index.html">CYPRON</a><div class="navlinks"><a href="../index.html#company">회사 소개</a><a href="../index.html#product">제품 소개</a><a class="on" href="index.html" aria-current="page">인사이트</a><a class="nav-demo" href="../index.html#demo">무료 데모 신청</a><a class="lang-toggle" href="?lang=en" aria-label="Switch to English">EN</a></div></nav></header>
 <main>
 <aside class="note-nav" aria-label="노트 목록"><span class="nn-lab">노트 목록</span><ol><li><a class="cur gbsa-note" href="gbsa_ot.html" aria-current="page"><b>2026.09.03</b>경기스타트업 아카데미 OT</a></li><li><a class="term-note" href="ai_summit_terms.html"><b>2026.08.23</b>AI Summit 용어 정리</a></li><li><a class="summit-note" href="2026_ai_summit.html"><b>2026.08.21</b>2026년 8월 AI Summit 후기</a></li></ol><a class="nn-all" href="index.html">전체 보기 &#8594;</a></aside>
-<article>
-<header class="hero"><div class="wrap col hero-in"><span class="lab">FOUNDER'S NOTE · STARTUP</span><h1>2026 경기스타트업 아카데미 하반기 교육 <span>OT 정리</span></h1></div></header>
-
-<section class="part" id="review"><div class="wrap col">
-<h2>후기</h2>
-<p class="stand">뭐든 배워보자는 마음으로 참석한 OT. 투자는 매출과 고객이 이미 있고 득히 상장을 목표로 하는 스타트업이면 준비해도 좋을 것 같다.</p>
-</div></section>
-
-<section class="part" id="program"><div class="wrap col">
-<h2>프로그램 개요</h2>
-<ul>
-<li>GBSA(경기스타트업 아카데미) 창업기초 및 투자유치 과정</li>
-<li>출석 + 비즈니스 모델 검토로 우수 수료자 선정</li>
-</ul>
-</div></section>
-
-<section class="part" id="ecosystem"><div class="wrap col">
-<h2>한국 스타트업 투자 생태계 구조 (일반화)</h2>
-<h3>1) 자금 흐름의 위계 (LP → GP → 스타트업)</h3>
-<ul>
-<li><strong>LP (출자자, Limited Partner)</strong>: 펀드에 출자만 하고 유한책임을 지는 주체. 정책자금(한국벤처투자/모태펀드, 한국성장금융), 금융권, 일반기업, 개인 등이 해당됨</li>
-<li><strong>GP (운용사, VC)</strong>: LP로부터 자금을 모아 실제 스타트업에 투자·운용. 회수 실적이 좋은 VC일수록 더 많은 LP를 유치하는 선순환 구조</li>
-</ul>
-<h3>2) 투자 단계별 구조</h3>
-<ul>
-<li>시드(Seed) → 시리즈 A → B → C 순으로 진행되며, 단계가 올라갈수록 기업가치와 투자금액이 커짐</li>
-<li>기업가치 10억 달러 이상 비상장기업을 유니콘이라 부름</li>
-</ul>
-<h3>3) 생태계 주체 구분</h3>
-<ul>
-<li><strong>정부</strong>: 민간자금이 닿기 어려운 초기 단계를 보완. 중기부·창업진흥원이 정책 중심, 한국벤처투자가 모태펀드로 민간 VC에 출자</li>
-<li><strong>액셀러레이터</strong>: 초기 스타트업에 소액 투자 + 멘토링 + 데모데이를 패키지로 제공. 보통 3~6개월 코호트 운영 후 일부 지분 취득. 2024년 6월 기준 국내 463개사 활동 중, 매년 10~20% 내외 증가 추세</li>
-<li><strong>CVC(기업형 VC)</strong>: 대기업 계열 벤처캐피탈로 재무적 수익 외에 모기업의 전략적 목적(사업 시너지)을 겸함</li>
-<li><strong>지역 특화 VC/AC</strong>: 지역 산업 구조에 맞춘 투자 (예: 소부장 업종이 밀집한 지역의 특화 VC)</li>
-<li><strong>비영리재단형 LP</strong>: 창업초기(seed~pre-Series A) 소액(1억~5억 원대) 구간을 지원하는 비영리 성격의 출자 주체</li>
-</ul>
-<h3>4) 법적/제도적 기반</h3>
-<ul>
-<li>벤처캐피탈은 신기술사업금융회사와 중소기업창업투자회사로 이원화되어 등록·운영됨</li>
-<li>회수(Exit) 경로는 IPO(상장)와 M&amp;A가 있으며, 국내 VC는 M&amp;A보다 상장을 선호하는 경향이 강함</li>
-</ul>
-</div></section>
-
-<section class="part" id="perspective"><div class="wrap col">
-<h2>투자에 대한 관점</h2>
-<ol class="plain">
-<li>투자는 가급적 신중히 — 상환 의무가 있고, 투자자는 결국 상장을 통한 회수를 원함</li>
-<li>투자는 "의복" — IR자료·복장·말투 등 이미지가 곧 평가 요소가 됨</li>
-<li><strong>IR 자료 구성</strong>: 기업현황 → 재무분석 → 시장분석 → 사업성분석 → 리스크분석 → 투자개요 → 종합의견 → 첨부(레퍼런스 체크)</li>
-<li>투자는 결국 "사람"에게 함 — 투자자와 창업자 서로에게 Value-up이 될 수 있는 지점을 찾는 것이 핵심. 단, 초대형 라운드(3조 이상)는 사람보다 숫자를 봄</li>
-</ol>
-</div></section>
-
-<section class="part" id="criteria"><div class="wrap col">
-<h2>투자자가 보는 기준</h2>
-<ul>
-<li>3년 내 매출 발생 가능한 재무계획 필수</li>
-<li>유통/SI 모델은 투자 유치가 어려운 편 — 생존형 사업에서 확장형 사업으로의 전환 논리가 필요</li>
-<li>정부 지원사업도 결국 기술의 본질을 봄</li>
-<li>방어 논리 필요 — 지표·데이터 기반의 성장 근거 제시가 중요</li>
-<li>창의성 + 전략 + 시장 포지셔닝이 핵심 평가 요소</li>
-<li><strong>상환전환우선주(RCPS) vs 전환사채(CB)</strong>: 국내는 주로 RCPS 구조 활용. 이율이 있으나 회사에 이익이 없으면 상환 의무가 없고(주주동의 필요), 성장 시 주식으로 전환 가능</li>
-<li>VC의 회수는 결국 "상장" — 유사 모델의 상장 사례, 산업분류, 공모가 등이 심사 기준이 됨</li>
-</ul>
-</div></section>
-
-<section class="part" id="funding"><div class="wrap col">
-<h2>자금 조달 경로</h2>
-<ul>
-<li>투자 / 대출 / 정부지원금 / 연구비</li>
-<li>1년치 운영비 산정이 선행되어야 함</li>
-</ul>
-</div></section>
-
-<footer class="source"><div class="wrap col"><em>출처: 2026.9.3 GBSA 창업기초 OT 강의 내용 + 한국 스타트업 투자 생태계 관련 공개 자료 조사</em></div></footer>
+<article id="markdown-article" aria-live="polite">
+<p class="markdown-status">노트를 불러오는 중입니다.</p>
 </article>
 </main>
 <footer class="site-foot"><div class="site-foot-in"><span><b>CYPRON</b> &nbsp;|&nbsp; Equipment Intelligence Platform by Seerjae</span><span>&nbsp;|&nbsp; <a href="mailto:admin@seerjae.com">admin@seerjae.com</a> &nbsp;|&nbsp; © 2026 Seerjae. All rights reserved.</span></div></footer>
 <script>
+const markdownArticle=document.querySelector('#markdown-article');
+
+const renderMarkdown=(markdown)=>{
+  const parsed=document.createElement('div');
+  parsed.innerHTML=marked.parse(markdown);
+  const title=parsed.querySelector('h1');
+  const output=document.createDocumentFragment();
+
+  const hero=document.createElement('header');
+  hero.className='hero';
+  const heroInner=document.createElement('div');
+  heroInner.className='wrap col hero-in';
+  const label=document.createElement('span');
+  label.className='lab';
+  label.textContent="FOUNDER'S NOTE · STARTUP";
+  const heading=document.createElement('h1');
+  heading.textContent=title?.textContent ?? '경기스타트업 아카데미 OT';
+  heroInner.append(label,heading);
+  hero.append(heroInner);
+  output.append(hero);
+  title?.remove();
+
+  const body=document.createElement('div');
+  body.className='markdown-body';
+  let sectionInner=null;
+  [...parsed.children].forEach((node)=>{
+    if(node.tagName==='HR') return;
+    if(node.tagName==='H2'||sectionInner===null){
+      const section=document.createElement('section');
+      section.className='part';
+      sectionInner=document.createElement('div');
+      sectionInner.className='wrap col';
+      section.append(sectionInner);
+      body.append(section);
+    }
+    sectionInner.append(node);
+  });
+
+  const lastSection=body.querySelector('.part:last-child');
+  const sourceParagraph=lastSection?.querySelector(':scope > .col > p:last-child');
+  if(sourceParagraph?.querySelector('em')){
+    const source=document.createElement('footer');
+    source.className='source';
+    const sourceInner=document.createElement('div');
+    sourceInner.className='wrap col';
+    sourceInner.append(sourceParagraph);
+    source.append(sourceInner);
+    if(!lastSection.querySelector(':scope > .col')?.children.length) lastSection.remove();
+    body.append(source);
+  }
+
+  output.append(body);
+  markdownArticle.replaceChildren(output);
+};
+
+fetch('./창업기초_OT_투자유치_정리.md')
+  .then((response)=>{
+    if(!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.text();
+  })
+  .then(renderMarkdown)
+  .catch((error)=>{
+    console.error('Markdown 로드 실패:',error);
+    markdownArticle.innerHTML='<p class="markdown-status error">노트를 불러오지 못했습니다. 웹 서버를 통해 페이지를 열어 주세요.</p>';
+  });
+
 const english=new URLSearchParams(location.search).get('lang')==='en';
 if(english){
   const setText=(selector,value)=>{const el=document.querySelector(selector);if(el)el.textContent=value};
