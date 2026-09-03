@@ -111,10 +111,17 @@
       <section class="cat" aria-labelledby="cat-founder">
         <div class="wrap">
           <div class="cat-head">
-            <span class="cat-count">02 POSTS</span>
+            <span class="cat-count">03 POSTS</span>
             <h2 id="cat-founder">Founder&#39;s note</h2>
           </div>
           <div class="posts">
+
+            <a class="post gbsa-post" href="gbsa_ot.html">
+              <span class="post-meta"><b>2026.09.03</b> &middot; 약 4분</span>
+              <span>
+                <h3>2026 경기스타트업 아카데미 하반기 교육 OT 정리</h3>
+              </span>
+            </a>
 
             <a class="post term-post" href="ai_summit_terms.html">
               <span class="post-meta"><b>2026.08.23</b> &middot; 약 8분</span>
@@ -158,11 +165,14 @@
         setText('.header2 h1', 'Insights');
         setText('.header2 p', 'Notes from building CYPRON — equipment data, the field, and what we learned in between.');
         setText('.cat-head h2', "Founder's note");
-        setText('.cat-count', '02 POSTS');
+        setText('.cat-count', '03 POSTS');
         document.querySelectorAll('.post').forEach((post) => {
           const href = post.getAttribute('href');
           post.setAttribute('href', `${href}?lang=en`);
         });
+        const gbsaPost = document.querySelector('.gbsa-post');
+        gbsaPost.querySelector('.post-meta').innerHTML = '<b>2026.09.03</b> &middot; ~4 min';
+        gbsaPost.querySelector('h3').textContent = 'GBSA Startup Academy Orientation — Fundraising Fundamentals';
         const termPost = document.querySelector('.term-post');
         termPost.querySelector('.post-meta').innerHTML = '<b>2026.08.23</b> &middot; ~8 min';
         termPost.querySelector('h3').textContent = 'AI Summit Terminology Guide';
