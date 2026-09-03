@@ -32,7 +32,7 @@
 .part{padding:66px 0 54px;border-bottom:1px solid var(--rule-soft);scroll-margin-top:88px}.part h2{font-size:clamp(23px,3.4vw,32px)}.part h3{margin:36px 0 12px;font-size:19px}.part h3::before{content:"";display:inline-block;width:20px;height:2px;margin-right:11px;background:var(--accent);vertical-align:middle;transform:translateY(-3px)}.stand{margin-top:16px;color:var(--muted)}ul,ol.plain{margin:16px 0 0;padding-left:22px;display:grid;gap:10px}li::marker{color:var(--faint)}
 .flow{display:grid;grid-template-columns:repeat(3,1fr);margin:28px 0 8px;border:1px solid var(--rule);background:var(--card);box-shadow:var(--shadow)}.flow-step{position:relative;padding:24px}.flow-step+.flow-step{border-left:1px solid var(--rule-soft)}.flow-step+.flow-step::before{content:"→";position:absolute;top:24px;left:-9px;padding:0 2px;color:var(--accent);background:var(--card);font-weight:700}.flow-step b{display:block;margin-bottom:8px;color:var(--accent);font-size:17px}.flow-step p{color:var(--muted);font-size:14.5px;line-height:1.7}
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}.card{padding:21px 22px;border:1px solid var(--rule);background:var(--card)}.card b{display:block;margin-bottom:7px;color:var(--accent)}.card p{color:var(--muted);font-size:14.8px;line-height:1.72}.take{margin:28px 0 0;padding:20px 24px;border-left:3px solid var(--accent);border-radius:0 2px 2px 0;background:var(--wash)}.take .lab{display:block;margin-bottom:10px}.quote{margin:28px 0 0;padding:28px 30px;color:#eef1f6;background:#20262e;box-shadow:var(--shadow)}.quote p{font-size:clamp(18px,2.3vw,22px);font-weight:700;line-height:1.58}.quote em{color:var(--accent);font-style:normal}.paths{display:grid;grid-template-columns:repeat(4,1fr);margin-top:24px;border:1px solid var(--rule);background:var(--card)}.path{padding:21px 16px;text-align:center}.path+.path{border-left:1px solid var(--rule-soft)}.path b{display:block;color:var(--accent)}.source{padding:34px 0 56px;color:var(--faint);font:400 12.5px/1.75 var(--mono)}.source b{color:var(--muted);font-weight:500}.site-foot{padding:25px 0;color:#aabaae;background:var(--header);font:13px/1.5 var(--mono)}.site-foot-in{width:min(1160px,calc(100% - 48px));margin:0 auto;display:flex;justify-content:space-between;gap:20px}.site-foot b{color:#deebdf}.site-foot a{color:inherit}
-.markdown-status{min-height:55vh;padding:170px 20px 80px;color:var(--muted);text-align:center}.markdown-status.error{color:#9d3e33}.markdown-body strong{font-weight:700}.markdown-body .source p{margin:0}
+.markdown-status{min-height:55vh;padding:170px 20px 80px;color:var(--muted);text-align:center}.markdown-status.error{color:#9d3e33}.markdown-body strong{font-weight:700}.markdown-body .source p{margin:0}.footnote-ref{scroll-margin-top:90px;font:600 12px/1 var(--mono)}.footnotes{padding:34px 0;border-bottom:1px solid var(--rule-soft);scroll-margin-top:90px}.footnotes ol{margin:0;padding-left:24px;color:var(--muted);font-size:14px}.footnotes li{padding-left:5px}.footnotes p{display:inline}.footnote-back{margin-left:7px;color:var(--accent);font-weight:700}
 @media(max-width:1239px){.note-nav{position:static;width:min(720px,calc(100% - 40px));margin:78px auto 0;padding:28px 0;border-bottom:1px solid var(--rule)}.note-nav ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 30px}.note-nav li{margin:0}.hero-in{padding-top:46px}}
 @media(max-width:760px){.index ol,.cards{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow-step+.flow-step{border-top:1px solid var(--rule-soft);border-left:0}.flow-step+.flow-step::before{content:"↓";top:-14px;left:24px}.paths{grid-template-columns:repeat(2,1fr)}.path:nth-child(3){border-top:1px solid var(--rule-soft);border-left:0}.path:nth-child(4){border-top:1px solid var(--rule-soft)}}
 @media(max-width:850px){.navlinks{display:flex}.navlinks a:not(.lang-toggle){display:none}.lang-toggle{padding:8px 10px;border:1px solid rgba(255,255,255,.4);border-radius:3px}}
@@ -52,11 +52,46 @@
 const markdownArticle=document.querySelector('#markdown-article');
 
 const renderMarkdown=(markdown)=>{
+  const footnotes=new Map();
+  markdown=markdown.replace(/^\[\^([^\]]+)\]:\s*(.+)$/gm,(_,id,text)=>{
+    footnotes.set(id,text);
+    return '';
+  });
   const parsed=document.createElement('div');
   // Marked의 GFM 모드는 `3~6개월` 같은 단일 물결표 범위도 취소선으로
   // 해석한다. 명시적인 `~~취소선~~`은 유지하고 단일 `~`만 문자로 처리한다.
   const safeMarkdown=markdown.replace(/(^|[^~])~(?!~)/g,'$1\\~');
   parsed.innerHTML=marked.parse(safeMarkdown);
+
+  const textWalker=document.createTreeWalker(parsed,NodeFilter.SHOW_TEXT);
+  const textNodes=[];
+  while(textWalker.nextNode()) textNodes.push(textWalker.currentNode);
+  const referenceCounts=new Map();
+  textNodes.forEach((textNode)=>{
+    if(!/\[\^[^\]]+\]/.test(textNode.data)) return;
+    const fragment=document.createDocumentFragment();
+    let cursor=0;
+    for(const match of textNode.data.matchAll(/\[\^([^\]]+)\]/g)){
+      const [token,id]=match;
+      if(!footnotes.has(id)) continue;
+      fragment.append(textNode.data.slice(cursor,match.index));
+      const count=(referenceCounts.get(id)??0)+1;
+      referenceCounts.set(id,count);
+      const sup=document.createElement('sup');
+      sup.className='footnote-ref';
+      sup.id=`fnref-${id}-${count}`;
+      const link=document.createElement('a');
+      link.href=`#fn-${id}`;
+      link.setAttribute('aria-label',`각주 ${id}`);
+      link.textContent=`[${id}]`;
+      sup.append(link);
+      fragment.append(sup);
+      cursor=match.index+token.length;
+    }
+    if(cursor===0) return;
+    fragment.append(textNode.data.slice(cursor));
+    textNode.replaceWith(fragment);
+  });
   const title=parsed.querySelector('h1');
   const output=document.createDocumentFragment();
 
@@ -101,6 +136,30 @@ const renderMarkdown=(markdown)=>{
     source.append(sourceInner);
     if(!lastSection.querySelector(':scope > .col')?.children.length) lastSection.remove();
     body.append(source);
+  }
+
+  if(footnotes.size){
+    const footnoteSection=document.createElement('section');
+    footnoteSection.className='footnotes';
+    footnoteSection.setAttribute('aria-label','각주');
+    const footnoteInner=document.createElement('div');
+    footnoteInner.className='wrap col';
+    const list=document.createElement('ol');
+    footnotes.forEach((text,id)=>{
+      const item=document.createElement('li');
+      item.id=`fn-${id}`;
+      item.innerHTML=marked.parseInline(text.replace(/(^|[^~])~(?!~)/g,'$1\\~'));
+      const back=document.createElement('a');
+      back.className='footnote-back';
+      back.href=`#fnref-${id}-1`;
+      back.setAttribute('aria-label',`각주 ${id} 본문으로 돌아가기`);
+      back.textContent='↩';
+      item.append(back);
+      list.append(item);
+    });
+    footnoteInner.append(list);
+    footnoteSection.append(footnoteInner);
+    body.insertBefore(footnoteSection,body.querySelector('.source'));
   }
 
   output.append(body);
