@@ -53,7 +53,10 @@ const markdownArticle=document.querySelector('#markdown-article');
 
 const renderMarkdown=(markdown)=>{
   const parsed=document.createElement('div');
-  parsed.innerHTML=marked.parse(markdown);
+  // Marked의 GFM 모드는 `3~6개월` 같은 단일 물결표 범위도 취소선으로
+  // 해석한다. 명시적인 `~~취소선~~`은 유지하고 단일 `~`만 문자로 처리한다.
+  const safeMarkdown=markdown.replace(/(^|[^~])~(?!~)/g,'$1\\~');
+  parsed.innerHTML=marked.parse(safeMarkdown);
   const title=parsed.querySelector('h1');
   const output=document.createDocumentFragment();
 
