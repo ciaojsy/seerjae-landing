@@ -205,7 +205,7 @@
         <div class="wrap">
           <div class="problem-head">
             <span class="eyebrow">Does this look familiar?</span>
-            <h2 id="problem-title">관제 이후의 판단, 아직 엔지니어의 경험에 의존하고 있습니까?</h2>
+            <h2 id="problem-title">장비 데이터의 해석과 판단을<br>아직 엔지니어가 직접하고 있습니까?</h2>
             <p class="section-intro">장비에서 데이터와 알람은 이미 나오고 있지만, 그 이후의 분석·진단·판단·조치는 여전히 엔지니어의 반복 작업으로 남아 있지 않습니까?</p>
           </div>
 
@@ -249,7 +249,7 @@
 
       <section class="proof">
         <div class="wrap proof-grid">
-          <div><span class="eyebrow">Why CYPRON</span><p class="proof-text">고장 예측에서 끝나는 분석과 <em>설비 상태의 안정화</em>까지 수행하는 지능형 플랫폼</p></div>
+          <div><span class="eyebrow">Why CYPRON</span><p class="proof-text">고장 예측을 넘어, 원인 진단과 조치를 통해 <em>설비 상태의 안정화</em>까지 지원하는 지능형 플랫폼</p></div>
           <div class="proof-facts"><div class="fact"><b>No Training Period</b><span>학습 기간 없이 정상 운전 로그로 즉시 시작</span></div><div class="fact"><b>Legacy Ready</b><span>기존 레거시 장비에도 적용 가능</span></div><div class="fact"><b>Fully On-Premise</b><span>고객사 내부망에서 동작, 데이터 외부 유출 없음</span></div></div>
         </div>
       </section>
@@ -268,7 +268,7 @@
       <section class="usecases" id="usecases" aria-labelledby="usecases-title">
         <div class="wrap">
           <span class="eyebrow">Where CYPRON fits</span>
-          <h2 id="usecases-title">사람의 판단이 반복되는 장비 업무를 지능화합니다.</h2>
+          <h2 id="usecases-title">반복적인 장비 판단 업무의 지능화</h2>
           <p class="section-intro">특정 산업이나 장비에 한정하지 않습니다. 장비 데이터 이후의 분석·진단·판단·조치에 반복적인 엔지니어 업무가 남아 있다면 CYPRON의 적용 대상이 될 수 있습니다.</p>
           <div class="usecase-grid">
             <article class="usecase-card">
@@ -374,7 +374,7 @@
         setText('.signal-top span:first-child', 'LIVE SIGNAL ANALYSIS'); setText('.signal-top span:last-child', 'PRECURSOR FOUND');
 
         setText('.problem .eyebrow', 'Does this look familiar?');
-        setText('#problem-title', 'Does human judgment still begin where equipment monitoring ends?');
+        setHtml('#problem-title', 'Are engineers still directly interpreting equipment data<br />and making the decisions themselves?');
         setText('.problem .section-intro', 'Your equipment may already generate data and alarms. But analysis, diagnosis, decisions, and actions after monitoring may still depend on repetitive engineering work.');
         [
           ['01 · LOG','Repeated log analysis','Engineers repeatedly inspect multiple logs and trends whenever a problem occurs.'],
@@ -389,7 +389,7 @@
         });
         setText('.problem-bottom p', 'CYPRON goes beyond displaying equipment data—supporting intelligent equipment operation from anomaly detection and diagnosis to decisions and actions.');
         setHtml('.problem-link', 'See if CYPRON fits your equipment <span class="arrow">→</span>');
-        setText('.proof .eyebrow', 'Why CYPRON'); setHtml('.proof-text', 'An intelligent platform that goes beyond failure prediction to <em>stabilize equipment conditions.</em>');
+        setText('.proof .eyebrow', 'Why CYPRON'); setHtml('.proof-text', 'Beyond failure prediction, CYPRON supports <em>equipment stabilization</em> through root-cause diagnosis and action.');
         [['NO TRAINING PERIOD','Start immediately with normal operating logs.'],['LEGACY READY','Works with your existing legacy equipment.'],['FULLY ON-PREMISE','Runs inside your network. Data never leaves the site.']].forEach((item, index) => { const fact = document.querySelectorAll('.fact')[index]; fact.querySelector('b').textContent = item[0]; fact.querySelector('span').textContent = item[1]; });
         setText('.philosophy .eyebrow', 'The Seerjae Philosophy'); setText('#philosophy-title', 'Beyond data, we see reality.'); setHtml('.philosophy-copy', 'Seerjae brings together “siljae (實在),” the reality underlying phenomena, and “Seer,” one who looks beyond what is visible to uncover the truth. We discover the changes and causes within data—not merely the data itself—and turn those discoveries into meaningful real-world improvement.<br>Beyond data, we see reality.');
         setText('.process .eyebrow', 'Closed-loop intelligence'); setHtml('.process h2', 'From detection to state recovery,<br />in one continuous loop.'); setText('.process .section-intro', 'Start with Detect, Diagnose, and Predict. Extend to Correct and Verify when your organization is ready.');
