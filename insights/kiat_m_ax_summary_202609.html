@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="2026 경기스타트업 아카데미 창업기초·투자유치 과정 OT에서 정리한 한국 스타트업 투자 생태계, 투자자의 평가 기준과 자금 조달 관점.">
+<meta name="description" content="한국산업기술진흥원(KIAT)의 「제조 데이터 기반의 M.AX 동향과 정책적 시사점」(2026.9)을 바탕으로, 제조업의 AI·자동화 전환이 왜 선택이 아닌지 재구성한 개인 요약·분석 노트.">
 <meta name="author" content="Seerjae">
 <meta property="article:section" content="Founder's note">
-<meta property="article:published_time" content="2026-09-03">
+<meta property="article:published_time" content="2026-09-11">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="CYPRON by Seerjae">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="2026 경기스타트업 아카데미 하반기 교육 OT 정리">
-<meta property="og:description" content="GBSA 창업기초 및 투자유치 과정 OT에서 정리한 한국 스타트업 투자 생태계와 투자 관점.">
-<meta property="og:url" content="https://SITE_URL/insights/gbsa_ot.html">
+<meta property="og:title" content="제조업의 AI·자동화 전환은 왜 선택이 아닌가 | CYPRON">
+<meta property="og:description" content="KIAT 제조 M.AX 동향 보고서를 바탕으로 제조업의 AI·자동화 전환 필요성을 정리한 요약·분석 노트.">
+<meta property="og:url" content="https://SITE_URL/insights/kiat_m_ax_summary_202609.html">
 <meta name="twitter:card" content="summary">
-<link rel="canonical" href="https://SITE_URL/insights/gbsa_ot.html">
-<title>2026 경기스타트업 아카데미 하반기 교육 OT 정리 | CYPRON</title>
+<link rel="canonical" href="https://SITE_URL/insights/kiat_m_ax_summary_202609.html">
+<title>제조업의 AI·자동화 전환은 왜 선택이 아닌가 | CYPRON</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap">
@@ -30,9 +30,10 @@
 .hero{border-bottom:1px solid var(--rule);background:var(--card)}.hero-in{width:min(900px,calc(100% - max(0px,(100% - 720px)/2)));margin-left:max(0px,calc((100% - 720px)/2));padding:148px 0 46px}.hero h1{margin-top:20px;font-size:clamp(28px,5.6vw,40px);line-height:1.18}.hero h1 span{color:var(--accent)}.dek{max-width:72ch;margin-top:26px;color:var(--muted);font-size:18px;line-height:1.85}.byline{margin-top:32px;padding-top:20px;border-top:1px solid var(--rule-soft);display:flex;flex-wrap:wrap;gap:8px 26px;color:var(--faint);font:400 13px/1.6 var(--mono)}.byline b{color:var(--ink);font-weight:500}
 .index{background:var(--raise);border-bottom:1px solid var(--rule)}.index-in{padding:34px 0 38px}.index ol{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:2px 30px;counter-reset:idx}.index li{counter-increment:idx;border-top:1px solid var(--rule-soft);padding:10px 0}.index li a{display:flex;gap:14px;align-items:baseline;color:var(--ink);font-size:15px;font-weight:500}.index li a::before{content:counter(idx,decimal-leading-zero);color:var(--accent);font:500 12px/1 var(--mono);flex:none}.index li a:hover{color:var(--accent)}
 .part{padding:66px 0 54px;border-bottom:1px solid var(--rule-soft);scroll-margin-top:88px}.part h2{font-size:clamp(23px,3.4vw,32px)}.part h3{margin:36px 0 12px;font-size:19px}.part h3::before{content:"";display:inline-block;width:20px;height:2px;margin-right:11px;background:var(--accent);vertical-align:middle;transform:translateY(-3px)}.stand{margin-top:16px;color:var(--muted)}ul,ol.plain{margin:16px 0 0;padding-left:22px;display:grid;gap:10px}li::marker{color:var(--faint)}
+.part h1{margin:14px 0 4px;font-size:clamp(24px,4vw,34px)}.markdown-body blockquote{margin:24px 0 0;padding:20px 24px;border-left:3px solid var(--accent);border-radius:0 2px 2px 0;background:var(--wash)}.markdown-body blockquote p{margin:0;color:var(--muted)}.markdown-body blockquote strong{color:var(--ink)}.markdown-body code{padding:1px 6px;border-radius:3px;background:var(--wash);color:var(--accent);font-family:var(--mono)!important;font-size:.94em}.markdown-body strong{font-weight:700}
 .flow{display:grid;grid-template-columns:repeat(3,1fr);margin:28px 0 8px;border:1px solid var(--rule);background:var(--card);box-shadow:var(--shadow)}.flow-step{position:relative;padding:24px}.flow-step+.flow-step{border-left:1px solid var(--rule-soft)}.flow-step+.flow-step::before{content:"→";position:absolute;top:24px;left:-9px;padding:0 2px;color:var(--accent);background:var(--card);font-weight:700}.flow-step b{display:block;margin-bottom:8px;color:var(--accent);font-size:17px}.flow-step p{color:var(--muted);font-size:14.5px;line-height:1.7}
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}.card{padding:21px 22px;border:1px solid var(--rule);background:var(--card)}.card b{display:block;margin-bottom:7px;color:var(--accent)}.card p{color:var(--muted);font-size:14.8px;line-height:1.72}.take{margin:28px 0 0;padding:20px 24px;border-left:3px solid var(--accent);border-radius:0 2px 2px 0;background:var(--wash)}.take .lab{display:block;margin-bottom:10px}.quote{margin:28px 0 0;padding:28px 30px;color:#eef1f6;background:#20262e;box-shadow:var(--shadow)}.quote p{font-size:clamp(18px,2.3vw,22px);font-weight:700;line-height:1.58}.quote em{color:var(--accent);font-style:normal}.paths{display:grid;grid-template-columns:repeat(4,1fr);margin-top:24px;border:1px solid var(--rule);background:var(--card)}.path{padding:21px 16px;text-align:center}.path+.path{border-left:1px solid var(--rule-soft)}.path b{display:block;color:var(--accent)}.source{padding:34px 0 56px;color:var(--faint);font:400 12.5px/1.75 var(--mono)}.source b{color:var(--muted);font-weight:500}.site-foot{padding:25px 0;color:#aabaae;background:var(--header);font:13px/1.5 var(--mono)}.site-foot-in{width:min(1160px,calc(100% - 48px));margin:0 auto;display:flex;justify-content:space-between;gap:20px}.site-foot b{color:#deebdf}.site-foot a{color:inherit}
-.markdown-status{min-height:55vh;padding:170px 20px 80px;color:var(--muted);text-align:center}.markdown-status.error{color:#9d3e33}.markdown-body strong{font-weight:700}.markdown-body .source p{margin:0}.footnote-ref{scroll-margin-top:90px;font:600 12px/1 var(--mono)}.footnotes{padding:34px 0;border-bottom:1px solid var(--rule-soft);scroll-margin-top:90px}.footnotes ol{margin:0;padding-left:24px;color:var(--muted);font-size:14px}.footnotes li{padding-left:5px}.footnotes p{display:inline}.footnote-back{margin-left:7px;color:var(--accent);font-weight:700}
+.markdown-status{min-height:55vh;padding:170px 20px 80px;color:var(--muted);text-align:center}.markdown-status.error{color:#9d3e33}.markdown-body .source p{margin:0}.footnote-ref{scroll-margin-top:90px;font:600 12px/1 var(--mono)}.footnotes{padding:34px 0;border-bottom:1px solid var(--rule-soft);scroll-margin-top:90px}.footnotes ol{margin:0;padding-left:24px;color:var(--muted);font-size:14px}.footnotes li{padding-left:5px}.footnotes p{display:inline}.footnote-back{margin-left:7px;color:var(--accent);font-weight:700}
 @media(max-width:1239px){.note-nav{position:static;width:min(720px,calc(100% - 40px));margin:78px auto 0;padding:28px 0;border-bottom:1px solid var(--rule)}.note-nav ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 30px}.note-nav li{margin:0}.hero-in{padding-top:46px}}
 @media(max-width:760px){.index ol,.cards{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow-step+.flow-step{border-top:1px solid var(--rule-soft);border-left:0}.flow-step+.flow-step::before{content:"↓";top:-14px;left:24px}.paths{grid-template-columns:repeat(2,1fr)}.path:nth-child(3){border-top:1px solid var(--rule-soft);border-left:0}.path:nth-child(4){border-top:1px solid var(--rule-soft)}}
 @media(max-width:850px){.navlinks{display:flex}.navlinks a:not(.lang-toggle){display:none}.lang-toggle{padding:8px 10px;border:1px solid rgba(255,255,255,.4);border-radius:3px}}
@@ -42,7 +43,7 @@
 <body>
 <header class="site-head"><nav class="nav" aria-label="주 메뉴"><a class="brand" href="../index.html">CYPRON</a><div class="navlinks"><a href="../index.html#company">회사 소개</a><a href="../index.html#product">제품 소개</a><a class="on" href="index.html" aria-current="page">인사이트</a><a class="nav-demo" href="../index.html#demo">무료 데모 신청</a><a class="lang-toggle" href="?lang=en" aria-label="Switch to English">EN</a></div></nav></header>
 <main>
-<aside class="note-nav" aria-label="노트 목록"><span class="nn-lab">노트 목록</span><ol><li><a class="kiat-note" href="kiat_m_ax_summary_202609.html"><b>2026.09.11</b>제조 AI·자동화 전환</a></li><li><a class="cur gbsa-note" href="gbsa_ot.html" aria-current="page"><b>2026.09.03</b>경기스타트업 아카데미 OT</a></li><li><a class="term-note" href="ai_summit_terms.html"><b>2026.08.23</b>AI Summit 용어 정리</a></li><li><a class="summit-note" href="2026_ai_summit.html"><b>2026.08.21</b>2026년 8월 AI Summit 후기</a></li></ol><a class="nn-all" href="index.html">전체 보기 &#8594;</a></aside>
+<aside class="note-nav" aria-label="노트 목록"><span class="nn-lab">노트 목록</span><ol><li><a class="cur kiat-note" href="kiat_m_ax_summary_202609.html" aria-current="page"><b>2026.09.11</b>제조 AI·자동화 전환</a></li><li><a class="gbsa-note" href="gbsa_ot.html"><b>2026.09.03</b>경기스타트업 아카데미 OT</a></li><li><a class="term-note" href="ai_summit_terms.html"><b>2026.08.23</b>AI Summit 용어 정리</a></li><li><a class="summit-note" href="2026_ai_summit.html"><b>2026.08.21</b>2026년 8월 AI Summit 후기</a></li></ol><a class="nn-all" href="index.html">전체 보기 &#8594;</a></aside>
 <article id="markdown-article" aria-live="polite">
 <p class="markdown-status">노트를 불러오는 중입니다.</p>
 </article>
@@ -101,9 +102,9 @@ const renderMarkdown=(markdown)=>{
   heroInner.className='wrap col hero-in';
   const label=document.createElement('span');
   label.className='lab';
-  label.textContent="FOUNDER'S NOTE · STARTUP";
+  label.textContent="FOUNDER'S NOTE · MANUFACTURING";
   const heading=document.createElement('h1');
-  heading.textContent=title?.textContent ?? '경기스타트업 아카데미 OT';
+  heading.textContent=title?.textContent ?? '제조업의 AI·자동화 전환은 왜 선택이 아닌가';
   heroInner.append(label,heading);
   hero.append(heroInner);
   output.append(hero);
@@ -166,7 +167,7 @@ const renderMarkdown=(markdown)=>{
   markdownArticle.replaceChildren(output);
 };
 
-fetch('./창업기초_OT_투자유치_정리.md')
+fetch('./kiat_m_ax_summary_202609.md')
   .then((response)=>{
     if(!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.text();

@@ -111,10 +111,17 @@
       <section class="cat" aria-labelledby="cat-founder">
         <div class="wrap">
           <div class="cat-head">
-            <span class="cat-count">03 POSTS</span>
+            <span class="cat-count">04 POSTS</span>
             <h2 id="cat-founder">Founder&#39;s note</h2>
           </div>
           <div class="posts">
+
+            <a class="post kiat-post" href="kiat_m_ax_summary_202609.html">
+              <span class="post-meta"><b>2026.09.11</b> &middot; 약 6분</span>
+              <span>
+                <h3>제조업의 AI·자동화 전환은 왜 선택이 아닌가</h3>
+              </span>
+            </a>
 
             <a class="post gbsa-post" href="gbsa_ot.html">
               <span class="post-meta"><b>2026.09.03</b> &middot; 약 4분</span>
@@ -165,11 +172,14 @@
         setText('.header2 h1', 'Insights');
         setText('.header2 p', 'Notes from building CYPRON — equipment data, the field, and what we learned in between.');
         setText('.cat-head h2', "Founder's note");
-        setText('.cat-count', '03 POSTS');
+        setText('.cat-count', '04 POSTS');
         document.querySelectorAll('.post').forEach((post) => {
           const href = post.getAttribute('href');
           post.setAttribute('href', `${href}?lang=en`);
         });
+        const kiatPost = document.querySelector('.kiat-post');
+        kiatPost.querySelector('.post-meta').innerHTML = '<b>2026.09.11</b> &middot; ~6 min';
+        kiatPost.querySelector('h3').textContent = 'Why AI and Automation Are No Longer Optional in Manufacturing';
         const gbsaPost = document.querySelector('.gbsa-post');
         gbsaPost.querySelector('.post-meta').innerHTML = '<b>2026.09.03</b> &middot; ~4 min';
         gbsaPost.querySelector('h3').textContent = 'GBSA Startup Academy Orientation — Fundraising Fundamentals';
