@@ -80,14 +80,12 @@
       .problem-link { flex:none; color:var(--deeppink_accent); font-size:15px; font-weight:700; white-space:nowrap; }
       .problem-link:hover { color:var(--ink); }
       .proof { background:#f7f7f3; }
-      .proof-grid { display:grid; grid-template-columns:1.35fr .65fr; gap:50px; align-items:end; }
-      .proof-grid > div:first-child { 
-          transform:translateY(-70px);
-        }
+      .proof-grid { display:block; }
+      .proof-grid > div:first-child { transform:none; }
       .proof-text { max-width:1000px; font-size:clamp(22px,3.15vw,38px); line-height:1.42; letter-spacing:-.05em; font-weight:500; }
       .proof-text em { color:var(--deeppink_accent); font-style:normal; }
-      .proof-facts { display:grid; gap:16px; }
-      .fact { padding:18px 0; border-top:1px solid var(--line); } .fact b { display:block; margin-bottom:6px; font:500 21px/1.2 "DM Mono",monospace; color:var(--deeppink_accent); letter-spacing:.08em; } .fact span { font-size:16px; line-height:1.6; color:var(--muted); }
+      .proof-facts { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+      .fact { padding-top:22px; border-top:2px solid var(--ink); } .fact b { display:block; margin-bottom:6px; font:500 21px/1.2 "DM Mono",monospace; color:var(--deeppink_accent); letter-spacing:.08em; } .fact span { font-size:16px; line-height:1.6; color:var(--muted); }
       .philosophy { background:#edf0ed; }
       .philosophy-grid { display:grid; grid-template-columns:1fr; gap:72px; align-items:start; }
       .philosophy-mark { padding-top:8px; color:var(--deeppink_accent); font:500 15px/1.5 "DM Mono",monospace; letter-spacing:.08em; }
@@ -118,7 +116,7 @@
       .deployment-card p { margin:0; color:var(--muted); font-size:16px; line-height:1.7; }
       .deployment-note { margin:28px 0 0; padding-left:18px; border-left:3px solid var(--deeppink_accent); color:var(--ink); font-size:15px; line-height:1.7; }
       .why { background:#ffffff; } .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
-      .why-item { padding-top:22px; border-top:2px solid var(--ink); } .why-item b { display:block; margin-bottom:12px; font-size:20px; letter-spacing:-.035em; } .why-item p { margin:0; color:var(--muted); font-size:15px; line-height:1.7; }
+      .why-item { padding-top:22px; border-top:2px solid var(--ink); } .why .section-intro { margin-bottom:0; } .why-item b { display:block; margin-bottom:16px; color:var(--deeppink_accent); font:500 13px/1.2 "DM Mono",monospace !important; letter-spacing:.06em; } .why-item h3 { margin:0 0 10px; font-size:20px; letter-spacing:-.035em; } .why-item p { margin:0; color:var(--muted); font-size:15px; line-height:1.7; }
 
       .services { background:#ffffff; }
       .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:46px; border-top:1px solid #b8c9ba; border-bottom:1px solid #b8c9ba; }
@@ -175,7 +173,7 @@
       footer b { color:#deebdf; font-size:15px;font-weight:500;}      
 
       @media (max-width:850px) { .navlinks { display:flex; } .navlinks a:not(.lang-toggle) { display:none; } .lang-toggle { padding:8px 10px; border:1px solid rgba(255,255,255,.4); border-radius:3px; } .hero { min-height:760px; } .hero h1 { white-space:normal; } .signal-card { right:32px; bottom:80px; width:min(360px,calc(100% - 48px)); } .proof-grid,.philosophy-grid,.contact-grid { grid-template-columns:1fr; gap:35px; } .problem-grid { grid-template-columns:repeat(2,1fr); } .problem-item:nth-child(3) { border-left:0; border-top:1px solid #b8c9ba; } .problem-item:nth-child(4) { border-top:1px solid #b8c9ba; } .problem-bottom { align-items:flex-start; flex-direction:column; gap:16px; } .usecase-cta { align-items:flex-start; flex-direction:column; gap:16px; } .proof-grid > div:first-child { transform:none; } .steps { grid-template-columns:repeat(2,1fr); } .step:nth-child(3) { border-left:0; } .comparison,.deployment-grid { grid-template-columns:1fr; } .compare-box.old,.deployment-card:first-child { border-right:0; } .service-grid { grid-template-columns:1fr 1fr; } .service-card:nth-child(2) { border-left:0; } .service-card:nth-child(3) { grid-column:1/-1; border-left:0; border-top:1px solid #b8c9ba; } }
-      @media (max-width:560px) { section[id], main[id], footer[id] { scroll-margin-top:74px; } .wrap { width:min(100% - 32px,1160px); } .nav { height:66px; } .hero-inner { padding-top:70px; } .hero { min-height:700px; } h1 { font-size:43px; } section { padding:76px 0; } .process-head { display:block; } .steps,.why-grid,form { grid-template-columns:1fr; } .usecase-grid { grid-template-columns:1fr; } .usecase-card:nth-child(odd) { border-right:0; } .usecase-card { padding:24px 0 26px; } .problem-grid { grid-template-columns:1fr; } .problem-item,.problem-item:nth-child(3),.problem-item:nth-child(4) { border-left:0; border-top:1px solid #b8c9ba; padding:23px 0 25px; } .problem-item:first-child { border-top:0; } .problem-flow { display:grid; grid-template-columns:1fr; } .problem-flow-step + .problem-flow-step { border-left:0; border-top:0; } .step,.step:nth-child(3) { border-left:0; } .step { min-height:0; padding:20px 0 28px; } .step p,.fact span { font-size:18px; line-height:1.7; } .compare-box { padding:28px 20px; } .deployment-card { padding:25px 22px; } .signal-card { padding:19px; } .contact-grid { gap:38px; } .insight-head { align-items:flex-end; } .insight-list a { grid-template-columns:1fr auto; gap:6px 16px; } .insight-date { grid-column:1/-1; } .insight-title { font-size:16px; } .insight-arrow { grid-column:2; grid-row:2; } .footer-row { display:block; } }
+      @media (max-width:560px) { section[id], main[id], footer[id] { scroll-margin-top:74px; } .wrap { width:min(100% - 32px,1160px); } .nav { height:66px; } .hero-inner { padding-top:70px; } .hero { min-height:700px; } h1 { font-size:43px; } section { padding:76px 0; } .process-head { display:block; } .steps,.why-grid,.proof-facts,form { grid-template-columns:1fr; } .usecase-grid { grid-template-columns:1fr; } .usecase-card:nth-child(odd) { border-right:0; } .usecase-card { padding:24px 0 26px; } .problem-grid { grid-template-columns:1fr; } .problem-item,.problem-item:nth-child(3),.problem-item:nth-child(4) { border-left:0; border-top:1px solid #b8c9ba; padding:23px 0 25px; } .problem-item:first-child { border-top:0; } .problem-flow { display:grid; grid-template-columns:1fr; } .problem-flow-step + .problem-flow-step { border-left:0; border-top:0; } .step,.step:nth-child(3) { border-left:0; } .step { min-height:0; padding:20px 0 28px; } .step p,.fact span { font-size:18px; line-height:1.7; } .compare-box { padding:28px 20px; } .deployment-card { padding:25px 22px; } .signal-card { padding:19px; } .contact-grid { gap:38px; } .insight-head { align-items:flex-end; } .insight-list a { grid-template-columns:1fr auto; gap:6px 16px; } .insight-date { grid-column:1/-1; } .insight-title { font-size:16px; } .insight-arrow { grid-column:2; grid-row:2; } .footer-row { display:block; } }
       @media (max-width:560px) {
         .hero h1 { font-size:30px; line-height:1.22; }
         h2,.philosophy-quote { font-size:26px; line-height:1.3; }
@@ -253,8 +251,8 @@
 
       <section class="proof">
         <div class="wrap proof-grid">
-          <div><span class="eyebrow">Why CYPRON</span><p class="proof-text">고장 예측을 넘어, 원인 진단과 조치를 통해 <em>설비 상태의 안정화</em>까지 지원하는 지능형 플랫폼</p></div>
-          <div class="proof-facts"><div class="fact"><b>No Training Period</b><span>학습 기간 없이 정상 운전 로그로 즉시 시작</span></div><div class="fact"><b>Legacy Ready</b><span>기존 레거시 장비에도 적용 가능</span></div><div class="fact"><b>Fully On-Premise</b><span>고객사 내부망에서 동작, 데이터 외부 유출 없음</span></div></div>
+          <div><span class="eyebrow">Why CYPRON</span><p class="proof-text">장비 변경없이 필요한 데이터부터 시작합니다.</p></div>
+          <div class="proof-facts"><div class="fact"><b>Start with Existing Data</b><span>학습 기간 없이 정상 운전 로그로 즉시 시작</span></div><div class="fact"><b>Legacy Ready</b><span>기존 레거시 장비에도 적용 가능</span></div><div class="fact"><b>Fully On-Premise</b><span>고객사 내부망에서 동작, 데이터 외부 유출 없음</span></div></div>
         </div>
       </section>
 
@@ -266,7 +264,7 @@
 
       <section class="deployment" aria-labelledby="deployment-title"><div class="wrap"><span class="eyebrow">Deployment options</span><h2 id="deployment-title">CYPRON 제품 타입</h2><p class="section-intro">기존 설비의 로그 분석부터 PLC 연동형 실시간 분석·진단까지, 현장 데이터 환경에 맞춰 도입할 수 있습니다.</p><div class="deployment-grid"><article class="deployment-card"><span class="deployment-type">Type A · CYPRON Desktop</span><h3>기존 장비 데이터로 빠르게 시작</h3><p>로그·DB 데이터를 연결해 현장 PC에서 분석과 진단 결과를 확인합니다.</p></article><article class="deployment-card"><span class="deployment-type">Type B · CYPRON Edge</span><h3>PLC와 연결해 실시간 분석·진단</h3><p>산업용 Edge PC를 PLC·설비 네트워크에 연결해 내부망에서 데이터를 수집하고 이상 탐지와 진단을 지속적으로 수행합니다.</p></article></div><p class="deployment-note">동일한 CYPRON Core를 사용하며, 기존 PLC 제어 로직은 변경하지 않습니다.</p></div></section>
 
-      <section class="why"><div class="wrap"><span class="eyebrow">Start simply</span><h2>연동은 가볍게 확장은 필요한 만큼</h2><div class="why-grid"><article class="why-item"><b>로그 포맷이 달라도</b><p>템플릿 1건과 샘플 로그로 연동을 시작할 수 있습니다.</p></article><article class="why-item"><b>별도 개발 기간 없이</b><p>현장 데이터를 기반으로 빠르게 적용 가능성을 검토합니다.</p></article><article class="why-item"><b>준비 상황에 맞춰</b><p>초기 분석부터 보정·검증까지 도입 단계를 함께 설계합니다.</p></article></div></div></section>
+      <section class="why" id="adoption" aria-labelledby="adoption-title"><div class="wrap"><span class="eyebrow">Start with your data</span><h2 id="adoption-title">작게 시작하고, 검증하며 확장합니다.</h2><p class="section-intro">현장 데이터로 적용 가능성을 먼저 확인하고, 검증된 범위부터 CYPRON을 적용한 뒤 장비와 지능화 기능을 단계적으로 확장합니다.</p><div class="why-grid"><article class="why-item"><b>01 · VERIFY</b><h3>현장 데이터로 가능성을 확인합니다.</h3><p>샘플 로그와 장비 정보를 기반으로 이상 탐지와 분석·진단 가능성을 검토합니다.</p></article><article class="why-item"><b>02 · DEPLOY</b><h3>CYPRON을 현장에 적용합니다.</h3><p>Desktop 또는 Edge 방식으로 기존 장비 환경에 연결하고 검증된 기능부터 운영에 적용합니다.</p></article><article class="why-item"><b>03 · SCALE</b><h3>장비와 지능화 범위를 확장합니다.</h3><p>동일·유사 장비로 확산하고 Diagnose · Predict · Correct · Verify까지 필요한 기능을 단계적으로 고도화합니다.</p></article></div></div></section>
 
 
       <section class="usecases" id="usecases" aria-labelledby="usecases-title">
@@ -306,7 +304,7 @@
 
       <section class="philosophy" id="company" aria-labelledby="philosophy-title">
         <div class="wrap philosophy-grid">
-          <div><span class="eyebrow">The Seerjae Philosophy</span><h2 class="philosophy-quote" id="philosophy-title">데이터 너머의 실재를 본다</h2><p class="philosophy-copy">Seerjae는 현상의 본질을 뜻하는 ‘실재(實在)’​와 보이는 것 너머의 진실을 바라보는 ‘Seer’​의 의미를 담고 있습니다. 우리는 데이터 자체가 아니라 그 안에 존재하는 변화와 원인을 발견하고, 그 발견을 현실의 더 나은 변화로 연결합니다. <br>Beyond data, we see reality.</p></div>
+          <div><span class="eyebrow">About Seerjae</span><h2 class="philosophy-quote" id="philosophy-title">산업장비의 데이터와 엔지니어링을 연결해<br>장비 운영을 지능화합니다.</h2><p class="philosophy-copy">Seerjae는 산업장비 소프트웨어와 현장 데이터에 대한 경험을 기반으로 CYPRON 제품과 Engineering Services를 제공합니다.<br><br><strong>The Seerjae Philosophy — 데이터 너머의 실재를 본다.</strong><br>Seerjae는 현상의 본질을 뜻하는 ‘실재(實在)’와 보이는 것 너머의 진실을 바라보는 ‘Seer’의 의미를 담고 있습니다. 우리는 데이터 자체가 아니라 그 안에 존재하는 변화와 원인을 발견하고, 그 발견을 현실의 더 나은 변화로 연결합니다.<br>Beyond data, we see reality.</p></div>
         </div>
       </section>
 
@@ -420,9 +418,9 @@
         });
         setText('.problem-bottom p', 'CYPRON goes beyond displaying equipment data—supporting intelligent equipment operation from anomaly detection and diagnosis to decisions and actions.');
         setHtml('.problem-link', 'See if CYPRON fits your equipment <span class="arrow">→</span>');
-        setText('.proof .eyebrow', 'Why CYPRON'); setHtml('.proof-text', 'Beyond failure prediction, CYPRON supports <em>equipment stabilization</em> through root-cause diagnosis and action.');
-        [['NO TRAINING PERIOD','Start immediately with normal operating logs.'],['LEGACY READY','Works with your existing legacy equipment.'],['FULLY ON-PREMISE','Runs inside your network. Data never leaves the site.']].forEach((item, index) => { const fact = document.querySelectorAll('.fact')[index]; fact.querySelector('b').textContent = item[0]; fact.querySelector('span').textContent = item[1]; });
-        setText('.philosophy .eyebrow', 'The Seerjae Philosophy'); setText('#philosophy-title', 'Beyond data, we see reality.'); setHtml('.philosophy-copy', 'Seerjae brings together “siljae (實在),” the reality underlying phenomena, and “Seer,” one who looks beyond what is visible to uncover the truth. We discover the changes and causes within data—not merely the data itself—and turn those discoveries into meaningful real-world improvement.<br>Beyond data, we see reality.');
+        setText('.proof .eyebrow', 'Why CYPRON'); setText('.proof-text', 'Start with the data you already have, without changing your equipment.');
+        [['START WITH EXISTING DATA','Start with the equipment data you already have.'],['LEGACY READY','Works with your existing legacy equipment.'],['FULLY ON-PREMISE','Runs inside your network. Data never leaves the site.']].forEach((item, index) => { const fact = document.querySelectorAll('.fact')[index]; fact.querySelector('b').textContent = item[0]; fact.querySelector('span').textContent = item[1]; });
+        setText('.philosophy .eyebrow', 'About Seerjae'); setHtml('#philosophy-title', 'Connecting industrial equipment data and engineering<br />to make equipment operation more intelligent.'); setHtml('.philosophy-copy', 'Seerjae provides the CYPRON product and Engineering Services based on hands-on experience in industrial equipment software and field data.<br><br><strong>The Seerjae Philosophy — Beyond data, we see reality.</strong><br>Seerjae brings together “siljae (實在),” the reality underlying phenomena, and “Seer,” one who looks beyond what is visible to uncover the truth. We discover the changes and causes within data—not merely the data itself—and turn those discoveries into meaningful real-world improvement.<br>Beyond data, we see reality.');
         setText('.services .eyebrow', 'Engineering Services'); setText('#services-title', 'Partnering on industrial equipment software development'); setText('.services .section-intro', 'Building on hands-on experience developing software for industrial equipment, Seerjae provides project-based technical collaboration spanning equipment control, system integration, and data utilization.');
         [
           ['01 · EQUIPMENT SOFTWARE','Equipment Software Development','Developing industrial equipment control software and improving or extending existing programs.'],
@@ -437,8 +435,8 @@
         setText('.deployment .eyebrow', 'Deployment options'); setText('#deployment-title', 'CYPRON Product Types'); setText('.deployment .section-intro', 'From existing equipment log analysis to PLC-connected real-time analysis and diagnosis, choose the configuration that fits your on-site data environment.');
         [['Type A · CYPRON Desktop','Start quickly with existing equipment data','Connect equipment logs and database records to review analysis and diagnostic results on an on-site PC.'],['Type B · CYPRON Edge','Real-time analysis and diagnosis with PLC connectivity','Connect an industrial Edge PC to the PLC and equipment network to collect data and continuously perform anomaly detection and diagnosis within the site network.']].forEach((item, index) => { const card = document.querySelectorAll('.deployment-card')[index]; card.querySelector('.deployment-type').textContent = item[0]; card.querySelector('h3').textContent = item[1]; card.querySelector('p').textContent = item[2]; });
         setText('.deployment .deployment-note', 'Both product types use the same CYPRON Core and do not require changes to the existing PLC control logic.');
-        setText('.why .eyebrow', 'Start simply'); setHtml('.why h2', 'Lightweight connection,<br />scalable when you are ready.');
-        [['Even with different log formats','Start integration with one template and a sample log.'],['Without a custom development cycle','Quickly assess applicability using on-site data.'],['Aligned with your readiness','Design a path from initial analysis through correction and verification.']].forEach((item, index) => { const why = document.querySelectorAll('.why-item')[index]; why.querySelector('b').textContent = item[0]; why.querySelector('p').textContent = item[1]; });
+        setText('.why .eyebrow', 'Start with your data'); setText('#adoption-title', 'Start small. Validate. Then scale.'); setText('.why .section-intro', 'Validate applicability with on-site data first, deploy CYPRON within a proven scope, then expand across equipment and intelligence capabilities step by step.');
+        [['01 · VERIFY','Validate with your equipment data.','Use sample logs and equipment information to assess anomaly detection, analysis, and diagnostic feasibility.'],['02 · DEPLOY','Deploy CYPRON on site.','Connect CYPRON Desktop or Edge to the existing equipment environment and put validated capabilities into operation.'],['03 · SCALE','Expand across equipment and intelligence.','Scale to similar equipment and progressively extend capabilities through Diagnose, Predict, Correct, and Verify.']].forEach((item, index) => { const why = document.querySelectorAll('.why-item')[index]; why.querySelector('b').textContent = item[0]; why.querySelector('h3').textContent = item[1]; why.querySelector('p').textContent = item[2]; });
 
         setText('.usecases .eyebrow', 'Where CYPRON fits'); setText('#usecases-title', 'Intelligence for equipment workflows where human judgment is repeatedly required.'); setText('.usecases .section-intro', 'CYPRON is not limited to a specific industry or equipment type. If repetitive engineering work remains after equipment data is collected—analysis, diagnosis, decisions, or actions—it may be a fit for CYPRON.');
         [
