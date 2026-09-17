@@ -1,3 +1,59 @@
+## 2026.09.17 작업
+
+### 1. "Engineering Services" 섹션 추가
+- "The Seerjae Philosophy" 섹션 다음에 신규 섹션(`.services`, id="services") 추가.
+- 구성: eyebrow → 제목 → 소개 문장 → 01/02/03 카드(장비 소프트웨어 개발 / PLC·PC·Server 연동 / 장비 데이터 활용) → 하단 강조 문장.
+- 기존 `.problem`/`.usecases` 섹션과 동일한 디자인 패턴(넘버링 카드 그리드) 사용, 850px/560px 반응형 규칙 추가.
+- 한/영 토글(EN) 번역 문구 추가.
+
+### 2. "Talk about your equipment" 섹션 콘텐츠 변경
+- 제목: "장비 데이터부터 소프트웨어 개발까지 이야기해 주세요"로 변경.
+- 본문: CYPRON 적용, 장비 소프트웨어 개발, 시스템 연동 등 과제 문의를 유도하는 문구로 변경.
+- 영문 번역도 함께 수정.
+
+### 3. 문의 유형(select#interest) 옵션 변경
+- 변경 전: CYPRON 적용 가능성 상담 / 무료 데모 신청 / PoC·도입 컨설팅 / 기술 문의 / 기타
+- 변경 후: CYPRON 적용 상담 / CYPRON 무료 데모 / 장비 SW 개발 / PLC·Server 연동 / 데이터 분석 / 기타
+- 영문 옵션 목록도 동일하게 동기화.
+
+### 4. 버그 수정 — Deployment 섹션 영문 번역 미반영
+- `.deployment-note` 클래스가 `.process-note`와 중복되어 있어, 영문(EN) 전환 시 `setText('.deployment-note', ...)`가 첫 번째로 매칭된 process 섹션 문구만 바꾸고 실제 deployment 섹션 문장("동일한 CYPRON Core를 사용하며...")은 한글로 남아있던 문제 수정.
+- 선택자를 `.deployment .deployment-note`로 한정하여 정상적으로 영문 전환되도록 수정.
+
+### 5. 섹션별 배경 색상 위치 및 값
+
+각 섹션의 배경색은 index.html의 `<style>` 블록 내 해당 클래스 선언부에서 지정됩니다.
+
+| 섹션(제목) | 선택자 | 배경 값 |
+|---|---|---|
+| 공통 색상 변수 | `:root` | `--ink:#2c3d3a` / `--paper:#dfe6da` / `--line:#d5ded5` / `--muted:#60716a` / `--deeppink_accent`,`--blue`,`--sky`,`--mint`,`--deeppink_org_accent`: `#be7152` |
+| Header(상단 메뉴) | `header` | `background:#162b26` |
+| Hero | `.hero` | `radial-gradient(circle at 75% 35%, #718f7b 0, #466657 27%, #243d36 58%, #162b26 100%)` |
+| Hero 신호 차트 바 | `.chart i` | `linear-gradient(180deg,#c9dacb,#6a9477)` |
+| "Does this look familiar?" | `.problem` | `background:#edf0ed` |
+| Problem 흐름의 CYPRON 단계 | `.problem-flow-step.cypron` | `background:#162b26` |
+| "Why CYPRON" | `.proof` | `background:#f7f7f3` |
+| "The Seerjae Philosophy" | `.philosophy` | `background:#edf0ed` |
+| Process(감지~회복 5단계) | `.process` | `background:#ffffff` |
+| Difference(비교) | `.difference` | `background:#f0f7f0` |
+| 비교 카드 | `.compare-box`, `.compare-box.old`, `.compare-box.current` | `background:#f0f7f0` |
+| "Deployment options" | `.deployment` | `background:#fff8fd` |
+| "Start simply"(Why) | `.why` | `background:#ffffff` |
+| "Engineering Services" | `.services` | `background:#ffffff` |
+| "Where CYPRON fits" | `.usecases` | `background:#f7f7f3` |
+| Founder's note(Insight) | `.insight` | `background:#f7f7f3` |
+| Contact(문의 폼) | `.contact` | `linear-gradient(135deg,#243d36,#426152)` |
+| Footer | `footer` | `background:#162b26` |
+
+포인트 컬러(버튼·강조 텍스트·아이콘 등)는 대부분 `--deeppink_accent`(`#be7152`) 변수 하나로 통일되어 있으며, `:root`의 값만 바꾸면 사이트 전반의 포인트 컬러가 일괄 변경됩니다.
+
+### 6. 배경 색상 변경 내역 (오늘 변경된 값)
+
+| 섹션 | 선택자 | 위치(index.html) | 변경 전 | 변경 후 |
+|---|---|---|---|---|
+| "Deployment options" | `.deployment` | 118번째 줄 부근 | `background:#f5f1ea` | `background:#fff8fd` |
+| "Where CYPRON fits" | `.usecases` | 132번째 줄 부근 | `background:#f0f7f0` | `background:#f7f7f3` |
+
 ## 2026.08.24 작업
 
 ### 수신 서비스 또는 서버 API에 연결 방법
